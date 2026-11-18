@@ -1,0 +1,533 @@
+% =====================================================================
+%  TA-PFC-E1 — Proyecto Fin de Curso, Entrega 1
+%  Definición, requisitos y arquitectura base del sistema distribuido
+%  Aplicaciones Distribuidas — UTEQ
+%
+%  Compilación (desde /docs):
+%     pdflatex informe
+%     biber    informe
+%     pdflatex informe
+%     pdflatex informe
+%
+%  Todo lo que aparece en rojo y entre corchetes con \pendiente{...} falta completar.
+%  Antes de la entrega final no debe quedar ningún \pendiente en el PDF.
+% =====================================================================
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Idioma y codificación ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% ---------- Página ----------
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small TA-PFC-E1 — \proyectocorto}
+\fancyhead[R]{\small Aplicaciones Distribuidas}
+\fancyfoot[C]{\thepage}
+
+% ---------- Tablas, figuras y listas ----------
+\usepackage{graphicx}
+\graphicspath{{figuras/}}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{xltabular}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{tocloft}
+\setlength{\cftsecnumwidth}{2.2em}
+\setlength{\cftsubsecnumwidth}{2.8em}
+\usepackage[table]{xcolor}
+
+% ---------- Código y enlaces ----------
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\small,breaklines=true,frame=single}
+\usepackage{csquotes}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+
+% ---------- Bibliografía (IEEE con biblatex + biber) ----------
+\usepackage[backend=biber,style=ieee]{biblatex}
+\addbibresource{referencias.bib}
+
+% ---------- Macros del proyecto ----------
+\newcommand{\pendiente}[1]{\textcolor{red}{[\textit{#1}]}}
+\newcommand{\proyecto}{Sistema distribuido para el Centro de Revisión Técnica Vehicular del Municipio de Valencia}
+\newcommand{\proyectocorto}{\pendiente{nombre corto}}
+\newcommand{\repourl}{https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1}
+\newcommand{\tablerourl}{\pendiente{URL del tablero en GitHub Projects}}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% =====================================================================
+\begin{document}
+
+% =====================================================================
+%  1. PORTADA OFICIAL
+% =====================================================================
+\begin{titlepage}
+  \centering
+  {\large UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO\par}
+  {\normalsize Facultad de Ciencias de la Computación y Diseño Digital\par}
+  {\normalsize Carrera de Software\par}
+  \vspace{1.5cm}
+  {\normalsize Asignatura: Aplicaciones Distribuidas\par}
+  {\normalsize Periodo académico: \pendiente{periodo}\par}
+  \vspace{1.5cm}
+  {\Large\bfseries Proyecto Fin de Curso — Entrega 1\par}
+  \vspace{0.3cm}
+  {\large Definición, requisitos y arquitectura base del sistema distribuido\par}
+  \vspace{1cm}
+  {\LARGE\bfseries \proyecto\par}
+  \vspace{0.3cm}
+  {\large (\proyectocorto)\par}
+  \vspace{1.5cm}
+
+  \begin{tabular}{ll}
+    \toprule
+    \textbf{Integrante} & \textbf{Rol} \\
+    \midrule
+    Kevin Garcia            & Arquitecto \\
+    Diego Giraldo           & Líder de Desarrollo \\
+    Nixon Piguave           & Responsable de Calidad \\
+    Allison Mera Jumbo      & Responsable de Documentación \\
+    \bottomrule
+  \end{tabular}
+
+  \vfill
+  {\normalsize Docente: \pendiente{nombre del docente}\par}
+  {\normalsize Fecha de entrega: \pendiente{fecha}\par}
+  {\normalsize Repositorio: \url{\repourl}\par}
+  \vspace{0.5cm}
+  {\normalsize Quevedo, Ecuador\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% =====================================================================
+%  2. RESUMEN EJECUTIVO (300–400 palabras)  — Responsable: Allison (jue. 19)
+% =====================================================================
+\section*{Resumen ejecutivo}
+\addcontentsline{toc}{section}{Resumen ejecutivo}
+% Debe responder, en este orden:
+%  (1) qué problema real resuelve el sistema;
+%  (2) quién lo usará;
+%  (3) por qué un sistema distribuido es la solución apropiada;
+%  (4) qué alcance se logrará en el periodo (E1 a E4).
+% Extensión obligatoria: entre 300 y 400 palabras. Se redacta al final,
+% cuando el resto del documento esté cerrado.
+\pendiente{resumen ejecutivo de 300 a 400 palabras}
+
+% =====================================================================
+%  3. CONTEXTO Y PROBLEMA  — Responsable: Allison (mar. 17)
+% =====================================================================
+\section{Contexto y problema}
+
+\subsection{Organización}
+% Quién es el CRTVMV, qué servicio presta y qué sistema usa actualmente.
+\pendiente{descripción de la organización}
+
+\subsection{Situación actual}
+% Cómo se resuelve hoy el problema: flujo del usuario y del técnico,
+% según la entrevista (evidencia 1).
+\pendiente{cómo se resuelve hoy el problema}
+
+\subsection{Consecuencias medibles}
+% Cifras obtenidas en el levantamiento: tiempos, costos, errores.
+% Cada cifra debe poder rastrearse hasta el acta o el audio.
+\begin{table}[H]
+  \centering
+  \caption{Consecuencias medibles del problema actual}
+  \label{tab:consecuencias}
+  \begin{tabularx}{\textwidth}{L{4cm}Xl}
+    \toprule
+    \textbf{Aspecto} & \textbf{Situación actual (cifra)} & \textbf{Fuente} \\
+    \midrule
+    \pendiente{aspecto} & \pendiente{cifra} & Entrevista, \pendiente{pregunta} \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection{Interesados (stakeholders)}
+\begin{table}[H]
+  \centering
+  \caption{Interesados y expectativas}
+  \label{tab:stakeholders}
+  \begin{tabularx}{\textwidth}{L{3.5cm}L{4cm}X}
+    \toprule
+    \textbf{Interesado} & \textbf{Relación con el sistema} & \textbf{Expectativa} \\
+    \midrule
+    \pendiente{interesado} & \pendiente{relación} & \pendiente{expectativa} \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+% =====================================================================
+%  4. OBJETIVOS  — Responsable: Allison (mar. 17)
+% =====================================================================
+\section{Objetivos}
+
+\subsection{Objetivo general}
+\pendiente{objetivo general}
+
+\subsection{Objetivos específicos}
+% Entre 3 y 5, todos medibles, cada uno con su indicador.
+\begin{table}[H]
+  \centering
+  \caption{Objetivos específicos e indicadores de cumplimiento}
+  \label{tab:objetivos}
+  \begin{tabularx}{\textwidth}{lXL{4.5cm}}
+    \toprule
+    \textbf{ID} & \textbf{Objetivo específico} & \textbf{Indicador} \\
+    \midrule
+    OE-1 & \pendiente{objetivo} & \pendiente{indicador} \\
+    OE-2 & \pendiente{objetivo} & \pendiente{indicador} \\
+    OE-3 & \pendiente{objetivo} & \pendiente{indicador} \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+% =====================================================================
+%  5. TRABAJOS RELACIONADOS  — Responsable: Allison (mié. 18)
+% =====================================================================
+\section{Trabajos relacionados}
+% Mínimo 3 sistemas o estudios publicados. Para cada uno: qué resuelve,
+% qué toma el proyecto de él y en qué se diferencia.
+\pendiente{párrafos de trabajos relacionados}
+
+\begin{table}[H]
+  \centering
+  \caption{Comparación con trabajos relacionados}
+  \label{tab:relacionados}
+  \begin{tabularx}{\textwidth}{L{3cm}XX}
+    \toprule
+    \textbf{Trabajo} & \textbf{Lo que se toma} & \textbf{Diferencia con el proyecto} \\
+    \midrule
+    \pendiente{cita} & \pendiente{aporte} & \pendiente{diferencia} \\
+    \pendiente{cita} & \pendiente{aporte} & \pendiente{diferencia} \\
+    \pendiente{cita} & \pendiente{aporte} & \pendiente{diferencia} \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+% =====================================================================
+%  6. REQUISITOS
+% =====================================================================
+\section{Requisitos}
+
+\subsection{Requisitos funcionales}
+% Mínimo 10, como historias de usuario con criterios de aceptación y
+% referencia al levantamiento. RF-01 a RF-05: Nixon. RF-06 a RF-10: Allison.
+% Si Nixon entrega otra plantilla, se reemplaza esta tabla por la suya.
+
+\begin{xltabular}{\textwidth}{lL{4.2cm}XL{2cm}}
+  \caption{Requisitos funcionales como historias de usuario}\label{tab:rf}\\
+  \toprule
+  \textbf{ID} & \textbf{Historia de usuario} & \textbf{Criterios de aceptación} & \textbf{Fuente} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{ID} & \textbf{Historia de usuario} & \textbf{Criterios de aceptación} & \textbf{Fuente} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+  RF-01 & Como \pendiente{rol}, quiero \pendiente{acción} para \pendiente{beneficio}. & \pendiente{criterios} & \pendiente{pregunta} \\
+  RF-02 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
+  RF-03 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
+  RF-04 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
+  RF-05 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
+  RF-06 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
+  RF-07 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
+  RF-08 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
+  RF-09 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
+  RF-10 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
+\end{xltabular}
+
+\subsection{Requisitos no funcionales}
+% Mínimo 6, todos con cifras y asociados a una característica de
+% ISO/IEC 25010. Sin cifras se califican con nivel 1 o 0.
+\begin{xltabular}{\textwidth}{lL{3.6cm}XL{2cm}}
+  \caption{Requisitos no funcionales cuantificados (ISO/IEC 25010)}\label{tab:rnf}\\
+  \toprule
+  \textbf{ID} & \textbf{Característica ISO/IEC 25010} & \textbf{Requisito cuantificado} & \textbf{Fuente} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{ID} & \textbf{Característica ISO/IEC 25010} & \textbf{Requisito cuantificado} & \textbf{Fuente} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+  RNF-01 & \pendiente{característica} & \pendiente{requisito con cifra} & \pendiente{fuente} \\
+  RNF-02 & \pendiente{característica} & \pendiente{requisito con cifra} & \pendiente{fuente} \\
+  RNF-03 & \pendiente{característica} & \pendiente{requisito con cifra} & \pendiente{fuente} \\
+  RNF-04 & \pendiente{característica} & \pendiente{requisito con cifra} & \pendiente{fuente} \\
+  RNF-05 & \pendiente{característica} & \pendiente{requisito con cifra} & \pendiente{fuente} \\
+  RNF-06 & \pendiente{característica} & \pendiente{requisito con cifra} & \pendiente{fuente} \\
+\end{xltabular}
+
+% =====================================================================
+%  7. JUSTIFICACIÓN DE LA ARQUITECTURA DISTRIBUIDA  — Responsable: Kevin
+% =====================================================================
+\section{Justificación de la arquitectura distribuida}
+% Por qué no basta un monolito. Debe apoyarse en los RNF (citar sus ID):
+% escalabilidad, disponibilidad, distribución geográfica o
+% independencia de despliegue.
+\pendiente{justificación apoyada en los RNF}
+
+% =====================================================================
+%  8. ARQUITECTURA BASE (MODELO C4)  — Responsable: Kevin
+% =====================================================================
+\section{Arquitectura base con el modelo C4}
+% Los editables (.drawio o .dsl) van en /docs/diagramas/ y las
+% exportaciones en /docs/figuras/.
+
+\subsection{Diagrama de contexto (nivel 1)}
+\pendiente{descripción del diagrama de contexto}
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=\textwidth]{c4-contexto.png}
+%   \caption{Diagrama de contexto C4 (nivel 1)}
+%   \label{fig:c4-contexto}
+% \end{figure}
+
+\subsection{Diagrama de contenedores (nivel 2)}
+\pendiente{descripción del diagrama de contenedores}
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=\textwidth]{c4-contenedores.png}
+%   \caption{Diagrama de contenedores C4 (nivel 2)}
+%   \label{fig:c4-contenedores}
+% \end{figure}
+
+\subsection{Evolución del diseño}
+% Primer bosquejo (foto de la sesión de diseño) y cómo llegó al C4.
+\pendiente{primer bosquejo y su evolución}
+
+% =====================================================================
+%  9. MODELO DE COMUNICACIÓN ENTRE SERVICIOS  — Responsable: Diego / Kevin
+% =====================================================================
+\section{Modelo de comunicación entre servicios}
+% Una fila por cada interacción del diagrama de contenedores.
+% La justificación debe usar lo medido por el equipo en PE-U1.
+\begin{table}[H]
+  \centering
+  \caption{Interacciones entre servicios}
+  \label{tab:comunicacion}
+  \begin{tabularx}{\textwidth}{L{3cm}L{2.2cm}L{2.4cm}X}
+    \toprule
+    \textbf{Interacción} & \textbf{Tipo} & \textbf{Mecanismo} & \textbf{Justificación} \\
+    \midrule
+    \pendiente{origen $\rightarrow$ destino} & \pendiente{sincrónica o asincrónica} & \pendiente{REST, gRPC o mensajería} & \pendiente{justificación con datos de PE-U1} \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+% =====================================================================
+%  10. ANÁLISIS CAP Y PACELC  — Responsable: Kevin
+% =====================================================================
+\section{Análisis CAP y PACELC}
+\begin{table}[H]
+  \centering
+  \caption{Decisiones CAP y PACELC por dato crítico}
+  \label{tab:cap}
+  \begin{tabularx}{\textwidth}{L{2.5cm}L{2.5cm}L{2.5cm}X}
+    \toprule
+    \textbf{Dato crítico} & \textbf{Con partición (P: A o C)} & \textbf{Sin partición (E: L o C)} & \textbf{Consecuencia para el usuario} \\
+    \midrule
+    \pendiente{dato} & \pendiente{A/C} & \pendiente{L/C} & \pendiente{consecuencia} \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+% =====================================================================
+%  11. REGISTROS DE DECISIONES DE ARQUITECTURA (ADR)  — Responsable: Kevin
+% =====================================================================
+\section{Registros de decisiones de arquitectura}
+% Los ADR completos están en /docs/adr/ (Markdown). Aquí solo el resumen.
+
+\subsection{ADR-001: Estilo de arquitectura}
+\begin{description}[leftmargin=3.2cm,style=nextline]
+  \item[Contexto] \pendiente{contexto}
+  \item[Opciones] \pendiente{opciones consideradas}
+  \item[Decisión] \pendiente{decisión tomada}
+  \item[Consecuencias] \pendiente{consecuencias}
+\end{description}
+
+\subsection{ADR-002: Mecanismo de comunicación principal}
+\begin{description}[leftmargin=3.2cm,style=nextline]
+  \item[Contexto] \pendiente{contexto}
+  \item[Opciones] \pendiente{opciones consideradas}
+  \item[Decisión] \pendiente{decisión tomada}
+  \item[Consecuencias] \pendiente{consecuencias}
+\end{description}
+
+% =====================================================================
+%  12. ANÁLISIS DE RIESGOS  — Responsable: Nixon
+% =====================================================================
+\section{Análisis de riesgos}
+% Mínimo 5 riesgos técnicos; al menos 3 derivados del incidente
+% analizado en FORM-AC-01 (Cloudflare, junio de 2022).
+\begin{xltabular}{\textwidth}{lXllL{3.5cm}}
+  \caption{Riesgos técnicos}\label{tab:riesgos}\\
+  \toprule
+  \textbf{ID} & \textbf{Riesgo} & \textbf{Prob.} & \textbf{Impacto} & \textbf{Mitigación} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{ID} & \textbf{Riesgo} & \textbf{Prob.} & \textbf{Impacto} & \textbf{Mitigación} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+  R-01 & \pendiente{riesgo (FORM-AC-01)} & \pendiente{nivel} & \pendiente{nivel} & \pendiente{mitigación} \\
+  R-02 & \pendiente{riesgo (FORM-AC-01)} & \pendiente{nivel} & \pendiente{nivel} & \pendiente{mitigación} \\
+  R-03 & \pendiente{riesgo (FORM-AC-01)} & \pendiente{nivel} & \pendiente{nivel} & \pendiente{mitigación} \\
+  R-04 & \pendiente{riesgo} & \pendiente{nivel} & \pendiente{nivel} & \pendiente{mitigación} \\
+  R-05 & \pendiente{riesgo} & \pendiente{nivel} & \pendiente{nivel} & \pendiente{mitigación} \\
+\end{xltabular}
+
+% =====================================================================
+%  13. PLAN DEL PROYECTO  — Responsable: Allison (jue. 19)
+% =====================================================================
+\section{Plan del proyecto}
+
+\subsection{Roles y responsabilidades}
+\begin{table}[H]
+  \centering
+  \caption{Roles y responsabilidades del equipo}
+  \label{tab:roles}
+  \begin{tabularx}{\textwidth}{L{3.5cm}L{3.5cm}X}
+    \toprule
+    \textbf{Integrante} & \textbf{Rol} & \textbf{Responsabilidades} \\
+    \midrule
+    Kevin Garcia       & Arquitecto                   & \pendiente{responsabilidades} \\
+    Diego Giraldo      & Líder de Desarrollo          & \pendiente{responsabilidades} \\
+    Nixon Piguave      & Responsable de Calidad       & \pendiente{responsabilidades} \\
+    Allison Mera Jumbo & Responsable de Documentación & \pendiente{responsabilidades} \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+\subsection{Tablero del proyecto}
+Las tareas de E1 y E2 se gestionan en GitHub Projects: \tablerourl.
+\pendiente{captura del tablero con issues asignados}
+
+\subsection{Cronograma de entregas}
+\begin{table}[H]
+  \centering
+  \caption{Cronograma de las cuatro entregas del PFC}
+  \label{tab:cronograma}
+  \begin{tabularx}{\textwidth}{llX}
+    \toprule
+    \textbf{Entrega} & \textbf{Semana} & \textbf{Contenido} \\
+    \midrule
+    E1 & 5 (23–29 nov. 2026) & Definición, requisitos y arquitectura base \\
+    E2 & 9 \pendiente{fechas}  & Microservicios, API y contenedores \\
+    E3 & 13 \pendiente{fechas} & Base de datos distribuida y procesamiento \\
+    E4 & 17 \pendiente{fechas} & Sistema final en capas, calidad, pruebas y defensa \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+% =====================================================================
+%  14. ESQUELETO FUNCIONAL  — Responsable: Diego
+% =====================================================================
+\section{Esqueleto funcional}
+
+\subsection{Estructura del repositorio}
+\begin{lstlisting}
+/src/              servicios del esqueleto
+/docs/             informe.tex, referencias.bib, figuras y PDF
+/docs/adr/         ADR-001.md, ADR-002.md
+/docs/diagramas/   editables C4 (draw.io o Structurizr)
+/evidencias/       acta o encuesta, fotografias y capturas
+BITACORA.md
+README.md
+\end{lstlisting}
+
+\subsection{Servicios mínimos}
+\pendiente{qué hace cada servicio y cómo se comunican (mecanismo de ADR-002)}
+
+\subsection{Evidencia de ejecución}
+% Mínimo 3 capturas con usuario en el prompt, nombre de la máquina,
+% fecha y hora del sistema.
+\pendiente{capturas de ejecución}
+
+% =====================================================================
+%  15. EVIDENCIAS DE AUTORÍA
+% =====================================================================
+\section{Evidencias de autoría}
+\begin{table}[H]
+  \centering
+  \caption{Ubicación de las evidencias de autoría}
+  \label{tab:evidencias}
+  \begin{tabularx}{\textwidth}{L{5cm}X}
+    \toprule
+    \textbf{Evidencia} & \textbf{Ubicación} \\
+    \midrule
+    Levantamiento (acta o audio)  & \pendiente{ruta en /evidencias/} \\
+    Fotografías de diseño (2)     & \pendiente{ruta en /evidencias/} \\
+    Capturas de ejecución (3)     & \pendiente{ruta en /evidencias/} \\
+    Bitácora del equipo           & \texttt{BITACORA.md} \\
+    Video de presentación         & \pendiente{enlace (también en README.md)} \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+% =====================================================================
+%  16. TABLA DE APORTES  — Responsable: Allison (vie. 20)
+% =====================================================================
+\section{Tabla de aportes}
+\begin{table}[H]
+  \centering
+  \caption{Aportes de cada integrante}
+  \label{tab:aportes}
+  \begin{tabularx}{\textwidth}{L{3.3cm}XL{2.5cm}L{2.5cm}}
+    \toprule
+    \textbf{Integrante} & \textbf{Aporte} & \textbf{Commits} & \textbf{Issues} \\
+    \midrule
+    Kevin Garcia       & \pendiente{aporte} & \pendiente{enlaces} & \pendiente{enlaces} \\
+    Diego Giraldo      & \pendiente{aporte} & \pendiente{enlaces} & \pendiente{enlaces} \\
+    Nixon Piguave      & \pendiente{aporte} & \pendiente{enlaces} & \pendiente{enlaces} \\
+    Allison Mera Jumbo & \pendiente{aporte} & \pendiente{enlaces} & \pendiente{enlaces} \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+% =====================================================================
+%  17. DECLARACIÓN DE USO DE INTELIGENCIA ARTIFICIAL  — Allison (vie. 20)
+% =====================================================================
+\section{Declaración de uso de inteligencia artificial}
+% Por cada herramienta: nombre, versión, para qué se usó y cómo se
+% verificó lo obtenido. Si no se usó, declararlo expresamente.
+\begin{table}[H]
+  \centering
+  \caption{Uso de herramientas de inteligencia artificial}
+  \label{tab:ia}
+  \begin{tabularx}{\textwidth}{L{2.5cm}L{2cm}XX}
+    \toprule
+    \textbf{Herramienta} & \textbf{Versión} & \textbf{Uso} & \textbf{Verificación} \\
+    \midrule
+    \pendiente{herramienta} & \pendiente{versión} & \pendiente{uso} & \pendiente{verificación} \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+% =====================================================================
+%  18. REFERENCIAS (mín. 8, IEEE, últimos 5 años, ≥4 artículos con DOI)
+% =====================================================================
+\printbibliography[heading=bibintoc,title={Referencias}]
+
+\end{document}
