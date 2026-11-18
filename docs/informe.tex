@@ -242,11 +242,37 @@
   \endhead
   \bottomrule
   \endfoot
-  RF-01 & Como \pendiente{rol}, quiero \pendiente{acción} para \pendiente{beneficio}. & \pendiente{criterios} & \pendiente{pregunta} \\
-  RF-02 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
-  RF-03 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
-  RF-04 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
-  RF-05 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
+  RF-01 & Como integrante autorizado del personal del CRTVMV, quiero autenticarme con mis credenciales personales para acceder a las funciones correspondientes a mis responsabilidades. &
+  \textbf{1.} Con cuenta activa y credenciales válidas, se establece una sesión asociada al usuario.\par
+  \textbf{2.} Con credenciales inválidas, se rechaza el acceso sin crear una sesión.\par
+  \textbf{3.} Una cuenta deshabilitada no puede iniciar sesión, aunque su contraseña sea correcta.\par
+  \textbf{4.} Si falta usuario o contraseña, se solicita completar los campos y no se inicia sesión. &
+  Apoyo técnico: \href{https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/blob/be245df8f15b1183f94bada0679adc18146016cd/docs/Anexos/Estado\%20del\%20arte/ISO-IEC-IEEE\%2029148.pdf\#page=74}{ISO 29148:2018}, sec.~9.5.13. Propuesta de autenticación; \pendiente{validar en el levantamiento} \\
+  RF-02 & Como administrador del CRTVMV, quiero asignar roles existentes a una cuenta de usuario para que sus permisos correspondan a las labores que desempeña en el centro. &
+  \textbf{1.} Un administrador autorizado puede asignar uno o más roles existentes a una cuenta registrada; la asignación se conserva al consultarla nuevamente.\par
+  \textbf{2.} Un usuario sin permiso no puede asignar roles ni alterar la asignación existente.\par
+  \textbf{3.} Si la cuenta o un rol no existe, se rechaza el cambio completo y se conservan las asignaciones anteriores.\par
+  \textbf{4.} Después de guardar un cambio, la siguiente solicitud protegida del usuario se evalúa con los permisos actualizados. &
+  Apoyo para perfiles: \href{https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/blob/be245df8f15b1183f94bada0679adc18146016cd/docs/Anexos/Estado\%20del\%20arte/ISO-IEC-IEEE\%2029148.pdf\#page=91}{ISO 29148:2018}, anexo~A.2.6.6.3. Asignación propuesta; \pendiente{validar roles con el centro} \\
+  RF-03 & Como administrador del CRTVMV, quiero restringir las funciones según los roles del personal para evitar consultas y modificaciones ajenas a las responsabilidades de cada cargo. &
+  \textbf{1.} Una cuenta autenticada con el permiso requerido puede ejecutar la operación, sujeta a sus reglas de negocio.\par
+  \textbf{2.} Sin el permiso requerido, se deniega la operación sin revelar datos restringidos ni efectuar cambios.\par
+  \textbf{3.} Sin sesión válida, se rechaza el acceso a las funciones protegidas.\par
+  \textbf{4.} Las restricciones también se aplican al invocar directamente la operación, sin utilizar el menú de la aplicación. &
+  Apoyo técnico: \href{https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/blob/be245df8f15b1183f94bada0679adc18146016cd/docs/Anexos/Estado\%20del\%20arte/ISO-IEC-IEEE\%2029148.pdf\#page=74}{ISO 29148:2018}, sec.~9.5.13. Control propuesto; \pendiente{validar permisos en el levantamiento} \\
+  RF-04 & Como administrador del CRTVMV con permiso de auditoría, quiero consultar el registro de acciones de los usuarios autenticados para identificar quién realizó una operación y cuándo ocurrió. &
+  \textbf{1.} Al completar una asignación de roles o un registro de placa, queda un registro consultable con usuario, fecha, hora, acción, identificador del registro afectado y resultado.\par
+  \textbf{2.} Los filtros por usuario, fecha o acción muestran únicamente los registros coincidentes.\par
+  \textbf{3.} Un usuario sin permiso de auditoría no puede consultar el historial.\par
+  \textbf{4.} Las funciones de la aplicación no permiten modificar ni eliminar los registros de auditoría.\par
+  \textbf{5.} Los registros no contienen contraseñas ni tokens de sesión completos. &
+  Apoyo técnico: \href{https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/blob/be245df8f15b1183f94bada0679adc18146016cd/docs/Anexos/Estado\%20del\%20arte/ISO-IEC-IEEE\%2029148.pdf\#page=81}{ISO 29148:2018}, secs.~9.6.17 y 9.6.18(c). Auditoría propuesta; \pendiente{validar acciones y campos} \\
+  RF-05 & Como inspector RTV, quiero registrar la placa en la ficha del vehículo para identificar la unidad a la que se asociarán las revisiones técnicas. &
+  \textbf{1.} Con permisos, una placa válida y los demás datos obligatorios, el registro guarda la placa vinculada a la ficha y permite recuperarla al consultar.\par
+  \textbf{2.} Si falta la placa, se informa que es obligatoria y no se crea la ficha.\par
+  \textbf{3.} Si la placa incumple el formato validado con el responsable del dominio, se informa el error y no se guarda el registro.\par
+  \textbf{4.} Si ya existe una ficha para la placa en el mismo período de revisión, no se crea un duplicado y se conserva el registro existente. &
+  Apoyo documental: \href{https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/blob/be245df8f15b1183f94bada0679adc18146016cd/docs/Anexos/RESOLUCION\%20008-DIR-2017-ANT.pdf\#page=53}{Res.~008-DIR-2017-ANT}, arts.~87, 124 y 126. \pendiente{Validar flujo, formatos admitidos y duplicados con el centro} \\
   RF-06 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
   RF-07 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
   RF-08 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
