@@ -1,0 +1,12 @@
+# Archivos auxiliares de LaTeX (el PDF final sí se versiona)
+docs/*.aux
+docs/*.bbl
+docs/*.bcf
+docs/*.blg
+docs/*.log
+docs/*.out
+docs/*.run.xml
+docs/*.toc
+docs/*.synctex.gz
+docs/*.fdb_latexmk
+docs/*.fls
