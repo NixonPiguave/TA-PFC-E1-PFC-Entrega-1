@@ -62,7 +62,7 @@
 % ---------- Macros del proyecto ----------
 \newcommand{\pendiente}[1]{\textcolor{red}{[\textit{#1}]}}
 \newcommand{\proyecto}{Sistema distribuido para el Centro de Revisión Técnica Vehicular del Municipio de Valencia}
-\newcommand{\proyectocorto}{\pendiente{nombre corto}}
+\newcommand{\proyectocorto}{RTV}
 \newcommand{\repourl}{https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1}
 \newcommand{\tablerourl}{\pendiente{URL del tablero en GitHub Projects}}
 
@@ -132,45 +132,80 @@
 %  3. CONTEXTO Y PROBLEMA  — Responsable: Allison (mar. 17)
 % =====================================================================
 \section{Contexto y problema}
+La información de esta sección proviene del levantamiento realizado al personal del CRTVMV (evidencia 1). Las respuestas se citan como P1 a P13, según el número de pregunta del acta de la entrevista.
 
 \subsection{Organización}
-% Quién es el CRTVMV, qué servicio presta y qué sistema usa actualmente.
-\pendiente{descripción de la organización}
+% Fuente: entrevista al personal del CRTVMV (evidencia 1). Las preguntas
+% se citan como P1 a P13, en el orden del acta.
+El Centro de Revisión Técnica Vehicular del Municipio de Valencia (CRTVMV) es la dependencia municipal del cantón Valencia, provincia de Los Ríos, encargada de verificar que los vehículos del cantón cumplan las condiciones técnicas, de seguridad y de emisiones exigidas por la Agencia Nacional de Tránsito (ANT) antes de su matriculación. Además de la revisión técnica, el centro realiza la impronta como trámite independiente cuando cambia el color, el motor, el servicio o el propietario del vehículo (P5), y cobra las multas por citaciones; los pagos de licencia se hacen en la ANT (P8). Las tarifas no las fija el centro: dependen de la categoría del vehículo, según el tarifario de la ANT (P7). La calendarización de la revisión se rige por la Resolución 008 de 2017 de la ANT (P12).
+
+El personal se organiza por cargos: guardia, recepcionista, recaudadora, digitadora, técnico inspector, supervisor, gerente de calidad, contadora, gerencia general y el área de sistemas (P3). El centro ya opera con un sistema automatizado que cubre los procesos básicos de la revisión definidos en el Anexo I del reglamento de la ANT.
 
 \subsection{Situación actual}
-% Cómo se resuelve hoy el problema: flujo del usuario y del técnico,
-% según la entrevista (evidencia 1).
-\pendiente{cómo se resuelve hoy el problema}
+Según lo descrito por el personal (P1), la atención de un vehículo pasa por cinco puestos de trabajo distintos:
+\begin{enumerate}[nosep]
+  \item El guardia llena una ficha con el motivo de la visita cuando el vehículo ingresa.
+  \item En recepción se genera un turno, que queda con el pago pendiente.
+  \item El propietario paga en recaudación.
+  \item Recepción asigna una línea de revisión y el conductor acompaña al vehículo en ella.
+  \item La digitadora genera el resultado y recepción entrega el documento junto con las llaves, identificadas por la placa.
+\end{enumerate}
+
+En la línea, el vehículo pasa por pruebas cuyos resultados se comparan con límites establecidos; los defectos se clasifican en tipo I, II o III y el vehículo se rechaza si presenta un defecto tipo III o cuatro de tipo II (P6). Los técnicos registran su hora de entrada, salida a receso y retorno, y se rotan periódicamente entre las secciones de revisión (P2).
+
+Antes de iniciar la revisión el centro debe comprobar información que no administra: que las citaciones del propietario estén pagadas en la ANT o en un banco, salvo que estén impugnadas (P9--P11), y, en un cambio de propietario, el comprobante de transferencia de dominio emitido por el SRI (P4). Esa verificación depende del comprobante físico que presenta el usuario o de que el sistema refleje el pago (P10). Por último, los turnos solo valen hasta fin de mes; después se purgan y se asignan de nuevo para el mes siguiente (P13).
+
+En este flujo, el estado de un mismo vehículo (turno, pago, línea asignada, resultado de cada prueba) lo modifican puestos distintos en momentos distintos, y una parte de las validaciones depende de sistemas externos como la ANT y el SRI. \pendiente{completar con las limitaciones concretas del sistema actual que mencione el entrevistado: caídas, reprocesos, demoras en la entrega del resultado o falta de información en tiempo real}
 
 \subsection{Consecuencias medibles}
-% Cifras obtenidas en el levantamiento: tiempos, costos, errores.
-% Cada cifra debe poder rastrearse hasta el acta o el audio.
-\begin{table}[H]
-  \centering
-  \caption{Consecuencias medibles del problema actual}
-  \label{tab:consecuencias}
-  \begin{tabularx}{\textwidth}{L{4cm}Xl}
-    \toprule
-    \textbf{Aspecto} & \textbf{Situación actual (cifra)} & \textbf{Fuente} \\
-    \midrule
-    \pendiente{aspecto} & \pendiente{cifra} & Entrevista, \pendiente{pregunta} \\
-    \bottomrule
-  \end{tabularx}
-\end{table}
+% Cada cifra debe salir del acta o del audio de la entrevista (evidencia 1)
+% y llevar la pregunta de donde proviene. No se inventan valores.
+\begin{xltabular}{\textwidth}{L{5cm}XL{2.2cm}}
+  \caption{Consecuencias medibles del problema actual}\label{tab:consecuencias}\\
+  \toprule
+  \textbf{Aspecto} & \textbf{Situación actual (cifra)} & \textbf{Fuente} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{Aspecto} & \textbf{Situación actual (cifra)} & \textbf{Fuente} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+  Tiempo total de atención por vehículo, desde el ingreso hasta la entrega del resultado & \pendiente{minutos} & \pendiente{pregunta} \\
+    Vehículos atendidos por día y número de líneas de revisión en operación & \pendiente{cifra} & \pendiente{pregunta} \\
+    Tiempo de espera entre la generación del turno y la asignación de la línea & \pendiente{minutos} & \pendiente{pregunta} \\
+    Revisiones que no pueden iniciar porque no se logra verificar el pago de citaciones & \pendiente{cifra por día o por semana} & \pendiente{pregunta} \\
+    Errores o reprocesos al digitar los resultados de las pruebas & \pendiente{cifra} & \pendiente{pregunta} \\
+    Interrupciones del sistema actual y tiempo sin servicio & \pendiente{veces al mes y duración} & \pendiente{pregunta} \\
+    Turnos purgados a fin de mes sin haber sido atendidos & \pendiente{cifra} & P13 \\
+\end{xltabular}
 
 \subsection{Interesados (stakeholders)}
-\begin{table}[H]
-  \centering
-  \caption{Interesados y expectativas}
-  \label{tab:stakeholders}
-  \begin{tabularx}{\textwidth}{L{3.5cm}L{4cm}X}
-    \toprule
-    \textbf{Interesado} & \textbf{Relación con el sistema} & \textbf{Expectativa} \\
-    \midrule
-    \pendiente{interesado} & \pendiente{relación} & \pendiente{expectativa} \\
-    \bottomrule
-  \end{tabularx}
-\end{table}
+% Las expectativas se confirman con el entrevistado en el levantamiento.
+\begin{xltabular}{\textwidth}{L{3.3cm}L{4.5cm}X}
+  \caption{Interesados y expectativas}\label{tab:stakeholders}\\
+  \toprule
+  \textbf{Interesado} & \textbf{Relación con el sistema} & \textbf{Expectativa} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{Interesado} & \textbf{Relación con el sistema} & \textbf{Expectativa} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+  Propietario del vehículo & Solicita el trámite, paga y recibe el resultado (P1) & Completar la revisión en menos tiempo y conocer el estado de su trámite sin depender de recepción. \\
+  Conductor & Acompaña al vehículo en la línea de revisión (P1) & Saber en qué etapa está la revisión. \\
+  Recepcionista & Genera turnos, asigna líneas y entrega resultados (P1) & Ver en un solo lugar si el turno está pagado y qué líneas están libres. \\
+  Recaudadora & Cobra la revisión y las multas por citaciones (P1, P8) & Registrar el pago una sola vez y que quede disponible de inmediato para los demás puestos. \\
+  Técnico inspector & Ejecuta las pruebas en la línea asignada (P2, P6) & Registrar los resultados de cada prueba sin depender de la digitación posterior. \\
+  Digitadora & Genera el resultado final de la revisión (P1) & Recibir los resultados de las pruebas ya registrados y sin errores de transcripción. \\
+  Supervisor y gerente de calidad & Controlan el proceso y el cumplimiento de la norma (P3) & Contar con trazabilidad de cada revisión y de cada técnico. \\
+  Gerencia general & Dirige el centro (P3) & Disponer de indicadores de atención por día, por línea y por resultado. \\
+  Área de sistemas & Opera y mantiene la plataforma (P3) & Desplegar cambios y recuperarse de fallos sin detener la atención. \\
+  ANT y SRI (externos) & Proveen información de citaciones y de transferencia de dominio (P4, P10) & Consultas correctas a su información y respeto de sus reglas. \\
+\end{xltabular}
 
 % =====================================================================
 %  4. OBJETIVOS  — Responsable: Allison (mar. 17)
@@ -178,47 +213,62 @@
 \section{Objetivos}
 
 \subsection{Objetivo general}
-\pendiente{objetivo general}
+Desarrollar, durante el periodo académico, un sistema distribuido para el CRTVMV formado por un servicio de Inspecciones y un servicio de Turnos y Pagos, que permita a recepción, recaudación, líneas de revisión y digitación compartir el estado de cada revisión sin transcripciones manuales y que mantenga la atención cuando uno de los servicios falle.
 
 \subsection{Objetivos específicos}
-% Entre 3 y 5, todos medibles, cada uno con su indicador.
-\begin{table}[H]
-  \centering
-  \caption{Objetivos específicos e indicadores de cumplimiento}
-  \label{tab:objetivos}
-  \begin{tabularx}{\textwidth}{lXL{4.5cm}}
-    \toprule
-    \textbf{ID} & \textbf{Objetivo específico} & \textbf{Indicador} \\
-    \midrule
-    OE-1 & \pendiente{objetivo} & \pendiente{indicador} \\
-    OE-2 & \pendiente{objetivo} & \pendiente{indicador} \\
-    OE-3 & \pendiente{objetivo} & \pendiente{indicador} \\
-    \bottomrule
-  \end{tabularx}
-\end{table}
+Cada objetivo indica entre paréntesis la entrega del proyecto en la que se cumple: E1 (definición y arquitectura base), E2 (microservicios, API y contenedores), E3 (base de datos distribuida y procesamiento) o E4 (sistema final, pruebas y defensa).
+% Las cifras de OE-3 y OE-4 deben coincidir con los RNF de la sección 4.2.
+\begin{xltabular}{\textwidth}{lXL{5.2cm}}
+  \caption{Objetivos específicos e indicadores de cumplimiento}\label{tab:objetivos}\\
+  \toprule
+  \textbf{ID} & \textbf{Objetivo específico} & \textbf{Indicador} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{ID} & \textbf{Objetivo específico} & \textbf{Indicador} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+  OE-1 & Especificar los requisitos del sistema a partir del levantamiento realizado en el CRTVMV (E1). & Al menos 10 RF y 6 RNF cuantificados; el 100\,\% de los RF citan la pregunta del acta de la que provienen. \\
+    OE-2 & Implementar los servicios de Inspecciones y de Turnos y Pagos como microservicios independientes, con API documentada y desplegados en contenedores (E2). & Ambos servicios se levantan desde un clon limpio siguiendo el \texttt{README.md}; el 100\,\% de los endpoints está documentado en OpenAPI; cada servicio puede redesplegarse sin detener el otro. \\
+    OE-3 & Garantizar que el estado del turno y del pago sea consistente entre ambos servicios (E3). & En una prueba de \pendiente{N} operaciones concurrentes, 0 revisiones se inician con el pago sin registrar y 0 turnos quedan duplicados. \\
+    OE-4 & Verificar el rendimiento y la tolerancia a fallos del sistema final (E4). & El 95\,\% de las consultas del estado de un turno responde en menos de \pendiente{X} ms con \pendiente{Y} usuarios simultáneos; con el servicio de Inspecciones detenido, Turnos y Pagos sigue emitiendo turnos y registrando pagos. \\
+\end{xltabular}
 
 % =====================================================================
 %  5. TRABAJOS RELACIONADOS  — Responsable: Allison (mié. 18)
 % =====================================================================
 \section{Trabajos relacionados}
-% Mínimo 3 sistemas o estudios publicados. Para cada uno: qué resuelve,
-% qué toma el proyecto de él y en qué se diferencia.
-\pendiente{párrafos de trabajos relacionados}
+Se revisaron cuatro artículos que abordan los problemas técnicos centrales del proyecto: la migración de un sistema monolítico a microservicios, la conveniencia real de esa migración, la consistencia de los datos entre servicios y la elección del mecanismo de mensajería.\\
 
-\begin{table}[H]
-  \centering
-  \caption{Comparación con trabajos relacionados}
-  \label{tab:relacionados}
-  \begin{tabularx}{\textwidth}{L{3cm}XX}
-    \toprule
-    \textbf{Trabajo} & \textbf{Lo que se toma} & \textbf{Diferencia con el proyecto} \\
-    \midrule
-    \pendiente{cita} & \pendiente{aporte} & \pendiente{diferencia} \\
-    \pendiente{cita} & \pendiente{aporte} & \pendiente{diferencia} \\
-    \pendiente{cita} & \pendiente{aporte} & \pendiente{diferencia} \\
-    \bottomrule
-  \end{tabularx}
-\end{table}
+Ayas, Leitner y Hebig~\cite{ayas2023migration} estudian cómo las organizaciones migran hacia microservicios mediante un análisis cualitativo de 19 entrevistas y 215 discusiones de StackOverflow. Su resultado es una teoría con dos modos de cambio, 14 actividades y 53 resultados de solución, y muestra que gran parte de la migración técnica consiste en preparar artefactos de soporte y en cambiar la forma de desarrollar el software. De este trabajo el proyecto toma la idea de migrar por iteraciones y de preparar desde E1 la infraestructura de soporte (repositorio, contenedores y comunicación entre servicios) antes de trasladar la lógica de negocio del sistema RTV anterior. La diferencia es que aquel estudio describe el proceso en organizaciones, mientras que este proyecto aplica la migración a un sistema concreto con dos servicios.
+\\
+Blinowski, Ojdowska y Przybyłek~\cite{blinowski2022monolithic} implementan una misma aplicación de referencia como monolito y como microservicios, en Java con Spring Boot y en C\# con .NET, y miden su rendimiento con JMeter en un equipo local y en Azure. Encuentran que en una sola máquina el monolito rinde mejor y que, para sistemas pequeños sin muchos usuarios concurrentes, el monolito suele ser la opción más adecuada. El proyecto toma de este trabajo dos cosas: el método de medición para los indicadores de OE-4 y la advertencia de que distribuir no mejora el rendimiento por sí solo. Por eso la justificación de la arquitectura de este proyecto se apoya en la tolerancia a fallos y en la independencia de despliegue de los servicios, no en el rendimiento.
+\\
+
+Daraghmi, Zhang y Yuan~\cite{daraghmi2022saga} analizan el patrón saga, que mantiene la consistencia entre microservicios mediante transacciones locales en secuencia y, si una falla, transacciones de compensación. Señalan que la saga carece de aislamiento, porque permite leer datos de una transacción incompleta, y proponen una versión mejorada del patrón para resolverlo. El proyecto toma este análisis para la secuencia turno, pago e inicio de la revisión, en la que una línea no debe iniciar una revisión a partir de un pago que aún no se ha confirmado (OE-3). Se diferencia en que no propone una mejora general del patrón, sino su aplicación a una regla de negocio específica del CRTVMV.
+\\
+
+Maharjan, Chy, Arju y Cerny~\cite{maharjan2023benchmarking} comparan la latencia y el rendimiento de Redis, ActiveMQ Artemis, RabbitMQ y Apache Kafka con la herramienta OpenMessaging Benchmark. Kafka obtiene el mayor rendimiento, mientras que RabbitMQ mantiene una latencia constante en todas las cargas probadas. Estos resultados sirven como insumo para elegir el mecanismo de comunicación asincrónica en ADR-002. La diferencia es que el estudio mide los intermediarios de forma aislada, con un productor y un consumidor, mientras que el proyecto debe elegir según el volumen de operaciones del CRTVMV obtenido en el levantamiento.
+
+\begin{xltabular}{\textwidth}{L{3cm}XX}
+  \caption{Comparación con trabajos relacionados}\label{tab:relacionados}\\
+  \toprule
+  \textbf{Trabajo} & \textbf{Lo que se toma} & \textbf{Diferencia con el proyecto} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{Trabajo} & \textbf{Lo que se toma} & \textbf{Diferencia con el proyecto} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+  Ayas \emph{et al.}~\cite{ayas2023migration} & Migración iterativa, con la infraestructura de soporte preparada antes de trasladar la lógica de negocio. & Estudia organizaciones; el proyecto migra un sistema concreto con dos servicios. \\
+    Blinowski \emph{et al.}~\cite{blinowski2022monolithic} & Método de medición del rendimiento y advertencia de que distribuir no mejora el rendimiento por sí solo. & Compara rendimiento; el proyecto justifica la distribución por tolerancia a fallos e independencia de despliegue. \\
+    Daraghmi \emph{et al.}~\cite{daraghmi2022saga} & Patrón saga y su problema de aislamiento para la secuencia turno, pago y revisión. & Propone una mejora general; el proyecto lo aplica a una regla de negocio del CRTVMV. \\
+    Maharjan \emph{et al.}~\cite{maharjan2023benchmarking} & Comparación de latencia y rendimiento de los intermediarios de mensajería para ADR-002. & Mide intermediarios aislados; el proyecto elige según el volumen real del centro. \\
+\end{xltabular}
 
 % =====================================================================
 %  6. REQUISITOS
@@ -273,11 +323,36 @@
   \textbf{3.} Si la placa incumple el formato validado con el responsable del dominio, se informa el error y no se guarda el registro.\par
   \textbf{4.} Si ya existe una ficha para la placa en el mismo período de revisión, no se crea un duplicado y se conserva el registro existente. &
   Apoyo documental: \href{https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/blob/be245df8f15b1183f94bada0679adc18146016cd/docs/Anexos/RESOLUCION\%20008-DIR-2017-ANT.pdf\#page=53}{Res.~008-DIR-2017-ANT}, arts.~87, 124 y 126. \pendiente{Validar flujo, formatos admitidos y duplicados con el centro} \\
-  RF-06 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
-  RF-07 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
-  RF-08 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
-  RF-09 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
-  RF-10 & \pendiente{historia} & \pendiente{criterios} & \pendiente{fuente} \\
+  RF-06 & Como inspector RTV, quiero registrar el tipo de vehículo en su ficha para que la revisión se realice en la línea y con la tarifa que corresponden a esa categoría. &
+  \textbf{1.} Con permisos y una ficha existente, el inspector puede seleccionar el tipo de vehículo de un catálogo validado con el centro; el tipo se guarda y se muestra al consultar la ficha.\par
+  \textbf{2.} Si no se selecciona el tipo, se informa que es obligatorio y no se continúa con la revisión.\par
+  \textbf{3.} No se aceptan tipos que no estén en el catálogo.\par
+  \textbf{4.} Si el tipo se modifica, la clasificación del vehículo (RF-10) se recalcula antes de asignar la línea. &
+  Entrevista, P2 (vehículos y motocicletas) y P7 (tarifa según categoría). \pendiente{validar el catálogo de tipos con el centro} \\
+  RF-07 & Como inspector RTV, quiero registrar el uso o servicio del vehículo para identificar si cambió desde su última revisión y si el trámite requiere impronta. &
+  \textbf{1.} Con permisos, el inspector puede seleccionar el uso del vehículo de un catálogo validado con el centro; el uso queda guardado en la ficha.\par
+  \textbf{2.} Si falta el uso, se informa que es obligatorio y no se guarda la ficha.\par
+  \textbf{3.} Si el uso registrado es distinto al de la revisión anterior del mismo vehículo, se indica que el trámite requiere impronta.\par
+  \textbf{4.} El cambio de uso queda en el registro de auditoría (RF-04) con el valor anterior y el nuevo. &
+  Entrevista, P5 (impronta por cambio de servicio). \pendiente{validar los usos admitidos con el centro} \\
+  RF-08 & Como inspector RTV, quiero registrar el número de ejes del vehículo para que su clasificación y la línea asignada correspondan a su configuración. &
+  \textbf{1.} Con permisos, el inspector puede registrar el número de ejes como un número entero dentro del rango validado con el centro; el valor queda guardado en la ficha.\par
+  \textbf{2.} Si el valor está vacío, no es entero o está fuera de rango, se informa el error y no se guarda.\par
+  \textbf{3.} Si el número de ejes no es compatible con el tipo de vehículo registrado (RF-06), se informa la inconsistencia y no se guarda.\par
+  \textbf{4.} Al modificar el número de ejes, se recalcula la clasificación (RF-10). &
+  Entrevista, P6 (pruebas en la línea según el vehículo). \pendiente{validar rangos y compatibilidad con el centro} \\
+  RF-09 & Como inspector RTV, quiero registrar el peso del vehículo para que su clasificación se determine con el dato que exige la norma. &
+  \textbf{1.} Con permisos, el inspector puede registrar el peso en kilogramos como un valor positivo; el valor queda guardado en la ficha.\par
+  \textbf{2.} Si el peso está vacío, es cero, es negativo o no es numérico, se informa el error y no se guarda.\par
+  \textbf{3.} Si el peso está fuera del rango validado para el tipo de vehículo registrado, se solicita confirmación antes de guardarlo.\par
+  \textbf{4.} Al modificar el peso, se recalcula la clasificación (RF-10). &
+  Entrevista, P7 (categoría del vehículo). NTE INEN 2656 (clasificación vehicular). \pendiente{validar qué peso se registra y su fuente con el centro} \\
+  RF-10 & Como inspector RTV, quiero que el sistema clasifique automáticamente el vehículo según la norma NTE INEN 2656 para asignar la línea de revisión y la tarifa sin cálculos manuales. &
+  \textbf{1.} Cuando la ficha tiene tipo, uso, número de ejes y peso registrados, el sistema asigna una categoría de la norma NTE INEN 2656 y la muestra en la ficha.\par
+  \textbf{2.} Si falta alguno de esos datos, no se asigna categoría y se indica qué dato falta.\par
+  \textbf{3.} Si los datos no corresponden a ninguna categoría, se informa la inconsistencia y no se puede asignar línea de revisión.\par
+  \textbf{4.} La categoría asignada es la que se usa para la tarifa y la asignación de la línea, y queda registrada con la fecha de clasificación. &
+  Entrevista, P6 y P7 (líneas y tarifa por categoría). NTE INEN 2656. \pendiente{validar las reglas de clasificación con el centro} \\
 \end{xltabular}
 
 \subsection{Requisitos no funcionales}
@@ -347,35 +422,39 @@
 \section{Modelo de comunicación entre servicios}
 % Una fila por cada interacción del diagrama de contenedores.
 % La justificación debe usar lo medido por el equipo en PE-U1.
-\begin{table}[H]
-  \centering
-  \caption{Interacciones entre servicios}
-  \label{tab:comunicacion}
-  \begin{tabularx}{\textwidth}{L{3cm}L{2.2cm}L{2.4cm}X}
-    \toprule
-    \textbf{Interacción} & \textbf{Tipo} & \textbf{Mecanismo} & \textbf{Justificación} \\
-    \midrule
-    \pendiente{origen $\rightarrow$ destino} & \pendiente{sincrónica o asincrónica} & \pendiente{REST, gRPC o mensajería} & \pendiente{justificación con datos de PE-U1} \\
-    \bottomrule
-  \end{tabularx}
-\end{table}
+\begin{xltabular}{\textwidth}{L{3cm}L{2.2cm}L{2.4cm}X}
+  \caption{Interacciones entre servicios}\label{tab:comunicacion}\\
+  \toprule
+  \textbf{Interacción} & \textbf{Tipo} & \textbf{Mecanismo} & \textbf{Justificación} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{Interacción} & \textbf{Tipo} & \textbf{Mecanismo} & \textbf{Justificación} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+  \pendiente{origen $\rightarrow$ destino} & \pendiente{sincrónica o asincrónica} & \pendiente{REST, gRPC o mensajería} & \pendiente{justificación con datos de PE-U1} \\
+\end{xltabular}
 
 % =====================================================================
 %  10. ANÁLISIS CAP Y PACELC  — Responsable: Kevin
 % =====================================================================
 \section{Análisis CAP y PACELC}
-\begin{table}[H]
-  \centering
-  \caption{Decisiones CAP y PACELC por dato crítico}
-  \label{tab:cap}
-  \begin{tabularx}{\textwidth}{L{2.5cm}L{2.5cm}L{2.5cm}X}
-    \toprule
-    \textbf{Dato crítico} & \textbf{Con partición (P: A o C)} & \textbf{Sin partición (E: L o C)} & \textbf{Consecuencia para el usuario} \\
-    \midrule
-    \pendiente{dato} & \pendiente{A/C} & \pendiente{L/C} & \pendiente{consecuencia} \\
-    \bottomrule
-  \end{tabularx}
-\end{table}
+\begin{xltabular}{\textwidth}{L{2.5cm}L{2.5cm}L{2.5cm}X}
+  \caption{Decisiones CAP y PACELC por dato crítico}\label{tab:cap}\\
+  \toprule
+  \textbf{Dato crítico} & \textbf{Con partición (P: A o C)} & \textbf{Sin partición (E: L o C)} & \textbf{Consecuencia para el usuario} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{Dato crítico} & \textbf{Con partición (P: A o C)} & \textbf{Sin partición (E: L o C)} & \textbf{Consecuencia para el usuario} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+  \pendiente{dato} & \pendiente{A/C} & \pendiente{L/C} & \pendiente{consecuencia} \\
+\end{xltabular}
 
 % =====================================================================
 %  11. REGISTROS DE DECISIONES DE ARQUITECTURA (ADR)  — Responsable: Kevin
@@ -430,42 +509,46 @@
 \section{Plan del proyecto}
 
 \subsection{Roles y responsabilidades}
-\begin{table}[H]
-  \centering
-  \caption{Roles y responsabilidades del equipo}
-  \label{tab:roles}
-  \begin{tabularx}{\textwidth}{L{3.5cm}L{3.5cm}X}
-    \toprule
-    \textbf{Integrante} & \textbf{Rol} & \textbf{Responsabilidades} \\
-    \midrule
-    Kevin Garcia       & Arquitecto                   & \pendiente{responsabilidades} \\
+\begin{xltabular}{\textwidth}{L{3.5cm}L{3.5cm}X}
+  \caption{Roles y responsabilidades del equipo}\label{tab:roles}\\
+  \toprule
+  \textbf{Integrante} & \textbf{Rol} & \textbf{Responsabilidades} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{Integrante} & \textbf{Rol} & \textbf{Responsabilidades} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+  Kevin Garcia       & Arquitecto                   & \pendiente{responsabilidades} \\
     Diego Giraldo      & Líder de Desarrollo          & \pendiente{responsabilidades} \\
     Nixon Piguave      & Responsable de Calidad       & \pendiente{responsabilidades} \\
     Allison Mera Jumbo & Responsable de Documentación & \pendiente{responsabilidades} \\
-    \bottomrule
-  \end{tabularx}
-\end{table}
+\end{xltabular}
 
 \subsection{Tablero del proyecto}
 Las tareas de E1 y E2 se gestionan en GitHub Projects: \tablerourl.
 \pendiente{captura del tablero con issues asignados}
 
 \subsection{Cronograma de entregas}
-\begin{table}[H]
-  \centering
-  \caption{Cronograma de las cuatro entregas del PFC}
-  \label{tab:cronograma}
-  \begin{tabularx}{\textwidth}{llX}
-    \toprule
-    \textbf{Entrega} & \textbf{Semana} & \textbf{Contenido} \\
-    \midrule
-    E1 & 5 (23–29 nov. 2026) & Definición, requisitos y arquitectura base \\
+\begin{xltabular}{\textwidth}{llX}
+  \caption{Cronograma de las cuatro entregas del PFC}\label{tab:cronograma}\\
+  \toprule
+  \textbf{Entrega} & \textbf{Semana} & \textbf{Contenido} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{Entrega} & \textbf{Semana} & \textbf{Contenido} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+  E1 & 5 (23–29 nov. 2026) & Definición, requisitos y arquitectura base \\
     E2 & 9 \pendiente{fechas}  & Microservicios, API y contenedores \\
     E3 & 13 \pendiente{fechas} & Base de datos distribuida y procesamiento \\
     E4 & 17 \pendiente{fechas} & Sistema final en capas, calidad, pruebas y defensa \\
-    \bottomrule
-  \end{tabularx}
-\end{table}
+\end{xltabular}
 
 % =====================================================================
 %  14. ESQUELETO FUNCIONAL  — Responsable: Diego
@@ -495,42 +578,46 @@ README.md
 %  15. EVIDENCIAS DE AUTORÍA
 % =====================================================================
 \section{Evidencias de autoría}
-\begin{table}[H]
-  \centering
-  \caption{Ubicación de las evidencias de autoría}
-  \label{tab:evidencias}
-  \begin{tabularx}{\textwidth}{L{5cm}X}
-    \toprule
-    \textbf{Evidencia} & \textbf{Ubicación} \\
-    \midrule
-    Levantamiento (acta o audio)  & \pendiente{ruta en /evidencias/} \\
+\begin{xltabular}{\textwidth}{L{5cm}X}
+  \caption{Ubicación de las evidencias de autoría}\label{tab:evidencias}\\
+  \toprule
+  \textbf{Evidencia} & \textbf{Ubicación} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{Evidencia} & \textbf{Ubicación} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+  Levantamiento (acta o audio)  & \pendiente{ruta en /evidencias/} \\
     Fotografías de diseño (2)     & \pendiente{ruta en /evidencias/} \\
     Capturas de ejecución (3)     & \pendiente{ruta en /evidencias/} \\
     Bitácora del equipo           & \texttt{BITACORA.md} \\
     Video de presentación         & \pendiente{enlace (también en README.md)} \\
-    \bottomrule
-  \end{tabularx}
-\end{table}
+\end{xltabular}
 
 % =====================================================================
 %  16. TABLA DE APORTES  — Responsable: Allison (vie. 20)
 % =====================================================================
 \section{Tabla de aportes}
-\begin{table}[H]
-  \centering
-  \caption{Aportes de cada integrante}
-  \label{tab:aportes}
-  \begin{tabularx}{\textwidth}{L{3.3cm}XL{2.5cm}L{2.5cm}}
-    \toprule
-    \textbf{Integrante} & \textbf{Aporte} & \textbf{Commits} & \textbf{Issues} \\
-    \midrule
-    Kevin Garcia       & \pendiente{aporte} & \pendiente{enlaces} & \pendiente{enlaces} \\
+\begin{xltabular}{\textwidth}{L{3.3cm}XL{2.5cm}L{2.5cm}}
+  \caption{Aportes de cada integrante}\label{tab:aportes}\\
+  \toprule
+  \textbf{Integrante} & \textbf{Aporte} & \textbf{Commits} & \textbf{Issues} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{Integrante} & \textbf{Aporte} & \textbf{Commits} & \textbf{Issues} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+  Kevin Garcia       & \pendiente{aporte} & \pendiente{enlaces} & \pendiente{enlaces} \\
     Diego Giraldo      & \pendiente{aporte} & \pendiente{enlaces} & \pendiente{enlaces} \\
     Nixon Piguave      & \pendiente{aporte} & \pendiente{enlaces} & \pendiente{enlaces} \\
     Allison Mera Jumbo & \pendiente{aporte} & \pendiente{enlaces} & \pendiente{enlaces} \\
-    \bottomrule
-  \end{tabularx}
-\end{table}
+\end{xltabular}
 
 % =====================================================================
 %  17. DECLARACIÓN DE USO DE INTELIGENCIA ARTIFICIAL  — Allison (vie. 20)
@@ -538,18 +625,20 @@ README.md
 \section{Declaración de uso de inteligencia artificial}
 % Por cada herramienta: nombre, versión, para qué se usó y cómo se
 % verificó lo obtenido. Si no se usó, declararlo expresamente.
-\begin{table}[H]
-  \centering
-  \caption{Uso de herramientas de inteligencia artificial}
-  \label{tab:ia}
-  \begin{tabularx}{\textwidth}{L{2.5cm}L{2cm}XX}
-    \toprule
-    \textbf{Herramienta} & \textbf{Versión} & \textbf{Uso} & \textbf{Verificación} \\
-    \midrule
-    \pendiente{herramienta} & \pendiente{versión} & \pendiente{uso} & \pendiente{verificación} \\
-    \bottomrule
-  \end{tabularx}
-\end{table}
+\begin{xltabular}{\textwidth}{L{2.5cm}L{2cm}XX}
+  \caption{Uso de herramientas de inteligencia artificial}\label{tab:ia}\\
+  \toprule
+  \textbf{Herramienta} & \textbf{Versión} & \textbf{Uso} & \textbf{Verificación} \\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{Herramienta} & \textbf{Versión} & \textbf{Uso} & \textbf{Verificación} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+  \pendiente{herramienta} & \pendiente{versión} & \pendiente{uso} & \pendiente{verificación} \\
+\end{xltabular}
 
 % =====================================================================
 %  18. REFERENCIAS (mín. 8, IEEE, últimos 5 años, ≥4 artículos con DOI)
