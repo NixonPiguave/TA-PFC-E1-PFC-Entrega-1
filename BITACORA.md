@@ -12,12 +12,12 @@
 ### 2026-11-18 · Piguave Nixon
 - **Integrantes presentes:** Piguave Nixon.
 - **Commit(s):**
-  - `[hash]` — [mensaje del commit de RF-01 a RF-05].
+  - [`a006ab7`](https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/commit/a006ab76bab6962875b5a5b507d002377b2dd8ca) — Agrego RF-01 a RF-05 con criterios de aceptación y fuentes, junto con la bitacora.
 - **Qué se hizo:** Redacté las historias de usuario RF-01 a RF-05: autenticación de usuarios, asignación de roles, control de acceso, trazabilidad de acciones y registro de placa vehicular, con 21 criterios de aceptación en total. Las incorporé en la tabla de requisitos funcionales de `docs/informe.tex` con actor, necesidad, beneficio, criterios y fuente. Revisé los documentos publicados en el repositorio y enlacé cada fuente con los apartados de ISO/IEC/IEEE 29148:2018 sobre seguridad, perfiles de usuario y auditoría, y con los artículos de la Resolución 008-DIR-2017-ANT sobre datos del vehículo e identificación de placas. Mantuve los identificadores RF-01 a RF-05 y un formato común para que el equipo complete RF-06 a RF-10.
 - **Problema encontrado:** Las historias no tienen todavía un respaldo directo en el levantamiento: faltan confirmar roles y permisos, acciones y campos de auditoría, formatos de placa, excepciones, duplicados y reinspecciones.
-- **Solución y comprobación:** Separé los documentos de apoyo técnico de la evidencia del levantamiento y dejé las historias marcadas como propuestas pendientes de validación con el responsable del centro. Queda pendiente vincular cada historia con el acta, el audio o la retroalimentación, y añadir los enlaces al commit y al issue.
+- **Solución y comprobación:** Separé los documentos de apoyo técnico de la evidencia del levantamiento y dejé las historias marcadas como propuestas pendientes de validación con el responsable del centro. Queda pendiente vincular cada historia con el acta, el audio o la retroalimentación, y añadir el enlace al issue.
 - **Uso de IA:** Codex, para analizar el material de los anexos, corregir la gramática y estructurar el LaTeX. Lo verifiqué contrastando los resultados con los documentos publicados.
-- **Tiempo dedicado:** [X h Y min].
+- **Tiempo dedicado:** 1 hora 40 minutos.
 
 ### 2026-11-18 · Mera Jumbo Allison
 - **Integrantes presentes:** Mera Jumbo Allison.
@@ -28,3 +28,12 @@
 - **Solución y comprobación:** Combiné mis secciones con la versión del repo para no borrar el trabajo de Nixon. Reemplacé la referencia de pago por artículos de acceso abierto en IEEE Access, Applied Sciences, Telecom y Empirical Software Engineering. Con `xltabular` las tablas empiezan donde hay espacio, y comprobé que el documento compila sin errores. Creé los issues sin tablero y sin etiquetas; el tablero queda pendiente hasta que Nixon cree el Project en su cuenta y lo vincule al repo. Las cifras que dependen del levantamiento quedaron en el issue #8. Para los próximos commits reviso el mensaje antes de confirmar.
 - **Uso de IA:** Claude (Opus 5.5), para redactar borradores de las secciones a partir de la entrevista y estructurar el LaTeX. 
 - **Tiempo dedicado:** 1 h 55 min.
+
+### 2026-11-19 · Piguave Nixon
+- **Integrantes presentes:** Piguave Nixon.
+- **Commit(s):** Pendiente de publicación del segundo avance: requisitos no funcionales y criterios de verificación.
+- **Qué se hizo:** Redacté RNF-01 a RNF-06 a partir de la propuesta técnica del equipo: rendimiento de la autorización de inicio, fallos de comunicación, integridad del estado de negocio, control de duplicados, persistencia tras reinicios y acceso entre servicios. Para cada requisito indiqué característica de ISO/IEC 25010:2023, métrica, umbral o estado pendiente, condiciones y método de comprobación. Documenté el flujo de autorización mediante REST con HTTP/JSON, la clave de idempotencia, el tratamiento de una respuesta perdida y los datos del entorno que deben registrarse. Incorporé las referencias ISO/IEC 25010:2023 y el artículo de Giamattei, Guerriero, Pietrantuono y Russo, publicado en Journal of Systems and Software en 2024, con DOI 10.1016/j.jss.2023.111857.
+- **Problema encontrado:** La propuesta de rendimiento no incluye todavía un máximo aceptable de p95 y las demás metas requieren confirmación técnica. OE-4 mide la consulta del estado del turno, mientras el ensayo propuesto mide autorización de inicio. Todavía no hay resultados reales de las pruebas de calidad.
+- **Solución y comprobación:** Separé las metas propuestas de los resultados medidos y dejé pendiente el límite de p95. Definí los escenarios de rechazo, reintento, concurrencia y reinicio, junto con los registros que permitirán comprobarlos. Queda pendiente acordar las metas con el equipo, conciliar el indicador de OE-4 y ejecutar las pruebas cuando exista la implementación. El hash del segundo commit y el enlace al issue se añadirán después de su publicación.
+- **Uso de IA:** Codex, para verificar mis borradores de los requisitos no funcionales y corregir una mala redacción y estructurar el LaTeX. Verifiqué su coherencia con la propuesta técnica del equipo y las fuentes publicadas
+- **Tiempo dedicado:** 2 horas

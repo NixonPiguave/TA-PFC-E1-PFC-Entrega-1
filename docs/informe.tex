@@ -240,17 +240,17 @@ Cada objetivo indica entre paréntesis la entrega del proyecto en la que se cump
 %  5. TRABAJOS RELACIONADOS  — Responsable: Allison (mié. 18)
 % =====================================================================
 \section{Trabajos relacionados}
-Se revisaron cuatro artículos que abordan los problemas técnicos centrales del proyecto: la migración de un sistema monolítico a microservicios, la conveniencia real de esa migración, la consistencia de los datos entre servicios y la elección del mecanismo de mensajería.\\
+Se revisaron cuatro artículos que abordan los problemas técnicos centrales del proyecto: la migración de un sistema monolítico a microservicios, la conveniencia real de esa migración, la consistencia de los datos entre servicios y la elección del mecanismo de comunicación.\\
 
-Ayas, Leitner y Hebig~\cite{ayas2023migration} estudian cómo las organizaciones migran hacia microservicios mediante un análisis cualitativo de 19 entrevistas y 215 discusiones de StackOverflow. Su resultado es una teoría con dos modos de cambio, 14 actividades y 53 resultados de solución, y muestra que gran parte de la migración técnica consiste en preparar artefactos de soporte y en cambiar la forma de desarrollar el software. De este trabajo el proyecto toma la idea de migrar por iteraciones y de preparar desde E1 la infraestructura de soporte (repositorio, contenedores y comunicación entre servicios) antes de trasladar la lógica de negocio del sistema RTV anterior. La diferencia es que aquel estudio describe el proceso en organizaciones, mientras que este proyecto aplica la migración a un sistema concreto con dos servicios.
+Michael Ayas, Leitner y Hebig~\cite{ayas2023migration} estudian cómo las organizaciones migran hacia microservicios mediante un análisis cualitativo de 19 entrevistas y 215 discusiones de StackOverflow. Su resultado es una teoría con dos modos de cambio, 14 actividades y 53 resultados de solución, y muestra que gran parte de la migración técnica consiste en preparar artefactos de soporte y en cambiar la forma de desarrollar el software. De este trabajo el proyecto toma la idea de migrar por iteraciones y de preparar desde E1 la infraestructura de soporte (repositorio, contenedores y comunicación entre servicios) antes de trasladar la lógica de negocio del sistema RTV anterior. La diferencia es que aquel estudio describe el proceso en organizaciones, mientras que este proyecto aplica la migración a un sistema concreto con dos servicios.
 \\
 Blinowski, Ojdowska y Przybyłek~\cite{blinowski2022monolithic} implementan una misma aplicación de referencia como monolito y como microservicios, en Java con Spring Boot y en C\# con .NET, y miden su rendimiento con JMeter en un equipo local y en Azure. Encuentran que en una sola máquina el monolito rinde mejor y que, para sistemas pequeños sin muchos usuarios concurrentes, el monolito suele ser la opción más adecuada. El proyecto toma de este trabajo dos cosas: el método de medición para los indicadores de OE-4 y la advertencia de que distribuir no mejora el rendimiento por sí solo. Por eso la justificación de la arquitectura de este proyecto se apoya en la tolerancia a fallos y en la independencia de despliegue de los servicios, no en el rendimiento.
 \\
 
-Daraghmi, Zhang y Yuan~\cite{daraghmi2022saga} analizan el patrón saga, que mantiene la consistencia entre microservicios mediante transacciones locales en secuencia y, si una falla, transacciones de compensación. Señalan que la saga carece de aislamiento, porque permite leer datos de una transacción incompleta, y proponen una versión mejorada del patrón para resolverlo. El proyecto toma este análisis para la secuencia turno, pago e inicio de la revisión, en la que una línea no debe iniciar una revisión a partir de un pago que aún no se ha confirmado (OE-3). Se diferencia en que no propone una mejora general del patrón, sino su aplicación a una regla de negocio específica del CRTVMV.
+Daraghmi, Zhang y Yuan~\cite{daraghmi2022saga} analizan el patrón saga, que mantiene la consistencia entre microservicios mediante transacciones locales en secuencia y, si una falla, transacciones de compensación. Señalan que la saga carece de aislamiento, porque permite leer datos de una transacción incompleta, y proponen una versión mejorada del patrón para resolverlo. El proyecto toma este análisis para la secuencia turno, pago e inicio de la revisión, en la que una línea no debe iniciar una revisión a partir de un pago que aún no se ha confirmado (OE-3). En el prototipo, este antecedente orienta la regla de negocio, pero no implica implementar una saga: la autorización de inicio se coordina mediante REST síncrono e idempotencia, según ADR-002.
 \\
 
-Maharjan, Chy, Arju y Cerny~\cite{maharjan2023benchmarking} comparan la latencia y el rendimiento de Redis, ActiveMQ Artemis, RabbitMQ y Apache Kafka con la herramienta OpenMessaging Benchmark. Kafka obtiene el mayor rendimiento, mientras que RabbitMQ mantiene una latencia constante en todas las cargas probadas. Estos resultados sirven como insumo para elegir el mecanismo de comunicación asincrónica en ADR-002. La diferencia es que el estudio mide los intermediarios de forma aislada, con un productor y un consumidor, mientras que el proyecto debe elegir según el volumen de operaciones del CRTVMV obtenido en el levantamiento.
+Maharjan, Chy, Arju y Cerny~\cite{maharjan2023benchmarking} comparan la latencia y el rendimiento de Redis, ActiveMQ Artemis, RabbitMQ y Apache Kafka con la herramienta OpenMessaging Benchmark. Kafka obtiene el mayor rendimiento, mientras que RabbitMQ mantiene una latencia constante en todas las cargas probadas. Estos resultados permiten examinar la mensajería como alternativa de comunicación en ADR-002. Para el flujo de autorización de inicio, ADR-002 propone REST síncrono; el artículo se conserva como antecedente de una alternativa no seleccionada, sin atribuir sus mediciones a REST. La diferencia es que el estudio mide intermediarios de mensajería de forma aislada, con un productor y un consumidor, mientras el prototipo necesita obtener una autorización antes de iniciar la inspección.
 
 \begin{xltabular}{\textwidth}{L{3cm}XX}
   \caption{Comparación con trabajos relacionados}\label{tab:relacionados}\\
@@ -264,10 +264,10 @@ Maharjan, Chy, Arju y Cerny~\cite{maharjan2023benchmarking} comparan la latencia
   \endhead
   \bottomrule
   \endfoot
-  Ayas \emph{et al.}~\cite{ayas2023migration} & Migración iterativa, con la infraestructura de soporte preparada antes de trasladar la lógica de negocio. & Estudia organizaciones; el proyecto migra un sistema concreto con dos servicios. \\
+  Michael Ayas \emph{et al.}~\cite{ayas2023migration} & Migración iterativa, con la infraestructura de soporte preparada antes de trasladar la lógica de negocio. & Estudia organizaciones; el proyecto migra un sistema concreto con dos servicios. \\
     Blinowski \emph{et al.}~\cite{blinowski2022monolithic} & Método de medición del rendimiento y advertencia de que distribuir no mejora el rendimiento por sí solo. & Compara rendimiento; el proyecto justifica la distribución por tolerancia a fallos e independencia de despliegue. \\
-    Daraghmi \emph{et al.}~\cite{daraghmi2022saga} & Patrón saga y su problema de aislamiento para la secuencia turno, pago y revisión. & Propone una mejora general; el proyecto lo aplica a una regla de negocio del CRTVMV. \\
-    Maharjan \emph{et al.}~\cite{maharjan2023benchmarking} & Comparación de latencia y rendimiento de los intermediarios de mensajería para ADR-002. & Mide intermediarios aislados; el proyecto elige según el volumen real del centro. \\
+    Daraghmi \emph{et al.}~\cite{daraghmi2022saga} & Patrón saga y su problema de aislamiento para la secuencia turno, pago y revisión. & Propone una mejora de saga; el prototipo toma la regla de consistencia y utiliza REST síncrono e idempotencia. \\
+    Maharjan \emph{et al.}~\cite{maharjan2023benchmarking} & Comparación de latencia y rendimiento de la mensajería como alternativa considerada en ADR-002. & Mide intermediarios aislados; el prototipo propone REST síncrono para la autorización de inicio. \\
 \end{xltabular}
 
 % =====================================================================
@@ -356,27 +356,65 @@ Maharjan, Chy, Arju y Cerny~\cite{maharjan2023benchmarking} comparan la latencia
 \end{xltabular}
 
 \subsection{Requisitos no funcionales}
-% Mínimo 6, todos con cifras y asociados a una característica de
-% ISO/IEC 25010. Sin cifras se califican con nivel 1 o 0.
+Se utiliza el modelo de calidad de producto de ISO/IEC 25010:2023~\cite{iso25010_2023}. Las métricas y cantidades siguientes proceden de la propuesta técnica comunicada por Kevin y Diego el 18 de noviembre de 2026; no son cifras prescritas por la norma ni resultados medidos en el CRTVMV. Su confirmación técnica permanece pendiente. RNF-01 requiere, además, acordar su umbral temporal antes de poder aprobarse.
+
+La operación evaluada es la autorización de inicio: el Servicio de Inspecciones solicita al Servicio de Turnos y Pagos, mediante REST sobre HTTP y JSON, autorización para iniciar la revisión de un turno. La petición contiene el identificador del turno y una clave de idempotencia; la respuesta contiene una autorización identificada o un motivo de rechazo. Cada servicio utiliza su propia base PostgreSQL y credenciales independientes.
+
 \begin{xltabular}{\textwidth}{lL{3.6cm}XL{2cm}}
-  \caption{Requisitos no funcionales cuantificados (ISO/IEC 25010)}\label{tab:rnf}\\
+  \caption{Requisitos de calidad propuestos y comprobación (ISO/IEC 25010:2023)}\label{tab:rnf}\\
   \toprule
-  \textbf{ID} & \textbf{Característica ISO/IEC 25010} & \textbf{Requisito cuantificado} & \textbf{Fuente} \\
+  \textbf{ID} & \textbf{Característica de calidad} & \textbf{Métrica, umbral, condiciones y comprobación} & \textbf{Fuente} \\
   \midrule
   \endfirsthead
   \toprule
-  \textbf{ID} & \textbf{Característica ISO/IEC 25010} & \textbf{Requisito cuantificado} & \textbf{Fuente} \\
+  \textbf{ID} & \textbf{Característica de calidad} & \textbf{Métrica, umbral, condiciones y comprobación} & \textbf{Fuente} \\
   \midrule
   \endhead
   \bottomrule
   \endfoot
-  RNF-01 & \pendiente{característica} & \pendiente{requisito con cifra} & \pendiente{fuente} \\
-  RNF-02 & \pendiente{característica} & \pendiente{requisito con cifra} & \pendiente{fuente} \\
-  RNF-03 & \pendiente{característica} & \pendiente{requisito con cifra} & \pendiente{fuente} \\
-  RNF-04 & \pendiente{característica} & \pendiente{requisito con cifra} & \pendiente{fuente} \\
-  RNF-05 & \pendiente{característica} & \pendiente{requisito con cifra} & \pendiente{fuente} \\
-  RNF-06 & \pendiente{característica} & \pendiente{requisito con cifra} & \pendiente{fuente} \\
+  RNF-01 & Eficiencia de desempeño: comportamiento temporal. &
+  \textbf{Rendimiento de la autorización.} Medir el tiempo de respuesta con 1, 5 y 10 usuarios simultáneos, con 100 solicitudes totales por escenario y turnos independientes, válidos y pagados.\par
+  \textbf{Métrica:} percentil 95 (p95) del tiempo, en milisegundos, desde la recepción de la solicitud de inicio en Inspecciones hasta su respuesta al cliente, incluida la consulta a Turnos y Pagos. Registrar también códigos de respuesta y porcentaje de errores.\par
+  \textbf{Umbral:} p95 $\leq$ \pendiente{límite en ms por acordar con Diego después de la prueba inicial y de contrastar la necesidad de uso}. Se aplicará al entorno documentado.\par
+  \textbf{Comprobación:} conservar las 100 mediciones de cada escenario y calcular el p95. Este requisito no está cerrado: el tamaño de la prueba no sustituye el límite de aceptación. &
+  Propuesta técnica del equipo, 18-11-2026. Umbral pendiente. \\
+  RNF-02 & Fiabilidad: tolerancia a fallos. &
+  \textbf{Fallo de comunicación.} Configurar una espera máxima de 3 segundos para la llamada de Inspecciones a Turnos y Pagos. En el 100\,\% de los casos probados de servicio no disponible o respuesta demorada, Inspecciones informará que no pudo confirmar la autorización y no iniciará la inspección.\par
+  \textbf{Métrica:} casos que aplican el comportamiento previsto / casos de fallo ejecutados, por 100.\par
+  \textbf{Comprobación:} detener Turnos y Pagos y, en otro caso independiente, demorar su respuesta más de 3 segundos. Revisar la respuesta de Inspecciones y la ausencia de una inspección nueva. Los 3 segundos limitan la espera configurada; no garantizan el tiempo de respuesta del servicio remoto. &
+  Propuesta técnica del equipo, 18-11-2026. Confirmación pendiente. \\
+  RNF-03 & Fiabilidad: ausencia de fallos en las condiciones definidas. &
+  \textbf{Integridad del estado de negocio.} El 100\,\% de los intentos con turno inexistente, pago sin confirmar o turno no habilitado se rechazará sin crear una autorización válida ni iniciar una inspección.\par
+  \textbf{Métrica:} intentos inválidos correctamente rechazados / intentos inválidos ejecutados, por 100; número de autorizaciones válidas e inspecciones creadas en esos intentos: 0.\par
+  \textbf{Condiciones y comprobación:} ejecutar al menos 3 casos por cada condición, al menos 9 en total, y comparar los registros de ambas bases antes y después. Añadir un control con turno válido, habilitado y pagado para comprobar que el rechazo no sea indiscriminado. &
+  Propuesta técnica del equipo, 18-11-2026. Confirmación pendiente. \\
+  RNF-04 & Fiabilidad: ausencia de fallos ante reintentos y concurrencia. &
+  \textbf{Control de duplicados.} Diez repeticiones de una solicitud válida, con la misma clave de idempotencia y el mismo contenido, producirán exactamente una autorización identificada. En un escenario independiente, dos solicitudes simultáneas de inicio para un mismo turno válido no producirán más de una inspección activa, incluso si usan claves distintas.\par
+  \textbf{Métricas:} autorizaciones nuevas para la solicitud repetida: 1; inspecciones activas para el turno del escenario concurrente: como máximo 1.\par
+  \textbf{Comprobación:} usar un turno nuevo por escenario, conservar claves y respuestas, sincronizar las dos solicitudes concurrentes y consultar ambas bases para contar los registros correspondientes. &
+  Propuesta técnica del equipo, 18-11-2026. Confirmación pendiente. \\
+  RNF-05 & Fiabilidad: capacidad de recuperación. &
+  \textbf{Persistencia tras reinicios.} Después de reiniciar de forma controlada ambos servicios y PostgreSQL, se conservará el 100\,\% de los 10 registros confirmados seleccionados para la prueba, con los mismos identificadores y estados.\par
+  \textbf{Métrica:} registros conservados con identificador y estado coincidentes / 10 registros confirmados, por 100.\par
+  \textbf{Comprobación:} preparar el conjunto de 10 registros y documentar su distribución entre las dos bases; obtener un inventario previo, realizar los reinicios y comparar el inventario posterior. El alcance es la conservación de datos confirmados ante reinicios, no la recuperación de transacciones sin confirmar ni la restauración de respaldos. &
+  Propuesta técnica del equipo, 18-11-2026. Confirmación pendiente. \\
+  RNF-06 & Seguridad: autenticidad y control de acceso. &
+  \textbf{Acceso entre servicios.} El 100\,\% de las solicitudes sin credencial válida al punto de autorización de Turnos y Pagos se rechazará sin modificar turnos, pagos o autorizaciones.\par
+  \textbf{Métrica:} solicitudes no autenticadas correctamente rechazadas / 10 intentos no autenticados, por 100; modificaciones de datos de negocio provocadas por estos intentos: 0.\par
+  \textbf{Comprobación:} realizar 5 solicitudes sin credencial y 5 con credencial incorrecta, y después un control con credencial válida y turno elegible. Comparar respuestas y estado de negocio. El mecanismo de autenticación queda por acordar e implementar con Diego; las credenciales no se incluyen en archivos versionados ni en las evidencias publicadas. &
+  Propuesta técnica del equipo, 18-11-2026. Mecanismo por acordar. \\
 \end{xltabular}
+
+\paragraph{Condiciones de comprobación.}
+El registro de cada prueba identificará procesador, RAM, sistema operativo, versiones de Java, Spring Boot y PostgreSQL, ubicación de servicios y bases, versión del código, herramienta de prueba y datos sintéticos utilizados. Si se utilizan equipos distintos, se documentarán conexión y condiciones de red. Las solicitudes válidas tendrán turnos preparados y claves independientes, salvo en el escenario que comprueba idempotencia. En RNF-01 las 100 solicitudes se distribuyen entre los usuarios del escenario: 100, 20 y 10 por usuario para concurrencias de 1, 5 y 10, respectivamente. El p95 se obtendrá ordenando las 100 duraciones y tomando la observación 95; los errores y esperas agotadas se conservarán en el registro y no se presentarán como autorizaciones exitosas.
+
+La comprobación distinguirá entradas válidas e inválidas y observará los efectos en ambos servicios, siguiendo como referencia metodológica el trabajo sobre pruebas funcionales y de robustez de Giamattei \emph{et al.}~\cite{giamattei2024robustness}. Cada caso registrará solicitud sin secretos, respuesta, estado previo y posterior de los datos y criterio evaluado. Se repetirá con datos preparados para evitar que una prueba afecte a la siguiente. Las condiciones de reinicio, demora y concurrencia se registrarán junto con las mediciones.
+
+\paragraph{Tratamiento de una respuesta perdida.}
+Si se pierde la comunicación, Inspecciones no interpretará el fallo como pago confirmado ni iniciará una inspección. Como Turnos y Pagos podría haber emitido la autorización antes de perderse la respuesta, el reintento conservará la clave de idempotencia y el contenido de la petición original. No se exige que la base de autorizaciones permanezca vacía tras un fallo de red; se exige no iniciar la inspección sin confirmación y evitar efectos duplicados al reintentar.
+
+\paragraph{Estado y coordinación.}
+No se han ejecutado estas pruebas ni se declara cumplimiento. RNF-01 permanece pendiente del límite de p95; los demás valores son metas propuestas pendientes de confirmación técnica. La consulta de estado de turno de OE-4 y la autorización de inicio medida aquí son operaciones diferentes: sus indicadores deberán conciliarse con los responsables del diseño y la documentación antes del cierre de E1. Los requisitos que dependen de lógica de negocio se comprobarán cuando exista su implementación.
 
 % =====================================================================
 %  7. JUSTIFICACIÓN DE LA ARQUITECTURA DISTRIBUIDA  — Responsable: Kevin
