@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="rtv-contexto" name="C4 — Contexto RTV">
+    <mxGraphModel grid="0" page="1" pageScale="1" pageWidth="1650" pageHeight="1050" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="RTV · C4 de contexto" vertex="1" parent="1" style="text;whiteSpace=wrap;html=0;strokeColor=none;fillColor=none;fontColor=#000000;fontFamily=Arial;align=center;verticalAlign=middle;fontSize=38;fontStyle=1;">
+          <mxGeometry as="geometry" x="70" y="40" width="1510" height="60" />
+        </mxCell>
+        <mxCell id="sub" value="Usuarios e intercambios de información · Propuesta E1" vertex="1" parent="1" style="text;whiteSpace=wrap;html=0;strokeColor=none;fillColor=none;fontColor=#000000;fontFamily=Arial;align=center;verticalAlign=middle;fontSize=25;fontStyle=1;">
+          <mxGeometry as="geometry" x="70" y="100" width="1510" height="60" />
+        </mxCell>
+        <mxCell id="atencion" value="Personal de atención&#10;[Persona]&#10;Gestiona turnos y registra pagos." vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Arial;fontSize=25;strokeWidth=2;spacing=15;">
+          <mxGeometry as="geometry" x="70" y="240" width="430" height="210" />
+        </mxCell>
+        <mxCell id="inspector" value="Inspector técnico&#10;[Persona]&#10;Consulta turnos y registra&#10;la revisión vehicular." vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Arial;fontSize=25;strokeWidth=2;spacing=15;">
+          <mxGeometry as="geometry" x="70" y="520" width="430" height="380" />
+        </mxCell>
+        <mxCell id="rtv" value="Sistema de Revisión&#10;Técnica Vehicular&#10;(RTV)&#10;&#10;[Sistema de software]&#10;&#10;Gestiona turnos, pagos,&#10;inspecciones y resultados.&#10;&#10;Verifica las condiciones&#10;para iniciar una inspección." vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Arial;fontSize=25;strokeWidth=2;spacing=15;">
+          <mxGeometry as="geometry" x="1140" y="220" width="440" height="700" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="1" source="atencion" target="rtv" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#000000;fontColor=#000000;strokeWidth=2;exitX=1;exitY=0.2857142857142857;entryX=0;entryY=0.11428571428571428;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="f1label" value="Datos del turno y registro del pago" vertex="1" parent="1" style="text;whiteSpace=wrap;html=0;strokeColor=none;fillColor=none;fontColor=#000000;fontFamily=Arial;align=center;verticalAlign=middle;fontSize=22;">
+          <mxGeometry as="geometry" x="520" y="254" width="600" height="38" />
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="1" source="rtv" target="atencion" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#000000;fontColor=#000000;strokeWidth=2;exitX=0;exitY=0.24285714285714285;entryX=1;entryY=0.7142857142857143;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="f2label" value="Confirmación del turno y estado del pago" vertex="1" parent="1" style="text;whiteSpace=wrap;html=0;strokeColor=none;fillColor=none;fontColor=#000000;fontFamily=Arial;align=center;verticalAlign=middle;fontSize=22;">
+          <mxGeometry as="geometry" x="520" y="344" width="600" height="38" />
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="1" source="inspector" target="rtv" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#000000;fontColor=#000000;strokeWidth=2;exitX=1;exitY=0.15789473684210525;entryX=0;entryY=0.5142857142857142;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="f3label" value="Solicitud de consulta del turno" vertex="1" parent="1" style="text;whiteSpace=wrap;html=0;strokeColor=none;fillColor=none;fontColor=#000000;fontFamily=Arial;align=center;verticalAlign=middle;fontSize=22;">
+          <mxGeometry as="geometry" x="520" y="534" width="600" height="38" />
+        </mxCell>
+        <mxCell id="f4" edge="1" parent="1" source="rtv" target="inspector" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#000000;fontColor=#000000;strokeWidth=2;exitX=0;exitY=0.6428571428571429;entryX=1;entryY=0.39473684210526316;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="f4label" value="Datos del turno y condición de inicio" vertex="1" parent="1" style="text;whiteSpace=wrap;html=0;strokeColor=none;fillColor=none;fontColor=#000000;fontFamily=Arial;align=center;verticalAlign=middle;fontSize=22;">
+          <mxGeometry as="geometry" x="520" y="624" width="600" height="38" />
+        </mxCell>
+        <mxCell id="f5" edge="1" parent="1" source="inspector" target="rtv" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#000000;fontColor=#000000;strokeWidth=2;exitX=1;exitY=0.631578947368421;entryX=0;entryY=0.7714285714285715;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="f5label" value="Mediciones, observaciones y resultado" vertex="1" parent="1" style="text;whiteSpace=wrap;html=0;strokeColor=none;fillColor=none;fontColor=#000000;fontFamily=Arial;align=center;verticalAlign=middle;fontSize=22;">
+          <mxGeometry as="geometry" x="520" y="714" width="600" height="38" />
+        </mxCell>
+        <mxCell id="f6" edge="1" parent="1" source="rtv" target="inspector" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#000000;fontColor=#000000;strokeWidth=2;exitX=0;exitY=0.9;entryX=1;entryY=0.868421052631579;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="f6label" value="Confirmación del registro de inspección" vertex="1" parent="1" style="text;whiteSpace=wrap;html=0;strokeColor=none;fillColor=none;fontColor=#000000;fontFamily=Arial;align=center;verticalAlign=middle;fontSize=22;">
+          <mxGeometry as="geometry" x="520" y="804" width="600" height="38" />
+        </mxCell>
+        <mxCell id="footer" value="Alcance propuesto: personal interno y RTV. Detalle técnico en el diagrama de contenedores." vertex="1" parent="1" style="text;whiteSpace=wrap;html=0;strokeColor=none;fillColor=none;fontColor=#000000;fontFamily=Arial;align=center;verticalAlign=middle;fontSize=22;">
+          <mxGeometry as="geometry" x="70" y="960" width="1510" height="55" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
