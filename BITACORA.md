@@ -99,3 +99,22 @@
 - **Uso de IA:** ChatGPT Sol 6.1 mediante Codex, como apoyo para preparar y mejorar la documentación de arquitectura, y apoyo para ajustar el diagrama de contexto y verificar si las referencias agregadas son coherentes mediante las páginas editoriales. También apoyó la revisión de coherencia entre documentos.
 
 - **Tiempo dedicado:** 2 horas
+
+
+### 2026-11-19 · Mera Jumbo Allison
+
+- **Integrantes presentes:** Mera Jumbo Allison.
+- **Commit(s):**
+  - [`6544135`](https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/commit/65441353c9f86c041bd3867eb0decc4cda5bdc5c) — Integra la arquitectura en el informe #6.
+  - [`ddd30c0`](https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/commit/ddd30c05b670ce52b78e6749a3ac3e927eb1e0f0) — Elimina la versión anterior del informe.
+  - [`ee4d089`](https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/commit/ee4d089cc2c2634fd814e0ca572a390f2d559229) — Renombra main.tex a informe.tex.
+
+- **Qué se hizo:** Integré al informe LaTeX los documentos de arquitectura de Kevin, conservando lo que ya habían trabajado Nixon y Diego. Pasé a LaTeX la justificación de la arquitectura distribuida, el modelo de comunicación y el análisis CAP/PACELC, con sus tablas, y convertí las citas del Markdown a citas de LaTeX. Inserté como figuras el diagrama C4 de contexto, el de contenedores y el bosquejo inicial, con sus títulos, y redacté la descripción de cada diagrama y la evolución del diseño desde el bosquejo. Resumí ADR-001 y ADR-002 con contexto, opciones, decisión y consecuencias. Añadí a `referencias.bib` las dos referencias exportadas de Zotero, sin borrar las existentes. Mantuve en el análisis CAP/PACELC la diferencia entre decisiones propuestas y capacidades implementadas. Compilé el documento en Overleaf con pdflatex → biber → pdflatex → pdflatex.
+
+- **Problema encontrado:** La referencia de Ayas tenía el apellido del autor cambiado y no coincidía con el artículo publicado. En Overleaf, el bosquejo no se encontraba porque la carpeta `evidencias` quedaba en otra ubicación que en el repositorio. Al subir los archivos, el informe se cargó como `main.tex` y quedaron dos versiones en `docs/`. Además, noté que el diagrama de contexto no muestra sistemas externos, aunque el enunciado los pide en el nivel 1.
+
+- **Solución y comprobación:** Corregí el autor de Ayas (`Ayas, Hamdy Michael`) en el `.bib` y en el texto, comparándolo con el PDF del artículo en Springer, y se lo comuniqué a Nixon. Agregué `evidencias/` al `\graphicspath` para que las figuras se encuentren tanto en Overleaf como en el repositorio. Eliminé el `informe.tex` anterior y renombré `main.tex` a `informe.tex`. Comprobé que el PDF muestra las tres figuras, las 8 referencias numeradas y ninguna cita sin resolver. Le avisé a Kevin para que revise la integración y lo de los sistemas externos en el C4 de contexto.
+
+- **Uso de IA:** Claude (Opus 5.5), como apoyo para ubicar las secciones en el informe y revisar los datos de las referencias. Verifiqué el resultado compilando en Overleaf, revisando el PDF y contrastando las referencias con las páginas de los artículos.
+
+- **Tiempo dedicado:** 1 h 15 min.
