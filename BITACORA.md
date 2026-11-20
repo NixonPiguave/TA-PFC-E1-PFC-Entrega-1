@@ -118,3 +118,13 @@
 - **Uso de IA:** Claude (Opus 5.5), como apoyo para ubicar las secciones en el informe y revisar los datos de las referencias. Verifiqué el resultado compilando en Overleaf, revisando el PDF y contrastando las referencias con las páginas de los artículos.
 
 - **Tiempo dedicado:** 1 h 15 min.
+
+2026-11-20 · Diego Giraldo
+- Integrantes presentes: Diego Giraldo.
+- Commit(s):
+  - 9d31b51 — Ignora archivos de compilación y configuración local. Este fue el commit usado para la verificación.
+- Qué se hizo: Compilé los servicios de Inspecciones y Turnos y Pagos desde una copia limpia del código publicado. Se generaron ambos JAR y ejecuté node pruebas/integracion.mjs con las dos bases PostgreSQL de demostración ya preparadas. También preparé las instrucciones de arranque y los ejemplos curl para reproducir el intercambio.
+- Problema encontrado: El script configurar.examples.ps1 usaba // para un comentario, lo que causaba un error al cargarlo en PowerShell. Además, era necesario comprobar que Inspecciones pudiera recuperarse si Turnos y Pagos dejaba de responder o si fallaba el registro local.
+- Solución y comprobación: Definí las variables de entorno en la sesión para ejecutar la prueba y corregí el comentario en GitHub usando #. La suite terminó con código 0 y pasaron los diez escenarios, incluidos solicitudes simultáneas, caída y demora del servicio, reinicio de ambas aplicaciones y recuperación tras un fallo de escritura. En el caso de recuperación, el reintento con la misma clave reutilizó el UUID de la autorización y registró una sola inspección.
+- Pendiente de cierre: Revisar con Kevin que el flujo coincida con el C4 y el ADR-002, verificar el README publicado con el enlace al video y confirmar que Allison recibió las dos referencias. La medición de p95 quedó a cargo de otro integrante.
+- Tiempo dedicado: 1 h 30 min.
