@@ -29,6 +29,15 @@
 - **Uso de IA:** Claude (Opus 5.5), para redactar borradores de las secciones a partir de la entrevista y estructurar el LaTeX. 
 - **Tiempo dedicado:** 1 h 55 min.
 
+### 2026-11-18 · Diego Giraldo
+- Integrantes presentes: Diego Giraldo.
+- Commit(s):
+  - 8971b04 — Sube el código del servicio de Inspecciones.
+- **Qué se hizo**: Revisé el backend del RTV y el diagrama C4 elaborado por Kevin. Preparé una propuesta de contrato REST para revisión con el arquitecto e implementé el flujo de inicio de inspección en un prototipo separado del proyecto principal. Inspecciones recibe el identificador del turno, solicita autorización a Turnos y Pagos y registra el inicio en su propia base PostgreSQL. Ese día dejé en GitHub únicamente el servicio de Inspecciones.
+- **Problema encontrado**: La autorización y la inspección se guardan en bases separadas. Si la autorización queda guardada pero la respuesta se demora o falla el registro local, la operación puede quedar incompleta.
+- **Solución y comprobación**: Implementé el reintento con la misma Idempotency-Key. Verifiqué en las pruebas locales que, después de una demora o de un fallo de escritura, el reintento recupera el UUID de la autorización y registra una sola inspección.
+- **Tiempo dedicado**: 2 horas y 15 minutos.
+
 ### 2026-11-19 · Piguave Nixon
 - **Integrantes presentes:** Piguave Nixon.
 - **Commit(s):**
@@ -38,3 +47,12 @@
 - **Solución y comprobación:** Separé las metas propuestas de los resultados medidos y dejé pendiente el límite de p95. Definí los escenarios de rechazo, reintento, concurrencia y reinicio, junto con los registros que permitirán comprobarlos. Queda pendiente acordar las metas con el equipo, conciliar el indicador de OE-4 y ejecutar las pruebas cuando exista la implementación. El hash del segundo commit y el enlace al issue se añadirán después de su publicación.
 - **Uso de IA:** Codex, para verificar mis borradores de los requisitos no funcionales y corregir una mala redacción y estructurar el LaTeX. Verifiqué su coherencia con la propuesta técnica del equipo y las fuentes publicadas
 - **Tiempo dedicado:** 2 horas
+
+### 2026-11-19 · Diego Giraldo
+- Integrantes presentes: Diego Giraldo.
+- Commit(s):
+  - cccabfc — Sube el servicio de Turnos y Pagos.
+- Qué se hizo: Subí a GitHub el servicio de Turnos y Pagos. Este servicio comprueba que el turno exista, que el pago ya esté confirmado y que el turno esté habilitado antes de generar la autorización. Organicé los dos servicios bajo prototipo-e1/src/, separé el código de los archivos de dependencias y configuración, y ubiqué los datos ficticios en la carpeta de Turnos y Pagos.
+- Problema encontrado: Al mover los servicios, las rutas anteriores de compilación, arranque y pruebas dejaron de corresponder con la nueva estructura.
+- Solución y comprobación: Actualicé las rutas en Maven, el README y la suite de integración. Volví a compilar los dos servicios y pasaron los diez escenarios de prueba con PostgreSQL, incluidos los de solicitudes simultáneas, credenciales incorrectas, reinicio de las aplicaciones y recuperación de una operación interrumpida.
+- Tiempo dedicado: 3 horas.
