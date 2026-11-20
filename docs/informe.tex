@@ -520,26 +520,42 @@ No se han ejecutado estas pruebas ni se declara cumplimiento. RNF-01 permanece p
 %  12. ANÁLISIS DE RIESGOS  — Responsable: Nixon
 % =====================================================================
 \section{Análisis de riesgos}
-% Mínimo 5 riesgos técnicos; al menos 3 derivados del incidente
-% analizado en FORM-AC-01 (Cloudflare, junio de 2022).
-\begin{xltabular}{\textwidth}{lXllL{3.5cm}}
-  \caption{Riesgos técnicos}\label{tab:riesgos}\\
+Para comenzar una revisión, el servicio de Inspecciones debe recibir la autorización de Turnos y Pagos. Los riesgos de este intercambio se analizaron a partir de las tres primeras lecciones de \href{https://github.com/aldhair00/FORM-AC-01-EHPT/blob/8efd7db1b850fbd306bf2dd5afdc1ef69431a1c2/Documento/main.pdf}{FORM-AC-01, sección 6}: evitar duplicados en los reintentos, recuperar los registros y validar los datos antes de confirmar una operación. El caso estudiado fue el incidente de GitHub del 21 y 22 de octubre de 2018, descrito en su \href{https://github.blog/news-insights/company-news/oct21-post-incident-analysis/}{informe oficial}. Estas lecciones se adaptaron al manejo de turnos, autorizaciones e inspecciones del RTV.
+
+\paragraph{Criterio de valoración.}
+La probabilidad es una estimación cualitativa del equipo para el prototipo: baja si necesita una condición excepcional, media si puede aparecer con reintentos, concurrencia o fallos inducidos, y alta si la condición que expone al fallo ya es observable en lo publicado. El impacto es alto cuando puede alterar datos críticos o permitir un inicio indebido, medio cuando impide temporalmente una operación o su comprobación sin demostrar pérdida de datos, y bajo cuando causa una demora recuperable de alcance limitado. Estas valoraciones no son frecuencias medidas. Las mitigaciones y comprobaciones siguientes están propuestas; no se declaran ejecutadas.
+
+\begin{xltabular}{\textwidth}{lXL{1.1cm}L{1.6cm}L{5cm}}
+  \caption{Riesgos técnicos del flujo de autorización y su comprobación}\label{tab:riesgos}\\
   \toprule
-  \textbf{ID} & \textbf{Riesgo} & \textbf{Prob.} & \textbf{Impacto} & \textbf{Mitigación} \\
+  \textbf{ID} & \textbf{Riesgo y efecto} & \textbf{Prob.} & \textbf{Impacto} & \textbf{Mitigación y comprobación propuesta} \\
   \midrule
   \endfirsthead
   \toprule
-  \textbf{ID} & \textbf{Riesgo} & \textbf{Prob.} & \textbf{Impacto} & \textbf{Mitigación} \\
+  \textbf{ID} & \textbf{Riesgo y efecto} & \textbf{Prob.} & \textbf{Impacto} & \textbf{Mitigación y comprobación propuesta} \\
   \midrule
   \endhead
   \bottomrule
   \endfoot
-  R-01 & \pendiente{riesgo (FORM-AC-01)} & \pendiente{nivel} & \pendiente{nivel} & \pendiente{mitigación} \\
-  R-02 & \pendiente{riesgo (FORM-AC-01)} & \pendiente{nivel} & \pendiente{nivel} & \pendiente{mitigación} \\
-  R-03 & \pendiente{riesgo (FORM-AC-01)} & \pendiente{nivel} & \pendiente{nivel} & \pendiente{mitigación} \\
-  R-04 & \pendiente{riesgo} & \pendiente{nivel} & \pendiente{nivel} & \pendiente{mitigación} \\
-  R-05 & \pendiente{riesgo} & \pendiente{nivel} & \pendiente{nivel} & \pendiente{mitigación} \\
+  R-01 & \textbf{Duplicación al reintentar una operación incierta.} Turnos y Pagos podría guardar una autorización cuya respuesta se pierde, o Inspecciones podría fallar antes de guardar su registro. Reintentar con otra clave o sin recuperar el resultado puede duplicar efectos. Se relaciona con RNF-04 y la lección 1 de FORM-AC-01. & Media & Alto & Conservar la misma clave y turno; persistir su relación y recuperar la autorización original. Proteger la unicidad en las dos bases. Provocar una respuesta perdida o un fallo de registro local y repetir la operación con la misma clave: debe recuperarse la misma autorización y quedar una sola inspección. \\
+  R-02 & \textbf{Pérdida de registros o recuperación incompleta de datos.} Una falla del almacenamiento o una intervención sobre PostgreSQL podría dejar sin acceso a autorizaciones e inspecciones confirmadas si no existe una recuperación comprobada. Se deriva de la lección 2 de FORM-AC-01. & Media & Alto & Preparar respaldos identificados y un procedimiento de restauración en una base aislada; comparar identificadores, estados y vínculos con un inventario previo. RNF-05 comprobará por separado la conservación de 10 registros tras reinicios controlados. Superar ese ensayo no demuestra restauración de respaldos. \\
+  R-03 & \textbf{Decisiones sobre un turno que cambió durante la operación.} Dos solicitudes con claves distintas podrían basarse en una validación previa y autorizar el mismo turno si la comprobación y la escritura no se protegen juntas. Se relaciona con RNF-03, RNF-04 y la lección 3 de FORM-AC-01. & Media & Alto & Validar el estado en Turnos y Pagos dentro de la transacción que decide y registra la autorización, con restricciones de unicidad. Enviar dos solicitudes simultáneas para un turno elegible: debe existir una sola autorización y como máximo una inspección activa; la otra operación debe rechazarse de forma controlada. \\
+  R-04 & \textbf{Interrupción del inicio por caída o demora del proveedor.} Inspecciones depende de la respuesta de Turnos y Pagos. Una desconexión o demora puede impedir confirmar el inicio y dejar al usuario sin una decisión clara. Se relaciona con RNF-02 y ADR-002. & Media & Medio & Aplicar la espera configurable propuesta de 3 segundos y un error comprensible; no iniciar la inspección sin autorización confirmada. Detener el proveedor y, en otro escenario, retrasar su respuesta: comprobar el error y la ausencia de una nueva inspección. Reintentar con la misma clave ante un resultado incierto. \\
+  R-05 & \textbf{Acceso indebido por manejo incorrecto de credenciales.} Una credencial expuesta o una validación incompleta podría permitir solicitar autorizaciones sin ser el consumidor autorizado. Se relaciona con RNF-06. & Media & Alto & Configurar credenciales fuera del repositorio, evitar su exposición en registros y evidencias y validarlas antes de escribir datos de negocio. Ejecutar 5 solicitudes sin credencial y 5 incorrectas, más un control válido: las 10 negativas deben rechazarse sin modificar turnos, pagos o autorizaciones. \\
+  R-06 & \textbf{Esqueleto no reproducible desde lo publicado.} En la revisión del repositorio todavía faltan el POM padre, el módulo compartido y los esquemas que requiere el código. Esto puede impedir compilar y preparar las bases en un clon limpio, aunque el desarrollo funcione en otro equipo. & Alta & Medio & Solicitar a desarrollo que publique las dependencias, esquemas e instrucciones de arranque y prueba. Comprobar después desde un clon limpio la compilación de ambos servicios y un intercambio con datos sintéticos. Registrar versiones, comandos y resultados reales para repetir la prueba. \\
 \end{xltabular}
+
+\paragraph{Trazabilidad con FORM-AC-01.}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{R-01, sección 6, fila 1:} la propuesta de transacciones e identificadores únicos frente a reintentos del registro de solicitudes se adapta a conservar la clave y recuperar la autorización del RTV. Es una aplicación de la lección; no se afirma que GitHub utilizara el contrato de idempotencia de este prototipo.
+  \item \textbf{R-02, sección 6, fila 2:} la lección sobre respaldos y restauración de los registros del SGL se adapta a conservar y recuperar los registros confirmados del RTV, distinguiendo reiniciar de restaurar.
+  \item \textbf{R-03, sección 6, fila 3:} la validación transaccional y unicidad al reservar un asiento con información anterior se adaptan a evitar autorizaciones incompatibles para un mismo turno. No se presupone que el prototipo ya tenga réplicas de PostgreSQL.
+\end{itemize}
+
+\paragraph{Flujo de comprobación para revisar con Diego.}
+Se propone usar un turno sintético existente, pagado y habilitado, con una clave UUID nueva, y enviar \texttt{POST /inspecciones}, cabecera \texttt{Idempotency-Key} y cuerpo JSON con \texttt{turnoId}. La respuesta esperada del primer inicio es HTTP 201 con los identificadores de inspección, turno y autorización, y estado \texttt{INICIADA}. Al repetir con la misma clave y turno se espera HTTP 200, los mismos identificadores y ningún registro duplicado. Después se comprobarán un rechazo de negocio y un proveedor detenido, con error controlado y sin una nueva inspección. Cada escenario utilizará datos preparados de forma independiente.
+
+El arranque, la orden de prueba y las respuestas exactas quedan pendientes de confirmación con Diego y de la publicación completa del esqueleto. Se guardarán peticiones sin secretos, respuestas y consultas a ambas bases. No se han ejecutado estas pruebas. RNF-01 conserva su límite de p95 pendiente.
 
 % =====================================================================
 %  13. PLAN DEL PROYECTO  — Responsable: Allison (jue. 19)
