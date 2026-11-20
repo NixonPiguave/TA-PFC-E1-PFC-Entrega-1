@@ -1,4 +1,15 @@
-# Archivos auxiliares de LaTeX (el PDF final sí se versiona)
+# Maven: archivos generados por la compilación
+target/
+
+# Archivos y datos locales de la demostración
+.local/
+
+# Variables de entorno privadas
+.env
+.env.*
+!.env.example
+
+# Archivos auxiliares de LaTeX
 docs/*.aux
 docs/*.bbl
 docs/*.bcf
