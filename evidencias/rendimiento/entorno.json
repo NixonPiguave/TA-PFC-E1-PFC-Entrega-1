@@ -1,0 +1,71 @@
+{
+  "runId": "34d21d1a-3cbd-46f6-b495-416fec1ae1b7",
+  "inicioUtc": "2026-11-21T00:03:02.762Z",
+  "zonaHoraria": "America/Guayaquil",
+  "usuario": "user",
+  "equipo": "Nixon",
+  "proyecto": "C:\\Users\\user\\IdeaProjects\\AppWebRevisionVehicular\\prototipo-e1",
+  "sistema": {
+    "plataforma": "win32",
+    "version": "10.0.26300",
+    "arquitectura": "x64",
+    "cpu": "Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz",
+    "procesadoresLogicos": 12,
+    "ramBytes": 17093988352,
+    "windows": {
+      "sistema": "Microsoft Windows 11 Pro",
+      "version": "10.0.26300",
+      "memoriaLibreBytes": 4668747776,
+      "procesadores": [
+        {
+          "Name": "Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz",
+          "NumberOfCores": 6,
+          "NumberOfLogicalProcessors": 12
+        }
+      ]
+    }
+  },
+  "node": "v24.15.0",
+  "java": "openjdk version \"21.0.13.1\" 2026-11-17 LTS\r\nOpenJDK Runtime Environment Temurin-21.0.13.1+2 (build 21.0.13.1+2-LTS)\r\nOpenJDK 64-Bit Server VM Temurin-21.0.13.1+2 (build 21.0.13.1+2-LTS, mixed mode, sharing)",
+  "commitCodigo": "77d1ff6c38488fc02ab431472621ff4edb59f576",
+  "cambiosRastreados": "",
+  "hashMedidorSha256": "344e48ce7dd569f1762e09dab90dda86e82808540ee0047dd1ffb7a6823d4acb",
+  "ubicacion": "Cliente, servicios y ambas bases en el mismo equipo; HTTP loopback; PostgreSQL puerto 55432.",
+  "endpoint": "http://127.0.0.1:8082/inspecciones",
+  "alcance": "Tiempo observado por el cliente: justo antes de fetch hasta terminar de recibir el cuerpo. Incluye HTTP, servicio Inspecciones y autorización remota. No es tiempo interno medido en el servidor.",
+  "metodo": {
+    "concurrencias": [
+      1,
+      5,
+      10
+    ],
+    "solicitudesMedidasPorEscenario": 100,
+    "calentamientoPorEscenario": 10,
+    "calentamientoExcluidoDelP95": true,
+    "solicitudesPorUsuario": [
+      100,
+      20,
+      10
+    ],
+    "modelo": "Usuarios cerrados sin pausa: cada usuario espera su respuesta antes de enviar la siguiente.",
+    "temporizador": "performance.now() monotónico en milisegundos",
+    "timeoutClienteMs": 15000,
+    "percentil": "Rango más próximo: ordenar N duraciones y tomar ceil(0.95*N); rango95 para100.",
+    "fallos": "Se conservan todas las duraciones y errores. Los tiempos agotados son observaciones censuradas; no respuestas exitosas.",
+    "criterioAceptacion": "Pendiente de acuerdo con Diego y Kevin; esta ejecución no declara RNF-01 cumplido.",
+    "limitaciones": "Una ejecución inicial por escenario, orden fijo1/5/10, sin prueba de capacidad sostenida ni instrumentación interna."
+  },
+  "jars": {
+    "turnos-pagos": {
+      "sha256": "b1fa8441ce5fee6455f455a3eaf4b242b35ccf13a6ff19aa224d97c6fd4f3ec4"
+    },
+    "inspecciones": {
+      "sha256": "8d75d5d7beb6af375ece1efcbbec27c8cdb5b44a242043268df14c237f3996b1"
+    }
+  },
+  "postgresql": {
+    "turnos": "PostgreSQL 18.1 on x86_64-windows, compiled by msvc-19.44.35219, 64-bit",
+    "inspecciones": "PostgreSQL 18.1 on x86_64-windows, compiled by msvc-19.44.35219, 64-bit"
+  },
+  "springBoot": "4.0.1"
+}

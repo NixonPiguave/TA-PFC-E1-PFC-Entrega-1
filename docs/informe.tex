@@ -297,32 +297,32 @@ Maharjan, Chy, Arju y Cerny~\cite{maharjan2023benchmarking} comparan la latencia
   \textbf{2.} Con credenciales inválidas, se rechaza el acceso sin crear una sesión.\par
   \textbf{3.} Una cuenta deshabilitada no puede iniciar sesión, aunque su contraseña sea correcta.\par
   \textbf{4.} Si falta usuario o contraseña, se solicita completar los campos y no se inicia sesión. &
-  Apoyo técnico: \href{https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/blob/be245df8f15b1183f94bada0679adc18146016cd/docs/Anexos/Estado\%20del\%20arte/ISO-IEC-IEEE\%2029148.pdf\#page=74}{ISO 29148:2018}, sec.~9.5.13. Propuesta de autenticación; \pendiente{validar en el levantamiento} \\
+  Código previo: \href{https://github.com/NixonPiguave/AppWebRevisionVehicular/blob/77d1ff6c38488fc02ab431472621ff4edb59f576/backend/src/main/java/com/revisionvehicular/backend/controllers/AuthController.java}{ingreso} con contraseña y estado de cuenta. Apoyo: \href{https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/blob/be245df8f15b1183f94bada0679adc18146016cd/docs/Anexos/Estado\%20del\%20arte/ISO-IEC-IEEE\%2029148.pdf\#page=74}{ISO 29148}, sec.~9.5.13. Verificación prevista: credenciales válidas e inválidas, cuenta inactiva y campos vacíos. \\
   RF-02 & Como administrador del CRTVMV, quiero asignar roles existentes a una cuenta de usuario para que sus permisos correspondan a las labores que desempeña en el centro. &
   \textbf{1.} Un administrador autorizado puede asignar uno o más roles existentes a una cuenta registrada; la asignación se conserva al consultarla nuevamente.\par
   \textbf{2.} Un usuario sin permiso no puede asignar roles ni alterar la asignación existente.\par
   \textbf{3.} Si la cuenta o un rol no existe, se rechaza el cambio completo y se conservan las asignaciones anteriores.\par
   \textbf{4.} Después de guardar un cambio, la siguiente solicitud protegida del usuario se evalúa con los permisos actualizados. &
-  Apoyo para perfiles: \href{https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/blob/be245df8f15b1183f94bada0679adc18146016cd/docs/Anexos/Estado\%20del\%20arte/ISO-IEC-IEEE\%2029148.pdf\#page=91}{ISO 29148:2018}, anexo~A.2.6.6.3. Asignación propuesta; \pendiente{validar roles con el centro} \\
+  Código previo: \href{https://github.com/NixonPiguave/AppWebRevisionVehicular/blob/77d1ff6c38488fc02ab431472621ff4edb59f576/backend/src/main/java/com/revisionvehicular/backend/service/srtv/UsuarioServiceImpl.java}{usuarios y roles}. Apoyo: \href{https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/blob/be245df8f15b1183f94bada0679adc18146016cd/docs/Anexos/Estado\%20del\%20arte/ISO-IEC-IEEE\%2029148.pdf\#page=91}{ISO 29148}, anexo~A.2.6.6.3. Verificación prevista: asignación, persistencia y actualización de roles. \\
   RF-03 & Como administrador del CRTVMV, quiero restringir las funciones según los roles del personal para evitar consultas y modificaciones ajenas a las responsabilidades de cada cargo. &
   \textbf{1.} Una cuenta autenticada con el permiso requerido puede ejecutar la operación, sujeta a sus reglas de negocio.\par
   \textbf{2.} Sin el permiso requerido, se deniega la operación sin revelar datos restringidos ni efectuar cambios.\par
   \textbf{3.} Sin sesión válida, se rechaza el acceso a las funciones protegidas.\par
   \textbf{4.} Las restricciones también se aplican al invocar directamente la operación, sin utilizar el menú de la aplicación. &
-  Apoyo técnico: \href{https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/blob/be245df8f15b1183f94bada0679adc18146016cd/docs/Anexos/Estado\%20del\%20arte/ISO-IEC-IEEE\%2029148.pdf\#page=74}{ISO 29148:2018}, sec.~9.5.13. Control propuesto; \pendiente{validar permisos en el levantamiento} \\
+  Código previo: \href{https://github.com/NixonPiguave/AppWebRevisionVehicular/blob/77d1ff6c38488fc02ab431472621ff4edb59f576/backend/src/main/java/com/revisionvehicular/backend/service/admin/PostgresRolAdminService.java}{roles y privilegios} y \href{https://github.com/NixonPiguave/AppWebRevisionVehicular/blob/77d1ff6c38488fc02ab431472621ff4edb59f576/backend/src/main/java/com/revisionvehicular/backend/config/DataSourceConfig.java}{conexión por usuario}. Apoyo: \href{https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/blob/be245df8f15b1183f94bada0679adc18146016cd/docs/Anexos/Estado\%20del\%20arte/ISO-IEC-IEEE\%2029148.pdf\#page=74}{ISO 29148}, sec.~9.5.13. Verificación prevista: accesos permitidos y denegados por rol. \\
   RF-04 & Como administrador del CRTVMV con permiso de auditoría, quiero consultar el registro de acciones de los usuarios autenticados para identificar quién realizó una operación y cuándo ocurrió. &
   \textbf{1.} Al completar una asignación de roles o un registro de placa, queda un registro consultable con usuario, fecha, hora, acción, identificador del registro afectado y resultado.\par
   \textbf{2.} Los filtros por usuario, fecha o acción muestran únicamente los registros coincidentes.\par
   \textbf{3.} Un usuario sin permiso de auditoría no puede consultar el historial.\par
   \textbf{4.} Las funciones de la aplicación no permiten modificar ni eliminar los registros de auditoría.\par
   \textbf{5.} Los registros no contienen contraseñas ni tokens de sesión completos. &
-  Apoyo técnico: \href{https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/blob/be245df8f15b1183f94bada0679adc18146016cd/docs/Anexos/Estado\%20del\%20arte/ISO-IEC-IEEE\%2029148.pdf\#page=81}{ISO 29148:2018}, secs.~9.6.17 y 9.6.18(c). Auditoría propuesta; \pendiente{validar acciones y campos} \\
+  Código previo: \href{https://github.com/NixonPiguave/AppWebRevisionVehicular/blob/77d1ff6c38488fc02ab431472621ff4edb59f576/backend/src/main/java/com/revisionvehicular/backend/service/srtv/AuditoriaService.java}{auditoría} de acciones y consultas. Apoyo: \href{https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/blob/be245df8f15b1183f94bada0679adc18146016cd/docs/Anexos/Estado\%20del\%20arte/ISO-IEC-IEEE\%2029148.pdf\#page=81}{ISO 29148}, secs.~9.6.17 y 9.6.18(c). Verificación prevista: campos del registro, filtros, acceso y protección del historial. \\
   RF-05 & Como inspector RTV, quiero registrar la placa en la ficha del vehículo para identificar la unidad a la que se asociarán las revisiones técnicas. &
   \textbf{1.} Con permisos, una placa válida y los demás datos obligatorios, el registro guarda la placa vinculada a la ficha y permite recuperarla al consultar.\par
   \textbf{2.} Si falta la placa, se informa que es obligatoria y no se crea la ficha.\par
   \textbf{3.} Si la placa incumple el formato validado con el responsable del dominio, se informa el error y no se guarda el registro.\par
   \textbf{4.} Si ya existe una ficha para la placa en el mismo período de revisión, no se crea un duplicado y se conserva el registro existente. &
-  Apoyo documental: \href{https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/blob/be245df8f15b1183f94bada0679adc18146016cd/docs/Anexos/RESOLUCION\%20008-DIR-2017-ANT.pdf\#page=53}{Res.~008-DIR-2017-ANT}, arts.~87, 124 y 126. \pendiente{Validar flujo, formatos admitidos y duplicados con el centro} \\
+  Código previo: \href{https://github.com/NixonPiguave/AppWebRevisionVehicular/blob/77d1ff6c38488fc02ab431472621ff4edb59f576/backend/src/main/java/com/revisionvehicular/backend/service/cv/VehiculoServiceImpl.java}{ficha vehicular} y \href{https://github.com/NixonPiguave/AppWebRevisionVehicular/blob/77d1ff6c38488fc02ab431472621ff4edb59f576/backend/src/main/java/com/revisionvehicular/backend/dtos/cv/VehiculoDTO.java}{campo obligatorio}. Apoyo: \href{https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/blob/be245df8f15b1183f94bada0679adc18146016cd/docs/Anexos/RESOLUCION\%20008-DIR-2017-ANT.pdf\#page=53}{Res.~008-DIR-2017-ANT}, arts.~87, 124 y 126. Verificación prevista: placa obligatoria, formato y duplicados por período; confirmar estas reglas con el centro. \\
   RF-06 & Como inspector RTV, quiero registrar el tipo de vehículo en su ficha para que la revisión se realice en la línea y con la tarifa que corresponden a esa categoría. &
   \textbf{1.} Con permisos y una ficha existente, el inspector puede seleccionar el tipo de vehículo de un catálogo validado con el centro; el tipo se guarda y se muestra al consultar la ficha.\par
   \textbf{2.} Si no se selecciona el tipo, se informa que es obligatorio y no se continúa con la revisión.\par
@@ -356,7 +356,7 @@ Maharjan, Chy, Arju y Cerny~\cite{maharjan2023benchmarking} comparan la latencia
 \end{xltabular}
 
 \subsection{Requisitos no funcionales}
-Se utiliza el modelo de calidad de producto de ISO/IEC 25010:2023~\cite{iso25010_2023}. Las métricas y cantidades siguientes proceden de la propuesta técnica comunicada por Kevin y Diego el 18 de noviembre de 2026; no son cifras prescritas por la norma ni resultados medidos en el CRTVMV. Su confirmación técnica permanece pendiente. RNF-01 requiere, además, acordar su umbral temporal antes de poder aprobarse.
+Se utiliza el modelo de calidad de producto de ISO/IEC 25010:2023~\cite{iso25010_2023}. Las métricas y cantidades siguientes proceden de la propuesta técnica comunicada por Kevin y Diego el 18 de noviembre de 2026; no son cifras prescritas por la norma ni resultados medidos en el CRTVMV. Para RNF-01 se establece un criterio inicial de 100 ms en el entorno local descrito en esta sección. Las demás metas mantienen pendiente su confirmación técnica y su comprobación completa.
 
 La operación evaluada es la autorización de inicio: el Servicio de Inspecciones solicita al Servicio de Turnos y Pagos, mediante REST sobre HTTP y JSON, autorización para iniciar la revisión de un turno. La petición contiene el identificador del turno y una clave de idempotencia; la respuesta contiene una autorización identificada o un motivo de rechazo. Cada servicio utiliza su propia base PostgreSQL y credenciales independientes.
 
@@ -374,10 +374,10 @@ La operación evaluada es la autorización de inicio: el Servicio de Inspeccione
   \endfoot
   RNF-01 & Eficiencia de desempeño: comportamiento temporal. &
   \textbf{Rendimiento de la autorización.} Medir el tiempo de respuesta con 1, 5 y 10 usuarios simultáneos, con 100 solicitudes totales por escenario y turnos independientes, válidos y pagados.\par
-  \textbf{Métrica:} percentil 95 (p95) del tiempo, en milisegundos, desde la recepción de la solicitud de inicio en Inspecciones hasta su respuesta al cliente, incluida la consulta a Turnos y Pagos. Registrar también códigos de respuesta y porcentaje de errores.\par
-  \textbf{Umbral:} p95 $\leq$ \pendiente{límite en ms por acordar con Diego después de la prueba inicial y de contrastar la necesidad de uso}. Se aplicará al entorno documentado.\par
-  \textbf{Comprobación:} conservar las 100 mediciones de cada escenario y calcular el p95. Este requisito no está cerrado: el tamaño de la prueba no sustituye el límite de aceptación. &
-  Propuesta técnica del equipo, 18-11-2026. Umbral pendiente. \\
+  \textbf{Métrica:} percentil 95 (p95) del tiempo, en milisegundos, observado por el cliente desde el envío de la solicitud de inicio hasta recibir por completo su respuesta, incluida la consulta de Inspecciones a Turnos y Pagos. La medición incluye el transporte HTTP local y no representa un tiempo interno instrumentado en el servidor. Registrar también códigos de respuesta y porcentaje de errores.\par
+  \textbf{Umbral:} p95 $\leq 100$ ms en cada escenario de 1, 5 y 10 usuarios simultáneos, con 100 solicitudes medidas por escenario. Se aplica al entorno local documentado; es un criterio técnico inicial definido al revisar la prueba exploratoria.\par
+  \textbf{Comprobación:} conservar las 100 mediciones de cada escenario y calcular el p95. La tabla~\ref{tab:p95-nixon} presenta las mediciones obtenidas y su comparación con el criterio inicial. &
+  Condiciones propuestas, 18-11-2026; medición y criterio inicial, 20-11-2026. \\
   RNF-02 & Fiabilidad: tolerancia a fallos. &
   \textbf{Fallo de comunicación.} Configurar una espera máxima de 3 segundos para la llamada de Inspecciones a Turnos y Pagos. En el 100\,\% de los casos probados de servicio no disponible o respuesta demorada, Inspecciones informará que no pudo confirmar la autorización y no iniciará la inspección.\par
   \textbf{Métrica:} casos que aplican el comportamiento previsto / casos de fallo ejecutados, por 100.\par
@@ -401,8 +401,8 @@ La operación evaluada es la autorización de inicio: el Servicio de Inspeccione
   RNF-06 & Seguridad: autenticidad y control de acceso. &
   \textbf{Acceso entre servicios.} El 100\,\% de las solicitudes sin credencial válida al punto de autorización de Turnos y Pagos se rechazará sin modificar turnos, pagos o autorizaciones.\par
   \textbf{Métrica:} solicitudes no autenticadas correctamente rechazadas / 10 intentos no autenticados, por 100; modificaciones de datos de negocio provocadas por estos intentos: 0.\par
-  \textbf{Comprobación:} realizar 5 solicitudes sin credencial y 5 con credencial incorrecta, y después un control con credencial válida y turno elegible. Comparar respuestas y estado de negocio. El mecanismo de autenticación queda por acordar e implementar con Diego; las credenciales no se incluyen en archivos versionados ni en las evidencias publicadas. &
-  Propuesta técnica del equipo, 18-11-2026. Mecanismo por acordar. \\
+  \textbf{Comprobación:} realizar 5 solicitudes sin credencial y 5 con credencial incorrecta, y después un control con credencial válida y turno elegible. Comparar respuestas y estado de negocio. El prototipo implementa un token compartido entre servicios. La suite comprueba una petición sin credencial y otra incorrecta; las cinco repeticiones por condición quedan pendientes. Las credenciales no se incluyen en archivos versionados ni en las evidencias publicadas. &
+  Condiciones propuestas, 18-11-2026. Token implementado; repeticiones pendientes. \\
 \end{xltabular}
 
 \paragraph{Condiciones de comprobación.}
@@ -414,7 +414,40 @@ La comprobación distinguirá entradas válidas e inválidas y observará los ef
 Si se pierde la comunicación, Inspecciones no interpretará el fallo como pago confirmado ni iniciará una inspección. Como Turnos y Pagos podría haber emitido la autorización antes de perderse la respuesta, el reintento conservará la clave de idempotencia y el contenido de la petición original. No se exige que la base de autorizaciones permanezca vacía tras un fallo de red; se exige no iniciar la inspección sin confirmación y evitar efectos duplicados al reintentar.
 
 \paragraph{Estado y coordinación.}
-No se han ejecutado estas pruebas ni se declara cumplimiento. RNF-01 permanece pendiente del límite de p95; los demás valores son metas propuestas pendientes de confirmación técnica. La consulta de estado de turno de OE-4 y la autorización de inicio medida aquí son operaciones diferentes: sus indicadores deberán conciliarse con los responsables del diseño y la documentación antes del cierre de E1. Los requisitos que dependen de lógica de negocio se comprobarán cuando exista su implementación.
+El 20 de noviembre se ejecutaron una verificación funcional del intercambio y la medición inicial de RNF-01. Los tres escenarios de rendimiento quedaron por debajo de 100 ms de p95, sin errores. Este resultado se limita al ensayo descrito y no acredita por sí solo todas las cantidades y condiciones de RNF-02 a RNF-06. La consulta de estado de turno de OE-4 y la autorización de inicio medida aquí son operaciones diferentes: sus indicadores deberán conciliarse con los responsables del diseño y la documentación antes del cierre de E1. Los requisitos que dependen de lógica de negocio se comprobarán cuando exista su implementación.
+
+
+\subsubsection{Medición inicial de RNF-01}
+La prueba se realizó el 20 de noviembre de 2026 a las 19:03:02, hora de Ecuador (UTC$-$5). El registro UTC comienza el 21 de noviembre a las 00:03:02; ambos corresponden a la misma ejecución. Se utilizó el prototipo publicado en \href{https://github.com/NixonPiguave/AppWebRevisionVehicular/tree/77d1ff6c38488fc02ab431472621ff4edb59f576/prototipo-e1}{AppWebRevisionVehicular, commit \texttt{77d1ff6}}, sin cambios en los archivos rastreados. Esta ejecución no acredita todavía una prueba propia desde un clon limpio del repositorio de entrega.
+
+\paragraph{Entorno y procedimiento.}
+El cliente de carga, los dos servicios y las dos bases funcionaron en el equipo de pruebas, con Windows 11 Pro, procesador Intel Core i7-8700 a 3,20 GHz (6 núcleos y 12 procesadores lógicos) y 15,92 GiB de RAM reconocida por el sistema. Se utilizaron Temurin JDK 21.0.13.1, Spring Boot 4.0.1, PostgreSQL 18.1 y Node.js 24.15.0. Los servicios atendieron en los puertos 8081 y 8082 mediante HTTP sobre loopback; PostgreSQL utilizó el puerto local 55432 y bases independientes.
+
+Se ejecutó una corrida por concurrencia, en orden de 1, 5 y 10 usuarios, con 100 solicitudes medidas por escenario. Cada usuario esperó su respuesta antes de emitir la siguiente petición: 100, 20 y 10 peticiones por usuario, respectivamente. Antes de cada escenario se enviaron 10 solicitudes de calentamiento, registradas pero excluidas del cálculo. Las 330 solicitudes utilizaron turnos nuevos, habilitados y con pago confirmado, además de claves de idempotencia diferentes. No se midieron reintentos de inspecciones ya creadas.
+
+El medidor registró cada duración con un reloj monotónico desde inmediatamente antes de enviar \texttt{POST /inspecciones} hasta recibir el cuerpo completo. La preparación SQL y la consulta posterior de las bases quedaron fuera de ese intervalo. Para cada escenario se ordenaron las 100 duraciones y se tomó la observación 95. Las respuestas debían ser HTTP 201, con estado \texttt{INICIADA} e identificadores válidos; se conservaron también los campos destinados a registrar errores y tiempos agotados.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Medición inicial del tiempo de respuesta completo desde el cliente}\label{tab:p95-nixon}
+  \begin{tabular}{rrrrrr}
+    \toprule
+    \textbf{Usuarios} & \textbf{Solicitudes} & \textbf{Errores} & \textbf{Media (ms)} & \textbf{p95 (ms)} & \textbf{Máximo (ms)} \\
+    \midrule
+    1  & 100 & 0\,\% & 10,820 & 14,256 & 23,568 \\
+    5  & 100 & 0\,\% & 19,444 & 25,982 & 36,406 \\
+    10 & 100 & 0\,\% & 34,261 & 47,432 & 52,411 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Criterio inicial y resultado.}
+Se establece un p95 máximo de 100 ms para los tres escenarios en este entorno local. El criterio se definió al revisar la prueba inicial: reserva un margen ligeramente superior al doble del mayor p95 observado (47,432 ms) para la autorización local previa al inicio de la revisión. Es una decisión técnica inicial del prototipo, que deberá contrastarse con la espera aceptable para el inspector; no es un límite prescrito por ISO/IEC 25010 ni una necesidad validada con usuarios. Las tres mediciones satisfacen este criterio en la corrida realizada. La selección posterior a la prueba se distingue de una validación independiente contra un umbral fijado previamente.
+
+Las 300 solicitudes medidas devolvieron HTTP 201 sin errores ni tiempos agotados. Para cada escenario se comprobaron 110 autorizaciones y 110 inspecciones, contando el calentamiento, y se contrastaron sus identificadores con las respuestas. El medidor terminó con código 0. Una sola corrida breve no demuestra capacidad sostenida ni permite trasladar estos tiempos a otro equipo, red o despliegue.
+
+\paragraph{Archivos de comprobación.}
+{\raggedright El código del medidor se incorpora en \path{pruebas/rendimiento.mjs}. En \path{evidencias/rendimiento/} se conservan \texttt{mediciones.csv}, \texttt{entorno.json}, \texttt{resumen.json} y las tres comprobaciones \texttt{persistencia-1.json}, \texttt{persistencia-5.json} y \texttt{persistencia-10.json}. La captura \path{evidencias/04-medicion-p95.png} muestra la tabla final y el código de salida. Los archivos originales conservan el criterio como pendiente en el momento de medir; el límite de 100 ms se define en este análisis sin alterar esos registros.\par}
 
 % =====================================================================
 %  7. JUSTIFICACIÓN DE LA ARQUITECTURA DISTRIBUIDA  — Responsable: Kevin
@@ -986,26 +1019,42 @@ Los registros completos están en \texttt{docs/adr/}. Ambos tienen estado \emph{
 %  12. ANÁLISIS DE RIESGOS  — Responsable: Nixon
 % =====================================================================
 \section{Análisis de riesgos}
-% Mínimo 5 riesgos técnicos; al menos 3 derivados del incidente
-% analizado en FORM-AC-01 (Cloudflare, junio de 2022).
-\begin{xltabular}{\textwidth}{lXllL{3.5cm}}
-  \caption{Riesgos técnicos}\label{tab:riesgos}\\
+Para comenzar una revisión, el servicio de Inspecciones debe recibir la autorización de Turnos y Pagos. Los riesgos de este intercambio se analizaron a partir de las tres primeras lecciones de \href{https://github.com/aldhair00/FORM-AC-01-EHPT/blob/8efd7db1b850fbd306bf2dd5afdc1ef69431a1c2/Documento/main.pdf}{FORM-AC-01, sección 6}: evitar duplicados en los reintentos, recuperar los registros y validar los datos antes de confirmar una operación. El caso estudiado fue el incidente de GitHub del 21 y 22 de octubre de 2018, descrito en su \href{https://github.blog/news-insights/company-news/oct21-post-incident-analysis/}{informe oficial}. Estas lecciones se adaptaron al manejo de turnos, autorizaciones e inspecciones del RTV.
+
+\paragraph{Criterio de valoración.}
+La probabilidad es una estimación cualitativa del equipo para el prototipo: baja si necesita una condición excepcional, media si puede aparecer con reintentos, concurrencia o fallos inducidos, y alta si la condición que expone al fallo ya es observable en lo publicado. El impacto es alto cuando puede alterar datos críticos o permitir un inicio indebido, medio cuando impide temporalmente una operación o su comprobación sin demostrar pérdida de datos, y bajo cuando causa una demora recuperable de alcance limitado. Estas valoraciones no son frecuencias medidas. La matriz describe las mitigaciones y sus comprobaciones. El apartado final identifica las pruebas funcionales ya ejecutadas y distingue las comprobaciones que siguen pendientes.
+
+\begin{xltabular}{\textwidth}{lXL{1.1cm}L{1.6cm}L{5cm}}
+  \caption{Riesgos técnicos del flujo de autorización y su comprobación}\label{tab:riesgos}\\
   \toprule
-  \textbf{ID} & \textbf{Riesgo} & \textbf{Prob.} & \textbf{Impacto} & \textbf{Mitigación} \\
+  \textbf{ID} & \textbf{Riesgo y efecto} & \textbf{Prob.} & \textbf{Impacto} & \textbf{Mitigación y comprobación propuesta} \\
   \midrule
   \endfirsthead
   \toprule
-  \textbf{ID} & \textbf{Riesgo} & \textbf{Prob.} & \textbf{Impacto} & \textbf{Mitigación} \\
+  \textbf{ID} & \textbf{Riesgo y efecto} & \textbf{Prob.} & \textbf{Impacto} & \textbf{Mitigación y comprobación propuesta} \\
   \midrule
   \endhead
   \bottomrule
   \endfoot
-  R-01 & \pendiente{riesgo (FORM-AC-01)} & \pendiente{nivel} & \pendiente{nivel} & \pendiente{mitigación} \\
-  R-02 & \pendiente{riesgo (FORM-AC-01)} & \pendiente{nivel} & \pendiente{nivel} & \pendiente{mitigación} \\
-  R-03 & \pendiente{riesgo (FORM-AC-01)} & \pendiente{nivel} & \pendiente{nivel} & \pendiente{mitigación} \\
-  R-04 & \pendiente{riesgo} & \pendiente{nivel} & \pendiente{nivel} & \pendiente{mitigación} \\
-  R-05 & \pendiente{riesgo} & \pendiente{nivel} & \pendiente{nivel} & \pendiente{mitigación} \\
+  R-01 & \textbf{Duplicación al reintentar una operación incierta.} Turnos y Pagos podría guardar una autorización cuya respuesta se pierde, o Inspecciones podría fallar antes de guardar su registro. Reintentar con otra clave o sin recuperar el resultado puede duplicar efectos. Se relaciona con RNF-04 y la lección 1 de FORM-AC-01. & Media & Alto & Conservar la misma clave y turno; persistir su relación y recuperar la autorización original. Proteger la unicidad en las dos bases. Provocar una respuesta perdida o un fallo de registro local y repetir la operación con la misma clave: debe recuperarse la misma autorización y quedar una sola inspección. \\
+  R-02 & \textbf{Pérdida de registros o recuperación incompleta de datos.} Una falla del almacenamiento o una intervención sobre PostgreSQL podría dejar sin acceso a autorizaciones e inspecciones confirmadas si no existe una recuperación comprobada. Se deriva de la lección 2 de FORM-AC-01. & Media & Alto & Preparar respaldos identificados y un procedimiento de restauración en una base aislada; comparar identificadores, estados y vínculos con un inventario previo. RNF-05 comprobará por separado la conservación de 10 registros tras reinicios controlados. Superar ese ensayo no demuestra restauración de respaldos. \\
+  R-03 & \textbf{Decisiones sobre un turno que cambió durante la operación.} Dos solicitudes con claves distintas podrían basarse en una validación previa y autorizar el mismo turno si la comprobación y la escritura no se protegen juntas. Se relaciona con RNF-03, RNF-04 y la lección 3 de FORM-AC-01. & Media & Alto & Validar el estado en Turnos y Pagos dentro de la transacción que decide y registra la autorización, con restricciones de unicidad. Enviar dos solicitudes simultáneas para un turno elegible: debe existir una sola autorización y como máximo una inspección activa; la otra operación debe rechazarse de forma controlada. \\
+  R-04 & \textbf{Interrupción del inicio por caída o demora del proveedor.} Inspecciones depende de la respuesta de Turnos y Pagos. Una desconexión o demora puede impedir confirmar el inicio y dejar al usuario sin una decisión clara. Se relaciona con RNF-02 y ADR-002. & Media & Medio & Aplicar la espera configurable propuesta de 3 segundos y un error comprensible; no iniciar la inspección sin autorización confirmada. Detener el proveedor y, en otro escenario, retrasar su respuesta: comprobar el error y la ausencia de una nueva inspección. Reintentar con la misma clave ante un resultado incierto. \\
+  R-05 & \textbf{Acceso indebido por manejo incorrecto de credenciales.} Una credencial expuesta o una validación incompleta podría permitir solicitar autorizaciones sin ser el consumidor autorizado. Se relaciona con RNF-06. & Media & Alto & Configurar credenciales fuera del repositorio, evitar su exposición en registros y evidencias y validarlas antes de escribir datos de negocio. Ejecutar 5 solicitudes sin credencial y 5 incorrectas, más un control válido: las 10 negativas deben rechazarse sin modificar turnos, pagos o autorizaciones. \\
+  R-06 & \textbf{Esqueleto no reproducible desde lo publicado.} El repositorio de entrega ya contiene el POM padre, las bibliotecas compartidas, los esquemas y la suite. Sin embargo, su README todavía contiene solo el título y la reproducción propia desde un clon limpio no se ha comprobado. Las verificaciones disponibles corresponden al prototipo de AppWebRevisionVehicular. La falta de instrucciones completas puede impedir repetirlas desde la entrega. & Alta & Medio & Solicitar a desarrollo que publique las dependencias, esquemas e instrucciones de arranque y prueba. Comprobar después desde un clon limpio la compilación de ambos servicios y un intercambio con datos sintéticos. Registrar versiones, comandos y resultados reales para repetir la prueba. \\
 \end{xltabular}
+
+\paragraph{Trazabilidad con FORM-AC-01.}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{R-01, sección 6, fila 1:} la propuesta de transacciones e identificadores únicos frente a reintentos del registro de solicitudes se adapta a conservar la clave y recuperar la autorización del RTV. Es una aplicación de la lección; no se afirma que GitHub utilizara el contrato de idempotencia de este prototipo.
+  \item \textbf{R-02, sección 6, fila 2:} la lección sobre respaldos y restauración de los registros del SGL se adapta a conservar y recuperar los registros confirmados del RTV, distinguiendo reiniciar de restaurar.
+  \item \textbf{R-03, sección 6, fila 3:} la validación transaccional y unicidad al reservar un asiento con información anterior se adaptan a evitar autorizaciones incompatibles para un mismo turno. No se presupone que el prototipo ya tenga réplicas de PostgreSQL.
+\end{itemize}
+
+\paragraph{Verificación funcional ejecutada.}
+Se utilizó la suite \path{pruebas/integracion.mjs} sobre el prototipo de AppWebRevisionVehicular, commit \texttt{77d1ff6}. Los diez escenarios terminaron con código 0, incluidos reintentos, concurrencia, servicio detenido o demorado, credenciales inválidas y recuperación tras una escritura interrumpida. En la demostración manual, el turno 101 devolvió HTTP 201 y estado \texttt{INICIADA}; su reintento con la misma clave devolvió HTTP 200 y los mismos identificadores. El turno 102 devolvió HTTP 409 con código \texttt{PAGO\_NO\_CONFIRMADO}.
+
+{\raggedright Las tres capturas funcionales se conservan en \path{evidencias/01-suite-integracion.png}, \path{evidencias/02-inicio-autorizado.png} y \path{evidencias/03-reintento-y-pago-pendiente.png}. La medición de rendimiento y sus registros se presentan en la tabla~\ref{tab:p95-nixon}. Estas pruebas no sustituyen la restauración de respaldos de R-02, el reinicio de PostgreSQL con 10 registros de RNF-05 ni todas las repeticiones exigidas en los demás RNF. La reproducción propia desde un clon limpio de la entrega sigue pendiente.\par}
 
 % =====================================================================
 %  13. PLAN DEL PROYECTO  — Responsable: Allison (jue. 19)
@@ -1096,7 +1145,7 @@ README.md
   \endfoot
   Levantamiento (acta o audio)  & \pendiente{ruta en /evidencias/} \\
     Fotografías de diseño (2)     & \pendiente{ruta en /evidencias/} \\
-    Capturas de ejecución (3)     & \pendiente{ruta en /evidencias/} \\
+    Capturas de ejecución (3)     & \path{evidencias/01-suite-integracion.png}; \path{evidencias/02-inicio-autorizado.png}; \path{evidencias/03-reintento-y-pago-pendiente.png} \\
     Bitácora del equipo           & \texttt{BITACORA.md} \\
     Video de presentación         & \pendiente{enlace (también en README.md)} \\
 \end{xltabular}

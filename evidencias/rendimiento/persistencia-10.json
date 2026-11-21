@@ -1,0 +1,996 @@
+{
+  "autorizaciones": [
+    {
+      "turno_id": 406394912582,
+      "autorizacion_id": "01e8e287-a94a-4f15-b759-422390cbae57"
+    },
+    {
+      "turno_id": 406394912588,
+      "autorizacion_id": "ab2b3442-bb76-40bc-809b-6079bdf6c4bc"
+    },
+    {
+      "turno_id": 406394912642,
+      "autorizacion_id": "861b6926-d362-444f-ad73-7b392de594fe"
+    },
+    {
+      "turno_id": 406394912602,
+      "autorizacion_id": "85174684-7bb1-46e9-b199-f4296a40d819"
+    },
+    {
+      "turno_id": 406394912613,
+      "autorizacion_id": "94430139-0322-4abf-a2ea-d5e2383acdf6"
+    },
+    {
+      "turno_id": 406394912663,
+      "autorizacion_id": "7c1f794b-a30c-4e40-8ee4-8efe1fe24707"
+    },
+    {
+      "turno_id": 406394912614,
+      "autorizacion_id": "29ed9777-c93d-44a4-a61e-700a5d35c651"
+    },
+    {
+      "turno_id": 406394912654,
+      "autorizacion_id": "30ad3151-039a-48e0-869f-87fb7d4ab4f6"
+    },
+    {
+      "turno_id": 406394912645,
+      "autorizacion_id": "a27a9f45-4372-4b7e-8ca4-b34fbf892649"
+    },
+    {
+      "turno_id": 406394912665,
+      "autorizacion_id": "d08563e9-3962-4e5b-ba85-ef237a6a564b"
+    },
+    {
+      "turno_id": 406394912666,
+      "autorizacion_id": "79d858aa-ae49-489a-bd07-078a48d72d9e"
+    },
+    {
+      "turno_id": 406394912598,
+      "autorizacion_id": "3d0f1543-07fe-4d8a-a3f0-accc14845d20"
+    },
+    {
+      "turno_id": 406394912678,
+      "autorizacion_id": "d7b19dca-e700-46f2-a44e-db3e175fb972"
+    },
+    {
+      "turno_id": 406394912679,
+      "autorizacion_id": "a83baf4f-676a-413f-a340-ace4d98ff4af"
+    },
+    {
+      "turno_id": 406394912660,
+      "autorizacion_id": "e71b6787-c94b-462d-aebb-51dbff63cc34"
+    },
+    {
+      "turno_id": 406394912661,
+      "autorizacion_id": "c546f94b-649a-4e3e-99b2-bbd96f9e5bd6"
+    },
+    {
+      "turno_id": 406394912586,
+      "autorizacion_id": "ce3402d8-9926-47aa-b1eb-afcc6fe5ae17"
+    },
+    {
+      "turno_id": 406394912590,
+      "autorizacion_id": "caad7589-ca48-4385-b1fc-1ea5be41a4de"
+    },
+    {
+      "turno_id": 406394912612,
+      "autorizacion_id": "2727a319-0ed5-4859-ab80-7f3b756cf905"
+    },
+    {
+      "turno_id": 406394912652,
+      "autorizacion_id": "1b8661a7-2f11-49f4-99de-fa7ce48f05f9"
+    },
+    {
+      "turno_id": 406394912643,
+      "autorizacion_id": "3edd9d03-4df7-41ea-984c-f0b9cfb8f777"
+    },
+    {
+      "turno_id": 406394912623,
+      "autorizacion_id": "2e2074d8-05c5-489e-90e3-17b5ed9b68c7"
+    },
+    {
+      "turno_id": 406394912634,
+      "autorizacion_id": "5aa6adb3-e395-47d7-809d-e38438f21e91"
+    },
+    {
+      "turno_id": 406394912624,
+      "autorizacion_id": "2e95ba8c-0560-4229-9f39-8a62db707db2"
+    },
+    {
+      "turno_id": 406394912595,
+      "autorizacion_id": "620305ca-1bf8-4976-ab6b-35b7cfb20e1d"
+    },
+    {
+      "turno_id": 406394912685,
+      "autorizacion_id": "7a1ac5d5-0a47-4696-8c51-0bf0a21f835e"
+    },
+    {
+      "turno_id": 406394912596,
+      "autorizacion_id": "0a73ee21-0b5d-4a9e-980c-c8a738fb1ff4"
+    },
+    {
+      "turno_id": 406394912636,
+      "autorizacion_id": "619608b3-e7be-4835-8a18-e108259bf3b1"
+    },
+    {
+      "turno_id": 406394912597,
+      "autorizacion_id": "720ab159-8777-421f-9050-adc5b2fe267d"
+    },
+    {
+      "turno_id": 406394912607,
+      "autorizacion_id": "189d427a-35fb-497e-8f95-74acd3e70ae8"
+    },
+    {
+      "turno_id": 406394912687,
+      "autorizacion_id": "eba3ccd0-949e-4649-8175-524dbbdb1f6e"
+    },
+    {
+      "turno_id": 406394912677,
+      "autorizacion_id": "ea8ea0df-3ffe-4cfc-8294-624ad91671c2"
+    },
+    {
+      "turno_id": 406394912618,
+      "autorizacion_id": "83f2da0c-56cf-40b1-b8f5-15be05bf64ea"
+    },
+    {
+      "turno_id": 406394912638,
+      "autorizacion_id": "edf02b6e-c221-4421-aa99-b70a842f4571"
+    },
+    {
+      "turno_id": 406394912599,
+      "autorizacion_id": "24560ec5-da1c-4d64-933c-90968a4e117d"
+    },
+    {
+      "turno_id": 406394912649,
+      "autorizacion_id": "8f4df6d9-7a84-42a5-906d-fbbac5e2d2df"
+    },
+    {
+      "turno_id": 406394912689,
+      "autorizacion_id": "f7637982-ecc9-4211-ae2a-782f1451d321"
+    },
+    {
+      "turno_id": 406394912650,
+      "autorizacion_id": "ce8aa1d5-ebd9-4471-b435-34d66065caae"
+    },
+    {
+      "turno_id": 406394912690,
+      "autorizacion_id": "1a8ead5e-7ba9-4267-af7b-caec2c33e3e1"
+    },
+    {
+      "turno_id": 406394912670,
+      "autorizacion_id": "fe2c7f17-9910-40e2-b1ce-dbc31ae002b9"
+    },
+    {
+      "turno_id": 406394912651,
+      "autorizacion_id": "f9511bec-86c1-4027-b4e8-9f4877fbcf41"
+    },
+    {
+      "turno_id": 406394912691,
+      "autorizacion_id": "97008b2b-f888-447a-87f6-584b0db4600c"
+    },
+    {
+      "turno_id": 406394912671,
+      "autorizacion_id": "fa057f95-bdae-41c7-a18c-8f18b7b91f2d"
+    },
+    {
+      "turno_id": 406394912584,
+      "autorizacion_id": "5c6c5a9b-43e9-478d-be67-b41ddbf2f196"
+    },
+    {
+      "turno_id": 406394912583,
+      "autorizacion_id": "8cb693f8-bfa3-46ec-a12c-b9c37e5ab0f9"
+    },
+    {
+      "turno_id": 406394912589,
+      "autorizacion_id": "6a8cae08-28a6-49e1-9ab5-7bc658715ef9"
+    },
+    {
+      "turno_id": 406394912632,
+      "autorizacion_id": "d3dd392f-c796-4c14-8abb-73e85293edbc"
+    },
+    {
+      "turno_id": 406394912672,
+      "autorizacion_id": "90c8fe99-b27b-44fe-a439-feec577b1f92"
+    },
+    {
+      "turno_id": 406394912593,
+      "autorizacion_id": "075b1810-cfb3-4b29-8be3-403d5d841e74"
+    },
+    {
+      "turno_id": 406394912673,
+      "autorizacion_id": "b0b3612e-5f52-46ba-9beb-4a27f25490a5"
+    },
+    {
+      "turno_id": 406394912603,
+      "autorizacion_id": "5c870c30-6d20-45f6-8691-20650d1bd6fc"
+    },
+    {
+      "turno_id": 406394912644,
+      "autorizacion_id": "c1ef55b5-d4b8-4a3c-945c-457360ccea68"
+    },
+    {
+      "turno_id": 406394912674,
+      "autorizacion_id": "9762df34-9cc7-4d79-8161-5a11547a9163"
+    },
+    {
+      "turno_id": 406394912604,
+      "autorizacion_id": "ea17de24-b762-4549-b7f4-2dcb626e98cd"
+    },
+    {
+      "turno_id": 406394912615,
+      "autorizacion_id": "2de97321-ed21-4407-8ff0-9aa1ad05cb9e"
+    },
+    {
+      "turno_id": 406394912605,
+      "autorizacion_id": "2c3daf34-b555-47cf-a236-73b8553174ad"
+    },
+    {
+      "turno_id": 406394912616,
+      "autorizacion_id": "4c9dc062-b22e-42d6-9fd6-5ddc873ffcc0"
+    },
+    {
+      "turno_id": 406394912625,
+      "autorizacion_id": "b784c309-ea25-44e0-a3db-49b68db84999"
+    },
+    {
+      "turno_id": 406394912686,
+      "autorizacion_id": "345a4676-84b3-4575-9ef0-7e8e5c8c32c0"
+    },
+    {
+      "turno_id": 406394912617,
+      "autorizacion_id": "f334e21b-6ca8-4212-89a8-774b5e39ff13"
+    },
+    {
+      "turno_id": 406394912637,
+      "autorizacion_id": "a6d198d9-f96c-442a-9a94-2b12fb14953d"
+    },
+    {
+      "turno_id": 406394912608,
+      "autorizacion_id": "fd585747-4c9d-45ca-b014-156cb124e51e"
+    },
+    {
+      "turno_id": 406394912688,
+      "autorizacion_id": "42c5f536-6257-430a-94fb-a3d0c27e42bb"
+    },
+    {
+      "turno_id": 406394912609,
+      "autorizacion_id": "935e3254-fc14-4816-9dee-f713b9781129"
+    },
+    {
+      "turno_id": 406394912628,
+      "autorizacion_id": "c29f0bb7-b9b2-4ce5-92a7-b940748b60ee"
+    },
+    {
+      "turno_id": 406394912610,
+      "autorizacion_id": "607fad47-204d-4e49-897e-86263212ce92"
+    },
+    {
+      "turno_id": 406394912629,
+      "autorizacion_id": "9706e90d-b625-400e-8171-7251d08182a9"
+    },
+    {
+      "turno_id": 406394912611,
+      "autorizacion_id": "3377c02b-96f7-4aba-959f-5329455bd062"
+    },
+    {
+      "turno_id": 406394912630,
+      "autorizacion_id": "c37d3db5-aa5e-4f29-94fc-47d43072a434"
+    },
+    {
+      "turno_id": 406394912585,
+      "autorizacion_id": "3d5a22c0-0558-4ca6-affd-da470f800b73"
+    },
+    {
+      "turno_id": 406394912591,
+      "autorizacion_id": "76e45b91-a06d-4712-ace8-1c2849ea9478"
+    },
+    {
+      "turno_id": 406394912622,
+      "autorizacion_id": "cdf48134-4689-4e03-9120-c3de20a3d899"
+    },
+    {
+      "turno_id": 406394912682,
+      "autorizacion_id": "c0ca33e7-f48a-4474-b968-3bc62c36aac5"
+    },
+    {
+      "turno_id": 406394912683,
+      "autorizacion_id": "edb003b5-d3f2-4a6f-be1b-2f7198ac3ecf"
+    },
+    {
+      "turno_id": 406394912684,
+      "autorizacion_id": "be668f07-0eec-420d-816d-7955f0cc0d40"
+    },
+    {
+      "turno_id": 406394912675,
+      "autorizacion_id": "83242da0-43a0-449e-b43f-c3221513d2e2"
+    },
+    {
+      "turno_id": 406394912606,
+      "autorizacion_id": "721e312c-31db-47bb-90ff-7b587f0663b8"
+    },
+    {
+      "turno_id": 406394912676,
+      "autorizacion_id": "4c8912f8-e105-4f6d-a0af-2fc2dcff7415"
+    },
+    {
+      "turno_id": 406394912626,
+      "autorizacion_id": "1a89d23e-6287-413d-b87b-3407a7e6e3b1"
+    },
+    {
+      "turno_id": 406394912657,
+      "autorizacion_id": "7a13284b-7472-4069-b1cb-881f4c38b8bc"
+    },
+    {
+      "turno_id": 406394912627,
+      "autorizacion_id": "de632754-d0fc-4734-a42e-35e860600e71"
+    },
+    {
+      "turno_id": 406394912658,
+      "autorizacion_id": "56fcf0b9-9528-4b2e-a20d-0a3e6f125727"
+    },
+    {
+      "turno_id": 406394912639,
+      "autorizacion_id": "e552605a-1463-492c-b867-807cb33d13ad"
+    },
+    {
+      "turno_id": 406394912659,
+      "autorizacion_id": "0b0b6252-f7cc-4af7-a74e-07dc36e70ac6"
+    },
+    {
+      "turno_id": 406394912600,
+      "autorizacion_id": "db16e6df-dfc8-4234-b2de-0fe80e784ce7"
+    },
+    {
+      "turno_id": 406394912640,
+      "autorizacion_id": "628642fd-e2bf-4888-b430-ecff3146fa3d"
+    },
+    {
+      "turno_id": 406394912601,
+      "autorizacion_id": "8df16312-04fd-4491-8ad9-e6da4bad8094"
+    },
+    {
+      "turno_id": 406394912641,
+      "autorizacion_id": "e532d18f-48ce-4bd0-8898-c3d178550ae4"
+    },
+    {
+      "turno_id": 406394912631,
+      "autorizacion_id": "7a47e504-7371-4d54-ba11-e397f4a40ec4"
+    },
+    {
+      "turno_id": 406394912587,
+      "autorizacion_id": "cd087e5f-1464-42b1-85c4-25c626208db9"
+    },
+    {
+      "turno_id": 406394912592,
+      "autorizacion_id": "579e9f3d-01a8-4f17-9768-5f6656316d36"
+    },
+    {
+      "turno_id": 406394912662,
+      "autorizacion_id": "cfc14fcf-f513-40fc-80c4-4518133c6060"
+    },
+    {
+      "turno_id": 406394912633,
+      "autorizacion_id": "6e028dfb-d970-4312-92ac-59de8a3888e5"
+    },
+    {
+      "turno_id": 406394912653,
+      "autorizacion_id": "773354e1-d7b8-4d87-8e3d-2c888ffacb9c"
+    },
+    {
+      "turno_id": 406394912594,
+      "autorizacion_id": "8574479b-b732-4ff9-8f2f-22a5cd209adb"
+    },
+    {
+      "turno_id": 406394912664,
+      "autorizacion_id": "c1ec86be-059c-470c-891a-a8186bfd87b6"
+    },
+    {
+      "turno_id": 406394912635,
+      "autorizacion_id": "03b739f1-42b9-429b-a77e-0d95e09667bd"
+    },
+    {
+      "turno_id": 406394912655,
+      "autorizacion_id": "4f33ec3c-8ed0-4488-bf97-3032269a8104"
+    },
+    {
+      "turno_id": 406394912646,
+      "autorizacion_id": "da1c61aa-9e3b-43c9-9c47-da67ee642095"
+    },
+    {
+      "turno_id": 406394912656,
+      "autorizacion_id": "40e30b6c-2598-452c-9863-7f7fdd84765e"
+    },
+    {
+      "turno_id": 406394912647,
+      "autorizacion_id": "c4ae4919-cd89-4b3b-9019-3202c3c4dbee"
+    },
+    {
+      "turno_id": 406394912667,
+      "autorizacion_id": "9f33a9ad-7687-49a6-8b21-bfdb69ce0144"
+    },
+    {
+      "turno_id": 406394912648,
+      "autorizacion_id": "47200fc4-b580-4f3e-b1e4-659cb2b3fb65"
+    },
+    {
+      "turno_id": 406394912668,
+      "autorizacion_id": "33ed144b-493f-406a-973a-ddb29f9fcbf8"
+    },
+    {
+      "turno_id": 406394912619,
+      "autorizacion_id": "d40e3e0c-0f63-47ab-a97d-443ab89d9f32"
+    },
+    {
+      "turno_id": 406394912669,
+      "autorizacion_id": "5868eec7-ef0c-450f-abff-d9c3c70479c9"
+    },
+    {
+      "turno_id": 406394912620,
+      "autorizacion_id": "ebddb2a9-7fce-4570-bea9-6ef8865be8bd"
+    },
+    {
+      "turno_id": 406394912680,
+      "autorizacion_id": "dfc39220-0e44-4825-a875-f5f6df05729b"
+    },
+    {
+      "turno_id": 406394912621,
+      "autorizacion_id": "74b6bc9e-e6ad-4870-b177-8f8974c6652b"
+    },
+    {
+      "turno_id": 406394912681,
+      "autorizacion_id": "48973cae-2287-41c4-ba99-330127bd1570"
+    }
+  ],
+  "inspecciones": [
+    {
+      "turno_id": 406394912584,
+      "inspeccion_id": "213ae73f-38e3-4dc0-9c45-b1d9ada5182c",
+      "autorizacion_id": "5c6c5a9b-43e9-478d-be67-b41ddbf2f196"
+    },
+    {
+      "turno_id": 406394912585,
+      "inspeccion_id": "90272175-a410-40cd-9ade-9164c0133e06",
+      "autorizacion_id": "3d5a22c0-0558-4ca6-affd-da470f800b73"
+    },
+    {
+      "turno_id": 406394912591,
+      "inspeccion_id": "45e051b1-f3c9-4d62-a5ec-23c39f836119",
+      "autorizacion_id": "76e45b91-a06d-4712-ace8-1c2849ea9478"
+    },
+    {
+      "turno_id": 406394912592,
+      "inspeccion_id": "8e73cc4a-5936-4cd2-a260-ddcebc439475",
+      "autorizacion_id": "579e9f3d-01a8-4f17-9768-5f6656316d36"
+    },
+    {
+      "turno_id": 406394912602,
+      "inspeccion_id": "da8d2d97-751b-4abc-a956-67ed3078c354",
+      "autorizacion_id": "85174684-7bb1-46e9-b199-f4296a40d819"
+    },
+    {
+      "turno_id": 406394912593,
+      "inspeccion_id": "93e9de67-7edd-4af5-a0aa-124ca10e19f1",
+      "autorizacion_id": "075b1810-cfb3-4b29-8be3-403d5d841e74"
+    },
+    {
+      "turno_id": 406394912673,
+      "inspeccion_id": "203ed0ad-12f4-4424-af5e-1ee289a274b8",
+      "autorizacion_id": "b0b3612e-5f52-46ba-9beb-4a27f25490a5"
+    },
+    {
+      "turno_id": 406394912623,
+      "inspeccion_id": "b040c8ae-8fe6-465f-a518-1e4596ad525b",
+      "autorizacion_id": "2e2074d8-05c5-489e-90e3-17b5ed9b68c7"
+    },
+    {
+      "turno_id": 406394912614,
+      "inspeccion_id": "ffd42d59-9844-4f9b-9c75-c8ea67c35809",
+      "autorizacion_id": "29ed9777-c93d-44a4-a61e-700a5d35c651"
+    },
+    {
+      "turno_id": 406394912654,
+      "inspeccion_id": "3c3266bd-18e1-4fb7-946a-fb3be44eafdf",
+      "autorizacion_id": "30ad3151-039a-48e0-869f-87fb7d4ab4f6"
+    },
+    {
+      "turno_id": 406394912615,
+      "inspeccion_id": "89548a18-3087-4920-ad91-e28547f013b6",
+      "autorizacion_id": "2de97321-ed21-4407-8ff0-9aa1ad05cb9e"
+    },
+    {
+      "turno_id": 406394912655,
+      "inspeccion_id": "c0b0ac3f-71a3-4c47-b28f-727e975e968a",
+      "autorizacion_id": "4f33ec3c-8ed0-4488-bf97-3032269a8104"
+    },
+    {
+      "turno_id": 406394912596,
+      "inspeccion_id": "948ed67f-720b-4b10-857d-02a37b9416b4",
+      "autorizacion_id": "0a73ee21-0b5d-4a9e-980c-c8a738fb1ff4"
+    },
+    {
+      "turno_id": 406394912656,
+      "inspeccion_id": "5a86dbc6-e25a-4945-9189-adee29a2ab4b",
+      "autorizacion_id": "40e30b6c-2598-452c-9863-7f7fdd84765e"
+    },
+    {
+      "turno_id": 406394912597,
+      "inspeccion_id": "7e16c83d-bb14-4a0e-9099-dbeb0fada94a",
+      "autorizacion_id": "720ab159-8777-421f-9050-adc5b2fe267d"
+    },
+    {
+      "turno_id": 406394912657,
+      "inspeccion_id": "48e7700c-73a8-4e50-828c-41cf5ff79d23",
+      "autorizacion_id": "7a13284b-7472-4069-b1cb-881f4c38b8bc"
+    },
+    {
+      "turno_id": 406394912677,
+      "inspeccion_id": "05b8d816-1184-439e-8f35-a8f51376f2bd",
+      "autorizacion_id": "ea8ea0df-3ffe-4cfc-8294-624ad91671c2"
+    },
+    {
+      "turno_id": 406394912658,
+      "inspeccion_id": "b5f88149-b518-4ae7-a9db-996487173c5f",
+      "autorizacion_id": "56fcf0b9-9528-4b2e-a20d-0a3e6f125727"
+    },
+    {
+      "turno_id": 406394912678,
+      "inspeccion_id": "42a735b4-2c23-4d6a-947b-6d0f902a55f2",
+      "autorizacion_id": "d7b19dca-e700-46f2-a44e-db3e175fb972"
+    },
+    {
+      "turno_id": 406394912659,
+      "inspeccion_id": "762708e8-bff6-4b09-95cb-ae7ae53fd920",
+      "autorizacion_id": "0b0b6252-f7cc-4af7-a74e-07dc36e70ac6"
+    },
+    {
+      "turno_id": 406394912669,
+      "inspeccion_id": "fad7a49c-3b24-4657-85b1-4185c71e3059",
+      "autorizacion_id": "5868eec7-ef0c-450f-abff-d9c3c70479c9"
+    },
+    {
+      "turno_id": 406394912600,
+      "inspeccion_id": "30fb651c-c994-43d9-a328-e4d1584ccc9f",
+      "autorizacion_id": "db16e6df-dfc8-4234-b2de-0fe80e784ce7"
+    },
+    {
+      "turno_id": 406394912660,
+      "inspeccion_id": "a3c38bd3-129e-44ea-a64c-31b983cddee0",
+      "autorizacion_id": "e71b6787-c94b-462d-aebb-51dbff63cc34"
+    },
+    {
+      "turno_id": 406394912611,
+      "inspeccion_id": "a6531a0e-8d50-4e3e-9d20-fbd5b01a834b",
+      "autorizacion_id": "3377c02b-96f7-4aba-959f-5329455bd062"
+    },
+    {
+      "turno_id": 406394912681,
+      "inspeccion_id": "74612aa2-2958-466a-ad12-561ea8253a35",
+      "autorizacion_id": "48973cae-2287-41c4-ba99-330127bd1570"
+    },
+    {
+      "turno_id": 406394912582,
+      "inspeccion_id": "a3971825-934c-4375-8462-d85ff05aa9dc",
+      "autorizacion_id": "01e8e287-a94a-4f15-b759-422390cbae57"
+    },
+    {
+      "turno_id": 406394912590,
+      "inspeccion_id": "7f6f0dac-2b00-48dc-b62a-12277ba22278",
+      "autorizacion_id": "caad7589-ca48-4385-b1fc-1ea5be41a4de"
+    },
+    {
+      "turno_id": 406394912612,
+      "inspeccion_id": "cd786d34-8063-47fb-b047-33e26bedeffe",
+      "autorizacion_id": "2727a319-0ed5-4859-ab80-7f3b756cf905"
+    },
+    {
+      "turno_id": 406394912613,
+      "inspeccion_id": "d8b2f678-b834-4d7e-8152-9be759b1fc6c",
+      "autorizacion_id": "94430139-0322-4abf-a2ea-d5e2383acdf6"
+    },
+    {
+      "turno_id": 406394912663,
+      "inspeccion_id": "5a3e8263-bf81-4c7a-b22c-380c0089189e",
+      "autorizacion_id": "7c1f794b-a30c-4e40-8ee4-8efe1fe24707"
+    },
+    {
+      "turno_id": 406394912594,
+      "inspeccion_id": "37bcff8d-3872-46b1-8098-bee9f0ef81fc",
+      "autorizacion_id": "8574479b-b732-4ff9-8f2f-22a5cd209adb"
+    },
+    {
+      "turno_id": 406394912635,
+      "inspeccion_id": "7b0175cd-8cc2-4f09-ae18-fcdf99437a59",
+      "autorizacion_id": "03b739f1-42b9-429b-a77e-0d95e09667bd"
+    },
+    {
+      "turno_id": 406394912675,
+      "inspeccion_id": "4578b068-0c88-46d8-a760-c7cfb176bad3",
+      "autorizacion_id": "83242da0-43a0-449e-b43f-c3221513d2e2"
+    },
+    {
+      "turno_id": 406394912636,
+      "inspeccion_id": "9dd2bdaa-ea11-4fc3-9fa1-3e80e24a50a1",
+      "autorizacion_id": "619608b3-e7be-4835-8a18-e108259bf3b1"
+    },
+    {
+      "turno_id": 406394912637,
+      "inspeccion_id": "218baf07-4196-4391-ba5e-4e5fb401d17a",
+      "autorizacion_id": "a6d198d9-f96c-442a-9a94-2b12fb14953d"
+    },
+    {
+      "turno_id": 406394912638,
+      "inspeccion_id": "5bff48e0-6725-4cdd-b312-d1e1e2953d19",
+      "autorizacion_id": "edf02b6e-c221-4421-aa99-b70a842f4571"
+    },
+    {
+      "turno_id": 406394912639,
+      "inspeccion_id": "02161d3f-bea6-4229-8357-b029670afae5",
+      "autorizacion_id": "e552605a-1463-492c-b867-807cb33d13ad"
+    },
+    {
+      "turno_id": 406394912640,
+      "inspeccion_id": "3b1ce518-e340-4f6d-8735-5e028edd3ddb",
+      "autorizacion_id": "628642fd-e2bf-4888-b430-ecff3146fa3d"
+    },
+    {
+      "turno_id": 406394912641,
+      "inspeccion_id": "54f233d0-ab1a-47af-97bd-83c195599f42",
+      "autorizacion_id": "e532d18f-48ce-4bd0-8898-c3d178550ae4"
+    },
+    {
+      "turno_id": 406394912587,
+      "inspeccion_id": "6fcfb073-c987-4f12-a141-f6faa4516e7e",
+      "autorizacion_id": "cd087e5f-1464-42b1-85c4-25c626208db9"
+    },
+    {
+      "turno_id": 406394912588,
+      "inspeccion_id": "e254b3fb-fa12-48b0-b68b-efcfd94e8750",
+      "autorizacion_id": "ab2b3442-bb76-40bc-809b-6079bdf6c4bc"
+    },
+    {
+      "turno_id": 406394912642,
+      "inspeccion_id": "373cbd0d-5389-4e51-a0ac-d367753ab353",
+      "autorizacion_id": "861b6926-d362-444f-ad73-7b392de594fe"
+    },
+    {
+      "turno_id": 406394912652,
+      "inspeccion_id": "a89d1876-2f49-4968-ad46-73fb4572fa2e",
+      "autorizacion_id": "1b8661a7-2f11-49f4-99de-fa7ce48f05f9"
+    },
+    {
+      "turno_id": 406394912643,
+      "inspeccion_id": "c92d594f-63ce-4c69-8d4f-f882e6e24e40",
+      "autorizacion_id": "3edd9d03-4df7-41ea-984c-f0b9cfb8f777"
+    },
+    {
+      "turno_id": 406394912603,
+      "inspeccion_id": "f27d7bfd-d5c7-4e54-918e-f1dd61ec39b8",
+      "autorizacion_id": "5c870c30-6d20-45f6-8691-20650d1bd6fc"
+    },
+    {
+      "turno_id": 406394912644,
+      "inspeccion_id": "53d7b522-3314-4dc8-b58c-ce7cfa538803",
+      "autorizacion_id": "c1ef55b5-d4b8-4a3c-945c-457360ccea68"
+    },
+    {
+      "turno_id": 406394912684,
+      "inspeccion_id": "910905b1-df66-4f07-b84b-f2eb1262a107",
+      "autorizacion_id": "be668f07-0eec-420d-816d-7955f0cc0d40"
+    },
+    {
+      "turno_id": 406394912664,
+      "inspeccion_id": "1282b78c-e420-4d6d-94fd-2e4eb268387f",
+      "autorizacion_id": "c1ec86be-059c-470c-891a-a8186bfd87b6"
+    },
+    {
+      "turno_id": 406394912645,
+      "inspeccion_id": "e07935b1-8465-438c-9210-a17f10d3dd01",
+      "autorizacion_id": "a27a9f45-4372-4b7e-8ca4-b34fbf892649"
+    },
+    {
+      "turno_id": 406394912605,
+      "inspeccion_id": "eb01fd0a-7092-4324-a3d4-8049a7552cf0",
+      "autorizacion_id": "2c3daf34-b555-47cf-a236-73b8553174ad"
+    },
+    {
+      "turno_id": 406394912685,
+      "inspeccion_id": "fb972b86-f8e9-49c2-8fa9-a88f1333598c",
+      "autorizacion_id": "7a1ac5d5-0a47-4696-8c51-0bf0a21f835e"
+    },
+    {
+      "turno_id": 406394912606,
+      "inspeccion_id": "e69e9325-03b1-4419-9986-423de71f2a0c",
+      "autorizacion_id": "721e312c-31db-47bb-90ff-7b587f0663b8"
+    },
+    {
+      "turno_id": 406394912686,
+      "inspeccion_id": "7ce3e65c-f4d8-41c9-9d17-a56a0bc02192",
+      "autorizacion_id": "345a4676-84b3-4575-9ef0-7e8e5c8c32c0"
+    },
+    {
+      "turno_id": 406394912676,
+      "inspeccion_id": "f32fcda7-d2d6-4f42-9f94-c01b5fa72e50",
+      "autorizacion_id": "4c8912f8-e105-4f6d-a0af-2fc2dcff7415"
+    },
+    {
+      "turno_id": 406394912617,
+      "inspeccion_id": "7d63b916-c6b2-416e-89ca-7b57339cc874",
+      "autorizacion_id": "f334e21b-6ca8-4212-89a8-774b5e39ff13"
+    },
+    {
+      "turno_id": 406394912647,
+      "inspeccion_id": "1332d421-73fc-4bbc-bbf0-892c8a3f9045",
+      "autorizacion_id": "c4ae4919-cd89-4b3b-9019-3202c3c4dbee"
+    },
+    {
+      "turno_id": 406394912687,
+      "inspeccion_id": "a5bf4c45-77b3-4838-a156-60e3c5cf9571",
+      "autorizacion_id": "eba3ccd0-949e-4649-8175-524dbbdb1f6e"
+    },
+    {
+      "turno_id": 406394912667,
+      "inspeccion_id": "783e475a-cfbd-47dc-be96-3a0892437b0b",
+      "autorizacion_id": "9f33a9ad-7687-49a6-8b21-bfdb69ce0144"
+    },
+    {
+      "turno_id": 406394912598,
+      "inspeccion_id": "0c7cac2d-fa7b-4a30-8dd7-627a31626963",
+      "autorizacion_id": "3d0f1543-07fe-4d8a-a3f0-accc14845d20"
+    },
+    {
+      "turno_id": 406394912608,
+      "inspeccion_id": "a6f7d70b-03d8-4035-866b-68ac5dc38d7a",
+      "autorizacion_id": "fd585747-4c9d-45ca-b014-156cb124e51e"
+    },
+    {
+      "turno_id": 406394912627,
+      "inspeccion_id": "987e632a-51ac-42ee-8aeb-c82da18a0f75",
+      "autorizacion_id": "de632754-d0fc-4734-a42e-35e860600e71"
+    },
+    {
+      "turno_id": 406394912668,
+      "inspeccion_id": "55a6a073-76e0-4672-8edf-c9ac32a6aa2f",
+      "autorizacion_id": "33ed144b-493f-406a-973a-ddb29f9fcbf8"
+    },
+    {
+      "turno_id": 406394912609,
+      "inspeccion_id": "bc9077eb-2ea1-4127-a857-8d63322d4fdb",
+      "autorizacion_id": "935e3254-fc14-4816-9dee-f713b9781129"
+    },
+    {
+      "turno_id": 406394912689,
+      "inspeccion_id": "f68b6332-b7e6-44c6-bff8-bfbdfddb87ac",
+      "autorizacion_id": "f7637982-ecc9-4211-ae2a-782f1451d321"
+    },
+    {
+      "turno_id": 406394912629,
+      "inspeccion_id": "b86fa798-3f51-42f1-838d-a9edf6094a44",
+      "autorizacion_id": "9706e90d-b625-400e-8171-7251d08182a9"
+    },
+    {
+      "turno_id": 406394912690,
+      "inspeccion_id": "bd165e9d-b218-49d5-be5f-dd0693d69b29",
+      "autorizacion_id": "1a8ead5e-7ba9-4267-af7b-caec2c33e3e1"
+    },
+    {
+      "turno_id": 406394912621,
+      "inspeccion_id": "62389b52-df1a-44a3-bfcf-2cbd56dcae65",
+      "autorizacion_id": "74b6bc9e-e6ad-4870-b177-8f8974c6652b"
+    },
+    {
+      "turno_id": 406394912630,
+      "inspeccion_id": "63c0a25e-ce94-4939-9fef-764e725dfe86",
+      "autorizacion_id": "c37d3db5-aa5e-4f29-94fc-47d43072a434"
+    },
+    {
+      "turno_id": 406394912631,
+      "inspeccion_id": "43374ce3-c15d-43d6-b357-2ac5f3db64d1",
+      "autorizacion_id": "7a47e504-7371-4d54-ba11-e397f4a40ec4"
+    },
+    {
+      "turno_id": 406394912586,
+      "inspeccion_id": "9a11c4a0-378c-4c9d-9663-3614e2289355",
+      "autorizacion_id": "ce3402d8-9926-47aa-b1eb-afcc6fe5ae17"
+    },
+    {
+      "turno_id": 406394912589,
+      "inspeccion_id": "0cf3162c-5f46-4a42-90c6-bdbcf57402d8",
+      "autorizacion_id": "6a8cae08-28a6-49e1-9ab5-7bc658715ef9"
+    },
+    {
+      "turno_id": 406394912622,
+      "inspeccion_id": "636d9142-2692-4cce-a0a8-749f2191aafc",
+      "autorizacion_id": "cdf48134-4689-4e03-9120-c3de20a3d899"
+    },
+    {
+      "turno_id": 406394912672,
+      "inspeccion_id": "0e8fad03-033d-4e75-b4f1-567007e992f1",
+      "autorizacion_id": "90c8fe99-b27b-44fe-a439-feec577b1f92"
+    },
+    {
+      "turno_id": 406394912682,
+      "inspeccion_id": "fa0e106a-dff8-42f7-8edc-4132716d0056",
+      "autorizacion_id": "c0ca33e7-f48a-4474-b968-3bc62c36aac5"
+    },
+    {
+      "turno_id": 406394912683,
+      "inspeccion_id": "267ff22e-8d00-470f-a058-ba7c865175d4",
+      "autorizacion_id": "edb003b5-d3f2-4a6f-be1b-2f7198ac3ecf"
+    },
+    {
+      "turno_id": 406394912674,
+      "inspeccion_id": "b867ccd0-1086-4b13-8464-9468bb377c63",
+      "autorizacion_id": "9762df34-9cc7-4d79-8161-5a11547a9163"
+    },
+    {
+      "turno_id": 406394912604,
+      "inspeccion_id": "3748dd09-3167-4ed6-b789-93b3e1c1a50e",
+      "autorizacion_id": "ea17de24-b762-4549-b7f4-2dcb626e98cd"
+    },
+    {
+      "turno_id": 406394912595,
+      "inspeccion_id": "6c796464-32f1-4f5c-bd5b-449b7e20d659",
+      "autorizacion_id": "620305ca-1bf8-4976-ab6b-35b7cfb20e1d"
+    },
+    {
+      "turno_id": 406394912665,
+      "inspeccion_id": "8466f82a-7e39-4fdd-98fe-94cd1807e187",
+      "autorizacion_id": "d08563e9-3962-4e5b-ba85-ef237a6a564b"
+    },
+    {
+      "turno_id": 406394912616,
+      "inspeccion_id": "116740dc-c09c-4683-8dfe-2c9eefaa60e5",
+      "autorizacion_id": "4c9dc062-b22e-42d6-9fd6-5ddc873ffcc0"
+    },
+    {
+      "turno_id": 406394912625,
+      "inspeccion_id": "dbc43837-e74a-4a11-96fd-512dbe2ef13a",
+      "autorizacion_id": "b784c309-ea25-44e0-a3db-49b68db84999"
+    },
+    {
+      "turno_id": 406394912666,
+      "inspeccion_id": "fba5f85e-edaa-419a-a9ed-d2ed0340e01c",
+      "autorizacion_id": "79d858aa-ae49-489a-bd07-078a48d72d9e"
+    },
+    {
+      "turno_id": 406394912607,
+      "inspeccion_id": "2e3166f2-4915-45aa-9217-1292334a0f70",
+      "autorizacion_id": "189d427a-35fb-497e-8f95-74acd3e70ae8"
+    },
+    {
+      "turno_id": 406394912648,
+      "inspeccion_id": "bf6cf5e9-0fec-4098-95e9-62f718dc40fe",
+      "autorizacion_id": "47200fc4-b580-4f3e-b1e4-659cb2b3fb65"
+    },
+    {
+      "turno_id": 406394912688,
+      "inspeccion_id": "bd188623-edb8-4988-b48f-3aad8f583544",
+      "autorizacion_id": "42c5f536-6257-430a-94fb-a3d0c27e42bb"
+    },
+    {
+      "turno_id": 406394912599,
+      "inspeccion_id": "aa6e78b8-993a-4398-8845-35ab74fc627f",
+      "autorizacion_id": "24560ec5-da1c-4d64-933c-90968a4e117d"
+    },
+    {
+      "turno_id": 406394912619,
+      "inspeccion_id": "4679f39e-c50d-4882-be17-6bcdf7c6fdde",
+      "autorizacion_id": "d40e3e0c-0f63-47ab-a97d-443ab89d9f32"
+    },
+    {
+      "turno_id": 406394912628,
+      "inspeccion_id": "3062368c-4faa-4986-9204-be9345c22255",
+      "autorizacion_id": "c29f0bb7-b9b2-4ce5-92a7-b940748b60ee"
+    },
+    {
+      "turno_id": 406394912679,
+      "inspeccion_id": "79404199-bb69-483f-9bb9-b194a4364eb4",
+      "autorizacion_id": "a83baf4f-676a-413f-a340-ace4d98ff4af"
+    },
+    {
+      "turno_id": 406394912610,
+      "inspeccion_id": "e4528530-b310-4696-b23e-7750c92ac1c9",
+      "autorizacion_id": "607fad47-204d-4e49-897e-86263212ce92"
+    },
+    {
+      "turno_id": 406394912620,
+      "inspeccion_id": "924b2c40-6537-4d30-8ac9-1b13bdba7738",
+      "autorizacion_id": "ebddb2a9-7fce-4570-bea9-6ef8865be8bd"
+    },
+    {
+      "turno_id": 406394912680,
+      "inspeccion_id": "8b7c1021-a0e7-449c-b414-362a3f306a90",
+      "autorizacion_id": "dfc39220-0e44-4825-a875-f5f6df05729b"
+    },
+    {
+      "turno_id": 406394912670,
+      "inspeccion_id": "b8e6531d-e26b-4b0e-a594-ec549fe1eb8b",
+      "autorizacion_id": "fe2c7f17-9910-40e2-b1ce-dbc31ae002b9"
+    },
+    {
+      "turno_id": 406394912601,
+      "inspeccion_id": "adbcd59c-0a3b-4e70-9ca8-5227d8d7f889",
+      "autorizacion_id": "8df16312-04fd-4491-8ad9-e6da4bad8094"
+    },
+    {
+      "turno_id": 406394912691,
+      "inspeccion_id": "a34c1687-90b7-4e12-890d-a83f3feb86b7",
+      "autorizacion_id": "97008b2b-f888-447a-87f6-584b0db4600c"
+    },
+    {
+      "turno_id": 406394912661,
+      "inspeccion_id": "c64d2e52-daa2-42c4-a6b3-376a29359d28",
+      "autorizacion_id": "c546f94b-649a-4e3e-99b2-bbd96f9e5bd6"
+    },
+    {
+      "turno_id": 406394912671,
+      "inspeccion_id": "c2560eb5-f526-447c-83e1-8fc66389becb",
+      "autorizacion_id": "fa057f95-bdae-41c7-a18c-8f18b7b91f2d"
+    },
+    {
+      "turno_id": 406394912583,
+      "inspeccion_id": "2fe2f56f-e22e-4c6c-8569-d445464980aa",
+      "autorizacion_id": "8cb693f8-bfa3-46ec-a12c-b9c37e5ab0f9"
+    },
+    {
+      "turno_id": 406394912632,
+      "inspeccion_id": "e8aa6a89-6653-405f-beb7-96059e0237fe",
+      "autorizacion_id": "d3dd392f-c796-4c14-8abb-73e85293edbc"
+    },
+    {
+      "turno_id": 406394912662,
+      "inspeccion_id": "2e419c97-8a01-4bc2-9ab9-fdb423584615",
+      "autorizacion_id": "cfc14fcf-f513-40fc-80c4-4518133c6060"
+    },
+    {
+      "turno_id": 406394912633,
+      "inspeccion_id": "ec995359-e9a5-43a5-a984-802683dc3f7b",
+      "autorizacion_id": "6e028dfb-d970-4312-92ac-59de8a3888e5"
+    },
+    {
+      "turno_id": 406394912653,
+      "inspeccion_id": "a850219f-b255-4d03-abd3-5187f1cf7c70",
+      "autorizacion_id": "773354e1-d7b8-4d87-8e3d-2c888ffacb9c"
+    },
+    {
+      "turno_id": 406394912634,
+      "inspeccion_id": "a759bfb0-0635-4f75-be79-424936f77bbb",
+      "autorizacion_id": "5aa6adb3-e395-47d7-809d-e38438f21e91"
+    },
+    {
+      "turno_id": 406394912624,
+      "inspeccion_id": "bce58d4e-7483-4a48-8a18-c8b1869ce338",
+      "autorizacion_id": "2e95ba8c-0560-4229-9f39-8a62db707db2"
+    },
+    {
+      "turno_id": 406394912646,
+      "inspeccion_id": "f60f7634-4e75-4bff-8a06-2d9a845df54f",
+      "autorizacion_id": "da1c61aa-9e3b-43c9-9c47-da67ee642095"
+    },
+    {
+      "turno_id": 406394912626,
+      "inspeccion_id": "71da718d-7af8-42ad-a705-a8f62e631a4a",
+      "autorizacion_id": "1a89d23e-6287-413d-b87b-3407a7e6e3b1"
+    },
+    {
+      "turno_id": 406394912618,
+      "inspeccion_id": "39f881c2-501a-4296-9211-46dac3da231e",
+      "autorizacion_id": "83f2da0c-56cf-40b1-b8f5-15be05bf64ea"
+    },
+    {
+      "turno_id": 406394912649,
+      "inspeccion_id": "7dcb2164-6de6-4e3d-9256-972970356e92",
+      "autorizacion_id": "8f4df6d9-7a84-42a5-906d-fbbac5e2d2df"
+    },
+    {
+      "turno_id": 406394912650,
+      "inspeccion_id": "c72eab45-37d5-4972-bfb3-f12df7fa4777",
+      "autorizacion_id": "ce8aa1d5-ebd9-4471-b435-34d66065caae"
+    },
+    {
+      "turno_id": 406394912651,
+      "inspeccion_id": "aa8f18df-2ff4-4fda-b52e-7ce402aa4e8c",
+      "autorizacion_id": "f9511bec-86c1-4027-b4e8-9f4877fbcf41"
+    }
+  ]
+}

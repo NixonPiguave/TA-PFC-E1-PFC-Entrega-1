@@ -1,0 +1,115 @@
+{
+  "runId": "34d21d1a-3cbd-46f6-b495-416fec1ae1b7",
+  "completo": true,
+  "criterioAceptacion": "PENDIENTE",
+  "escenarios": [
+    {
+      "concurrencia": 1,
+      "solicitudes": 100,
+      "exitosas201": 100,
+      "errores": 0,
+      "erroresPorcentaje": 0,
+      "estadosHttp": {
+        "201": 100
+      },
+      "todosLosIntentos": {
+        "n": 100,
+        "minimoMs": 8.671800000000076,
+        "maximoMs": 23.56829999999991,
+        "mediaMs": 10.820163999999922,
+        "rangoP95": 95,
+        "p95Ms": 14.255799999999908
+      },
+      "soloExitosas201": {
+        "n": 100,
+        "minimoMs": 8.671800000000076,
+        "maximoMs": 23.56829999999991,
+        "mediaMs": 10.820163999999922,
+        "rangoP95": 95,
+        "p95Ms": 14.255799999999908
+      },
+      "tiemposAgotados": 0,
+      "duracionLoteMs": 1085.8075,
+      "solicitudesPorSegundo": 92.09735611514934,
+      "verificacionPersistencia": {
+        "autorizaciones": 110,
+        "inspecciones": 110,
+        "esperadasConCalentamiento": 110,
+        "vinculosValidos": true
+      },
+      "criterioAceptacion": "PENDIENTE; no se declara cumplimiento del RNF-01."
+    },
+    {
+      "concurrencia": 5,
+      "solicitudes": 100,
+      "exitosas201": 100,
+      "errores": 0,
+      "erroresPorcentaje": 0,
+      "estadosHttp": {
+        "201": 100
+      },
+      "todosLosIntentos": {
+        "n": 100,
+        "minimoMs": 12.537400000000162,
+        "maximoMs": 36.406299999999646,
+        "mediaMs": 19.444110000000027,
+        "rangoP95": 95,
+        "p95Ms": 25.981799999999566
+      },
+      "soloExitosas201": {
+        "n": 100,
+        "minimoMs": 12.537400000000162,
+        "maximoMs": 36.406299999999646,
+        "mediaMs": 19.444110000000027,
+        "rangoP95": 95,
+        "p95Ms": 25.981799999999566
+      },
+      "tiemposAgotados": 0,
+      "duracionLoteMs": 394.71469999999954,
+      "solicitudesPorSegundo": 253.3475444415932,
+      "verificacionPersistencia": {
+        "autorizaciones": 110,
+        "inspecciones": 110,
+        "esperadasConCalentamiento": 110,
+        "vinculosValidos": true
+      },
+      "criterioAceptacion": "PENDIENTE; no se declara cumplimiento del RNF-01."
+    },
+    {
+      "concurrencia": 10,
+      "solicitudes": 100,
+      "exitosas201": 100,
+      "errores": 0,
+      "erroresPorcentaje": 0,
+      "estadosHttp": {
+        "201": 100
+      },
+      "todosLosIntentos": {
+        "n": 100,
+        "minimoMs": 15.223400000000765,
+        "maximoMs": 52.41070000000036,
+        "mediaMs": 34.26090300000003,
+        "rangoP95": 95,
+        "p95Ms": 47.43199999999979
+      },
+      "soloExitosas201": {
+        "n": 100,
+        "minimoMs": 15.223400000000765,
+        "maximoMs": 52.41070000000036,
+        "mediaMs": 34.26090300000003,
+        "rangoP95": 95,
+        "p95Ms": 47.43199999999979
+      },
+      "tiemposAgotados": 0,
+      "duracionLoteMs": 354.71079999999984,
+      "solicitudesPorSegundo": 281.91980621960215,
+      "verificacionPersistencia": {
+        "autorizaciones": 110,
+        "inspecciones": 110,
+        "esperadasConCalentamiento": 110,
+        "vinculosValidos": true
+      },
+      "criterioAceptacion": "PENDIENTE; no se declara cumplimiento del RNF-01."
+    }
+  ]
+}
