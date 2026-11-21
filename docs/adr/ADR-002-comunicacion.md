@@ -1,6 +1,6 @@
 # ADR-002 — Comunicación REST para autorizar el inicio de una inspección
 
-- **Estado:** Propuesto, pendiente de revisión con Diego Giraldo.
+- **Estado:** Aceptado para el esqueleto E1 por arquitectura y desarrollo, 20 de noviembre de 2026.
 - **Autor:** Kevin García.
 - **Actividad:** TA-PFC-E1 — PFC Entrega 1.
 
@@ -27,8 +27,10 @@ La petición incluirá:
 - Identificador del turno en la ruta.
 - Cabecera `Idempotency-Key`, conservada durante los reintentos.
 - Credencial del servicio consumidor en la cabecera `Authorization`.
+- `Content-Type: application/json` y cuerpo `{}`.
+- Identificador `X-Request-Id` para relacionar los registros de la llamada.
 
-Los campos, códigos HTTP y errores se detallan en el contrato REST.
+La autorización devuelve `autorizacionId` como UUID y `turnoId`: `201` cuando se crea y `200` al recuperar la misma operación. Los errores incluyen el campo `codigo`. Los formatos y códigos exactos se detallan en la versión 0.2 del contrato REST.
 
 HTTP sin cifrado se utilizará únicamente en el entorno local de demostración. Un despliegue fuera de ese entorno requerirá HTTPS.
 
@@ -50,11 +52,11 @@ Esta elección no implica que REST sea siempre superior a otros mecanismos. Resp
 | gRPC | Ofrece contratos tipados mediante Protocol Buffers y generación de clientes. | No se ha identificado una necesidad que justifique incorporar ese contrato y sus herramientas al prototipo. |
 | Mensajería asíncrona | Permite desacoplar temporalmente servicios y procesar solicitudes cuando el consumidor esté disponible. | Requeriría gestionar estados pendientes, correlación y entrega de mensajes. No se selecciona para este flujo de autorización inmediata. |
 
-La comparación deberá complementarse con los resultados reales de PE-U1 cuando estén disponibles. No se atribuyen ventajas de rendimiento a ningún mecanismo sin mediciones comparables.
+Las mediciones TCP de PE-U1 permiten analizar el costo de comunicación y la concurrencia. Corresponden a otro protocolo de aplicación y no miden esta API REST; la elección se fundamenta en el contrato y en la integración del prototipo.
 
 ## Tiempo de espera y fallos
 
-Se propone un tiempo de espera configurable de **3 segundos** para la llamada REST.
+Se configura `TURNOS_TIMEOUT` inicialmente en **3 segundos** para la llamada REST. Inspecciones distingue falta de disponibilidad (`503`), tiempo agotado (`504`) y respuesta inválida (`502`).
 
 Este valor limita la espera del consumidor; no garantiza que el proveedor responda dentro de ese plazo.
 
@@ -67,11 +69,11 @@ Si el proveedor no responde o se pierde la conexión:
 
 Un fallo de comunicación no demuestra que la autorización no exista. El proveedor podría haberla guardado antes de perderse la respuesta.
 
-Para el prototipo se proponen reintentos explícitos, sin reintentos automáticos ilimitados.
+El prototipo utiliza reintentos explícitos con la misma clave y el mismo turno.
 
 ## Idempotencia y prevención de duplicados
 
-Inspecciones conservará la clave de idempotencia antes de enviar la petición.
+Inspecciones conserva la clave antes de enviar la petición. Ambos servicios reservan su asociación al turno antes del procesamiento y la mantienen aunque falle un paso posterior. La clave admite de 1 a 128 caracteres: letras ASCII, números, punto, guion y guion bajo.
 
 Turnos y Pagos aplicará estas reglas:
 
@@ -79,7 +81,7 @@ Turnos y Pagos aplicará estas reglas:
 - Misma clave y otro turno: rechazar la reutilización.
 - Otra clave para un turno ya autorizado: rechazar la creación de una segunda autorización.
 
-La operación deberá protegerse mediante transacciones y restricciones en la base de datos. Comprobar primero si existe un registro no es suficiente para evitar duplicados ante solicitudes simultáneas.
+La autorización se protege con una transacción, bloqueo del turno y restricciones de unicidad. La reserva de la clave se confirma antes de esa transacción. Inspecciones utiliza sus propias restricciones para mantener un único registro por turno, autorización y clave.
 
 Inspecciones también impedirá que un reintento genere más de una inspección activa para el mismo turno.
 
@@ -97,7 +99,7 @@ La operación entre servicios requerirá una credencial válida.
 
 Las credenciales se proporcionarán mediante configuración externa y no se incluirán en el repositorio ni en los registros de diagnóstico.
 
-El mecanismo concreto de validación del token deberá revisarse con Diego antes de implementar y aceptar esta decisión.
+Para E1 se utiliza una credencial de servicio compartida, definida en `RTV_SERVICE_TOKEN`. Turnos y Pagos comprueba la cabecera Bearer y rechaza credenciales ausentes o incorrectas con `401 CREDENCIAL_INVALIDA`. Esta validación corresponde a la comunicación entre servicios.
 
 ## Consecuencias
 
@@ -118,7 +120,7 @@ El mecanismo concreto de validación del token deberá revisarse con Diego antes
 
 ## Verificación
 
-Se comprobarán:
+La suite de integración comprobó:
 
 1. Una autorización exitosa mediante REST.
 2. Los rechazos definidos en el contrato.
@@ -128,11 +130,11 @@ Se comprobarán:
 6. Recuperación después de perder una respuesta o fallar el registro local.
 7. Rechazo de peticiones sin credenciales válidas.
 
-Estos son criterios de prueba, no resultados ya obtenidos.
+Los diez casos de integración ejecutados finalizaron correctamente. El detalle y el registro se encuentran en [la revisión del esqueleto](../arquitectura/revision-esqueleto.md).
 
 ## Documentos relacionados
 
 - [ADR-001: estilo de arquitectura](ADR-001-estilo-arquitectura.md)
 - [Contrato REST](../contratos/contrato-inspecciones-turnos-pagos.md)
-- [Diagrama C4 de contenedores](../diagramas/c4-contenedores-rtv.drawio)
+- [Diagrama C4 de contenedores](../diagramas/c4-contenedores-rtv-final.drawio)
 
