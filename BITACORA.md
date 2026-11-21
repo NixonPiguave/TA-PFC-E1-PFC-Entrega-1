@@ -146,3 +146,19 @@
 - **Problema encontrado:** El contrato 0.1 describía campos y nombres de errores diferentes de los que utilizaban ambos servicios. En Windows, el lanzador de Java también dejó activo el proceso real durante la primera prueba de servicio detenido.
 - **Solución y comprobación:** Se acordó documentar la interfaz mínima implementada, conservando las reglas de autorización y recuperación. Se ejecutó la suite con el ejecutable directo del JDK 21 y pasaron los diez casos, incluidos concurrencia, servicio detenido, respuesta demorada y fallo de escritura local. El código de los servicios se mantuvo sin cambios.
 - **Uso de IA:** Utilicé ChatGPT Sol 6.1 mediante Codex como apoyo para contrastar la arquitectura con la implementación y mejorar la documentación. La compilación y las pruebas de integración se ejecutaron desde Codex en el entorno de prueba.
+
+### 2026-11-20 · Mera Jumbo Allison
+
+- **Integrantes presentes:** Mera Jumbo Allison.
+- **Commit(s):**
+  - [`7bd1139`](https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/commit/7bd113936dad9c237780a87d2a16d9c6d14386f2) — Integra el contrato 0.2 y el ADR-002 #6.
+
+- **Qué se hizo:** Integré en el informe LaTeX la versión 0.2 del contrato REST y el ADR-002 actualizado por Kevin. En el intercambio principal agregué las cabeceras de la solicitud (`Content-Type`, `Idempotency-Key`, `Authorization` y `X-Request-Id`), la respuesta de Turnos y Pagos con `autorizacionId` y `turnoId`, la tabla de códigos de error del proveedor y la respuesta de Inspecciones. Actualicé la tabla de fallos con los códigos que devuelve Inspecciones (`503`, `504` y `502`), cambié el estado del ADR-002 a aceptado y añadí su verificación con los diez casos de integración. Configuré TeXstudio con Biber para compilar el informe en mi computadora. También revisé qué partes del documento siguen pendientes y busqué en el repositorio la evidencia del levantamiento.
+
+- **Problema encontrado:** Al integrar ayer la arquitectura de Kevin, trabajé sobre una versión del informe descargada antes de que Nixon subiera sus riesgos técnicos, y al subir el archivo completo su sección quedó sin contenido. En TeXstudio las citas aparecían como no definidas porque la herramienta bibliográfica no estaba configurada. 
+
+- **Solución y comprobación:** Nixon restauró su sección de riesgos. Para evitar que se repita, antes de subir el informe reviso en el historial de `docs/informe.tex` que nadie haya hecho cambios después de mi descarga, y aviso en el grupo cuando estoy editando. Antes de subir el commit de hoy comprobé que el último cambio al informe era el de Nixon y que su contenido se conservaba. Configuré Biber como herramienta bibliográfica y compilé con pdflatex → biber → pdflatex → pdflatex: el PDF quedó en 45 páginas, sin citas sin resolver. 
+
+- **Uso de IA:** Claude (Opus 5.5), como apoyo para identificar los cambios del contrato 0.2 que debían reflejarse en el informe, comparar mi versión con la del repositorio antes de subirla. Verifiqué el resultado compilando en TeXstudio y revisando el PDF.
+
+- **Tiempo dedicado:** 1 h.
