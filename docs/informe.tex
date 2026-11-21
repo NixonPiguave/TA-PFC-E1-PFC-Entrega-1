@@ -737,48 +737,94 @@ Para una operación nueva, Inspecciones llama a:
 La petición identifica el turno en la dirección e incluye:
 
 \begin{itemize}[nosep]
-  \item \texttt{Idempotency-Key}: la misma clave de la operación.
-  \item \texttt{Authorization}: la credencial del servicio consumidor, configurada fuera del repositorio.
+	\item \texttt{Content-Type: application/json} y un cuerpo JSON vacío, \texttt{\{\}}.
+	\item \texttt{Idempotency-Key}: la misma clave de la operación, de 1 a 128 caracteres (letras ASCII, números, punto, guion y guion bajo). Puede ser un UUID, pero no es el único formato admitido.
+	\item \texttt{Authorization}: \texttt{Bearer} seguido de la credencial del servicio consumidor, configurada fuera del repositorio mediante \texttt{RTV\_SERVICE\_TOKEN}.
+	\item \texttt{X-Request-Id}: identificador de correlación para relacionar los registros de ambos servicios.
 \end{itemize}
 
-Los campos y las respuestas se detallan en el contrato REST. Se utiliza POST porque se registra una autorización; no es una consulta que se limite a leer el estado del pago.
+El identificador del turno es un entero positivo de 64 bits. Los formatos completos se detallan en la versión 0.2 del contrato REST (\path{docs/contratos/contrato-inspecciones-turnos-pagos.md}). Se utiliza POST porque se registra una autorización; no es una consulta que se limite a leer el estado del pago.
 
 \subsubsection{Paso 3. Validación en Turnos y Pagos}
 
 El proveedor comprobará que el turno existe, que está habilitado y que su pago está confirmado. También verificará la credencial y el uso de la clave de operación.
 
-Si corresponde, guardará una autorización y la devolverá con \texttt{201 Created}. Si la misma operación ya produjo una autorización, devolverá la original con \texttt{200 OK}.
+Si corresponde, guardará una autorización y la devolverá con \texttt{201 Created}. Si la misma operación ya produjo una autorización, devolverá la original con \texttt{200 OK} y los mismos identificadores. La respuesta mínima acordada para E1 contiene dos campos: \texttt{autorizacionId}, un UUID representado como texto, y \texttt{turnoId}, un entero positivo. Por ejemplo, con identificadores ficticios:
 
-Si las condiciones no se cumplen, devolverá el rechazo definido en el contrato. Solicitar autorización no realiza un cobro ni convierte un pago pendiente en confirmado.
+\begin{lstlisting}
+	{
+		"autorizacionId": "d747ef3b-ef2d-4c55-8b87-f4a91ac01234",
+		"turnoId": 123
+	}
+\end{lstlisting}
+
+Si las condiciones no se cumplen, devolverá un error con un único campo \texttt{codigo}, por ejemplo \texttt{\{"codigo": "PAGO\_NO\_CONFIRMADO"\}}. Los errores no incluyen consultas SQL, contraseñas ni detalles internos. La Tabla~\ref{tab:errores-proveedor} resume los códigos del proveedor. Solicitar autorización no realiza un cobro ni convierte un pago pendiente en confirmado.
+
+\begin{xltabular}{\textwidth}{L{1.2cm}L{5.4cm}X}
+	\caption{Errores de Turnos y Pagos según el contrato REST 0.2}\label{tab:errores-proveedor}\\
+	\toprule
+	\textbf{HTTP} & \textbf{Código} & \textbf{Significado} \\
+	\midrule
+	\endfirsthead
+	\toprule
+	\textbf{HTTP} & \textbf{Código} & \textbf{Significado} \\
+	\midrule
+	\endhead
+	\bottomrule
+	\endfoot
+	400 & \texttt{SOLICITUD\_INVALIDA} & Identificador, clave o cuerpo JSON inválidos. \\
+	401 & \texttt{CREDENCIAL\_INVALIDA} & Credencial del servicio ausente o incorrecta. \\
+	404 & \texttt{TURNO\_INEXISTENTE} & El turno no existe. \\
+	409 & \texttt{PAGO\_NO\_CONFIRMADO} & El pago no está confirmado. \\
+	409 & \texttt{TURNO\_NO\_HABILITADO} & El turno no permite iniciar la inspección. \\
+	409 & \texttt{TURNO\_YA\_AUTORIZADO} & Otra clave ya produjo una autorización para ese turno. \\
+	409 & \texttt{CLAVE\_REUTILIZADA} & La clave está asociada a otro turno. \\
+	415 & \texttt{FORMATO\_NO\_SOPORTADO} & El tipo de contenido no es compatible con la operación. \\
+	503 & \texttt{PERSISTENCIA\_NO\_DISPONIBLE} & Falló el acceso a la base de datos. \\
+\end{xltabular}
+
+En E1 se permite una sola autorización y una sola inspección por turno. Las reinspecciones y la revocación de autorizaciones requieren reglas adicionales.
 
 \subsubsection{Paso 4. Registro en Inspecciones}
 
 Después de recibir y validar la autorización, Inspecciones guardará el inicio en su propia base y vinculará los identificadores del turno, de la autorización y de la inspección.
 
-Solo después de confirmar el registro responderá al cliente con el resultado. No existe una transacción única que abarque las dos bases.
+Solo después de confirmar el registro responderá al cliente con el resultado: \texttt{201} al crear el registro o \texttt{200} al recuperar el existente. Por ejemplo, con identificadores ficticios:
+
+\begin{lstlisting}
+	{
+		"inspeccionId": "b4fd4b48-f219-4f14-b44a-7cc8e1956789",
+		"turnoId": 123,
+		"autorizacionId": "d747ef3b-ef2d-4c55-8b87-f4a91ac01234",
+		"estado": "INICIADA"
+	}
+\end{lstlisting}
+
+No existe una transacción única que abarque las dos bases: las escrituras de cada servicio son transacciones locales independientes, y puede existir temporalmente una autorización sin inspección registrada.
 
 \subsection{Fallos, reintentos y seguridad}
 
 \begin{xltabular}{\textwidth}{L{4.2cm}X}
   \caption{Comportamiento ante fallos, reintentos y problemas de seguridad}\label{tab:fallos}\\
   \toprule
-  \textbf{Situación} & \textbf{Comportamiento propuesto} \\
+    \textbf{Situación} & \textbf{Comportamiento acordado (contrato REST 0.2)} \\
   \midrule
   \endfirsthead
   \toprule
-  \textbf{Situación} & \textbf{Comportamiento propuesto} \\
+  \textbf{Situación} & \textbf{Comportamiento acordado (contrato REST 0.2)} \\
   \midrule
   \endhead
   \bottomrule
   \endfoot
-  Turnos y Pagos no responde o no puede alcanzarse. & Finalizar la espera de forma controlada e informar que no pudo confirmarse la autorización. No crear un nuevo inicio sin autorización válida. \\
-  La respuesta supera el límite de espera. & Aplicar el tiempo configurable del contrato, propuesto inicialmente en tres segundos. No asumir que el proveedor canceló lo que estaba haciendo. \\
-  La autorización se guardó, pero su respuesta se perdió. & Reintentar con la misma clave y el mismo turno para recuperar la autorización original. \\
-  La autorización llegó, pero falló el registro local de la inspección. & No anunciar un inicio guardado. Permitir la recuperación posterior utilizando la misma clave. \\
-  La misma clave llega con otro turno. & Rechazar su reutilización para una operación diferente. \\
-  Llegan solicitudes simultáneas. & Aplicar transacciones y restricciones de unicidad, además de reconocer las claves, para evitar autorizaciones o inspecciones incompatibles. \\
-  La credencial está ausente o es inválida. & Rechazar el acceso sin modificar los datos de negocio. \\
-  La respuesta no tiene el formato esperado. & Tratarla como un error de integración y no confirmar una nueva inspección a partir de datos inválidos. \\
+  Turnos y Pagos no responde o no puede alcanzarse. & Inspecciones responde \texttt{503 TURNOS\_NO\_DISPONIBLE} e informa que no pudo confirmarse la autorización. No crea un nuevo inicio sin autorización válida. \\
+  La respuesta supera el límite de espera. & Inspecciones responde \texttt{504 TURNOS\_TIEMPO\_AGOTADO} al cumplirse \texttt{TURNOS\_TIMEOUT}, configurado inicialmente en 3 segundos. No asume que el proveedor canceló lo que estaba haciendo. \\
+  La autorización se guardó, pero su respuesta se perdió. & Reintentar con la misma clave y el mismo turno para recuperar la autorización original con \texttt{200}. \\
+  La autorización llegó, pero falló el registro local de la inspección. & Inspecciones responde \texttt{503 PERSISTENCIA\_NO\_DISPONIBLE} y no anuncia un inicio guardado. Permite la recuperación posterior utilizando la misma clave. \\
+  La misma clave llega con otro turno. & El proveedor rechaza la reutilización con \texttt{409 CLAVE\_REUTILIZADA}. \\
+  Otra clave llega para un turno ya autorizado. & El proveedor rechaza una segunda autorización con \texttt{409 TURNO\_YA\_AUTORIZADO}. \\
+  Llegan solicitudes simultáneas. & Transacción, bloqueo del turno y restricciones de unicidad conservan una sola autorización y una sola inspección por turno. \\
+  La credencial está ausente o es inválida. & El proveedor responde \texttt{401 CREDENCIAL\_INVALIDA} sin modificar los datos de negocio. \\
+  La respuesta no tiene el formato esperado. & Inspecciones responde \texttt{502 RESPUESTA\_TURNOS\_INVALIDA} y no confirma una nueva inspección a partir de datos inválidos. \\
 \end{xltabular}
 
 El límite de espera no es una promesa sobre el tiempo de respuesta del proveedor. Una cancelación del lado consumidor tampoco revierte automáticamente una escritura ya realizada por el proveedor.
@@ -825,7 +871,7 @@ Para validar el intercambio, se conservarán peticiones y respuestas, registros 
   \item El acceso de cada servicio únicamente a su propia base.
 \end{enumerate}
 
-Estas son comprobaciones propuestas; no constituyen resultados de ejecución. El contrato, el código y las pruebas deberán utilizar los mismos formatos de identificador y los mismos códigos de error.
+Estas comprobaciones forman parte de la suite de integración del esqueleto. Los diez casos ejecutados el 20 de noviembre de 2026 finalizaron correctamente; su detalle se encuentra en \path{docs/arquitectura/revision-esqueleto.md} y en la sección de evidencias de comunicación de este informe. El contrato 0.2, el código y las pruebas utilizan los mismos formatos de identificador y los mismos códigos de error.
 
 % =====================================================================
 %  10. ANÁLISIS CAP Y PACELC  — Responsable: Kevin (integración: Allison)
@@ -997,7 +1043,7 @@ El análisis mantiene la separación de datos de ADR-001 y la comunicación sín
 %  11. REGISTROS DE DECISIONES DE ARQUITECTURA (ADR)  — Responsable: Kevin (integración: Allison)
 % =====================================================================
 \section{Registros de decisiones de arquitectura}
-Los registros completos están en \texttt{docs/adr/}. Ambos tienen estado \emph{propuesto, pendiente de revisión con Diego Giraldo}. A continuación se resumen.
+Los registros completos están en \texttt{docs/adr/}. ADR-001 tiene estado \emph{propuesto, pendiente de revisión con Diego Giraldo}; ADR-002 fue \emph{aceptado para el esqueleto E1 por arquitectura y desarrollo} el 20 de noviembre de 2026. A continuación se resumen.
 
 \subsection{ADR-001: Estilo de arquitectura}
 \begin{description}[leftmargin=3.2cm,style=nextline]
@@ -1011,7 +1057,8 @@ Los registros completos están en \texttt{docs/adr/}. Ambos tienen estado \emph{
 \begin{description}[leftmargin=3.2cm,style=nextline]
   \item[Contexto] Inspecciones necesita una autorización de Turnos y Pagos antes de registrar el inicio de una revisión, sin consultar directamente su base de datos. La comunicación puede fallar, demorarse o perder la respuesta después de que la autorización se haya guardado, por lo que los reintentos no deben duplicar operaciones.
   \item[Opciones] REST síncrono con HTTP y JSON; gRPC; o mensajería asíncrona.
-  \item[Decisión] Comunicación síncrona mediante REST con HTTP y JSON. Inspecciones invoca \texttt{POST /turnos/\{turnoId\}/autorizaciones-inspeccion} con las cabeceras \texttt{Idempotency-Key}, conservada durante los reintentos, y \texttt{Authorization}, con la credencial del servicio consumidor. Se propone un tiempo de espera configurable de 3~segundos. HTTP sin cifrado se limita al entorno local de demostración.
+    \item[Decisión] Comunicación síncrona mediante REST con HTTP y JSON. Inspecciones invoca \texttt{POST /turnos/\{turnoId\}/autorizaciones-inspeccion} con cuerpo \texttt{\{\}} y las cabeceras \texttt{Content-Type: application/json}, \texttt{Idempotency-Key}, conservada durante los reintentos, \texttt{Authorization} con la credencial Bearer definida en \texttt{RTV\_SERVICE\_TOKEN}, y \texttt{X-Request-Id} para relacionar los registros. La autorización devuelve \texttt{autorizacionId} (UUID) y \texttt{turnoId}: \texttt{201} cuando se crea y \texttt{200} al recuperar la misma operación; los errores incluyen el campo \texttt{codigo}. \texttt{TURNOS\_TIMEOUT} se configura inicialmente en 3~segundos, e Inspecciones distingue falta de disponibilidad (\texttt{503}), tiempo agotado (\texttt{504}) y respuesta inválida (\texttt{502}). La autorización se protege con una transacción, bloqueo del turno y restricciones de unicidad. HTTP sin cifrado se limita al entorno local de demostración.
+  \item[Verificación] La suite de integración ejecutó diez casos (autorización exitosa, rechazos del contrato, reintentos, concurrencia, proveedor detenido o demorado, recuperación tras perder una respuesta o fallar el registro local y credenciales inválidas), y todos finalizaron correctamente.
   \item[Consecuencias] A favor: intercambio explícito y coherente con el diagrama C4, validación en el servicio responsable, peticiones observables durante la demostración y recuperación de reintentos mediante idempotencia. En contra: Inspecciones depende de la disponibilidad de Turnos y Pagos para autorizar nuevos inicios, deben gestionarse demoras y respuestas inciertas, no existe atomicidad entre las dos bases, la idempotencia exige persistir información y controlar la concurrencia, y el rendimiento debe medirse en un entorno documentado.
 \end{description}
 
