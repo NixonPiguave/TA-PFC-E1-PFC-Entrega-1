@@ -1,199 +1,154 @@
 # Contrato REST: autorización para iniciar una inspección
 
-**Proyecto:** Sistema de Revisión Técnica Vehicular (RTV)  
-**Actividad:** TA-PFC-E1 — PFC Entrega 1  
-**Versión:** 0.1  
-**Estado:** Borrador para revisión conjunta  
+**Proyecto:** Sistema de Revisión Técnica Vehicular (RTV).  
+**Actividad:** TA-PFC-E1.  
+**Versión:** 0.2.  
+**Estado:** Acordado para el esqueleto E1, 20 de noviembre de 2026.  
 **Responsables:** Kevin García — arquitectura; Diego Giraldo — desarrollo.
 
-## 1. Objetivo
+## 1. Flujo y responsabilidades
 
-Definir la comunicación mediante la cual el servicio de Inspecciones solicita al servicio de Turnos y Pagos una autorización para iniciar la revisión de un vehículo.
+Inspecciones solicita una autorización a Turnos y Pagos antes de registrar un nuevo inicio. Turnos y Pagos comprueba el turno, su habilitación y el pago confirmado, y guarda la autorización en su propia base. Inspecciones recibe esa autorización y guarda el inicio en su base.
 
-La propuesta separa ambos servicios y sus bases de datos. Inspecciones no consulta directamente las tablas de Turnos y Pagos.
+La operación consulta el pago registrado; no realiza un cobro ni convierte un pago pendiente en confirmado.
 
-## 2. Responsabilidades
+Los dos servicios utilizan Java y Spring Boot, REST con HTTP/JSON y bases PostgreSQL separadas. Cada servicio accede a sus propios datos y credenciales. HTTP se utiliza en la demostración local; un despliegue externo requiere HTTPS.
 
-| Servicio | Responsabilidad |
-|---|---|
-| Turnos y Pagos | Verificar la existencia y habilitación del turno, comprobar su pago y registrar la autorización de inicio. |
-| Inspecciones | Solicitar la autorización y, únicamente después de recibirla, registrar la inspección en su propia base de datos. |
+## 2. Solicitud entre servicios
 
-La autorización no realiza ni confirma un pago. Consulta el estado de pago previamente registrado.
+**Consumidor:** Inspecciones.  
+**Proveedor:** Turnos y Pagos.  
+**Método y ruta:** `POST /turnos/{turnoId}/autorizaciones-inspeccion`.
 
-## 3. Tecnologías propuestas
+Se utiliza POST porque se crea una autorización persistente.
 
-- Servicios: Java y Spring Boot.
-- Comunicación: REST con HTTP y JSON.
-- Persistencia: PostgreSQL, con una base de datos y credenciales independientes por servicio.
-- HTTP sin cifrado se utilizará únicamente en el entorno local de demostración. Para un despliegue fuera de ese entorno se deberá configurar HTTPS.
+| Dato | Formato |
+| --- | --- |
+| `turnoId` | Entero positivo de 64 bits, en la ruta. |
+| `Content-Type` | `application/json`. |
+| `Idempotency-Key` | Clave de 1 a 128 caracteres: letras ASCII, números, punto, guion y guion bajo. |
+| `Authorization` | `Bearer <credencial-del-servicio>`, configurada mediante `RTV_SERVICE_TOKEN`. |
+| `X-Request-Id` | Identificador de correlación que Inspecciones envía para relacionar los registros de ambos servicios. |
+| Cuerpo | Objeto JSON vacío: `{}`. |
 
-Las direcciones, puertos y credenciales se definirán mediante configuración, sin escribir secretos en el repositorio.
+La clave identifica una operación y se conserva en los reintentos. Puede utilizarse un UUID, pero no es el único formato admitido.
 
-## 4. Operación entre servicios
+Ejemplo con identificadores ficticios:
 
-**Servicio consumidor:** Inspecciones.  
-**Servicio proveedor:** Turnos y Pagos.
-
-**Método:** `POST`  
-**Ruta:** `/turnos/{turnoId}/autorizaciones-inspeccion`
-
-Se utiliza POST porque la operación crea una autorización persistente; no se limita a consultar el pago.
-
-### Parámetro de ruta
-
-| Campo | Tipo | Descripción |
-|---|---|---|
-| `turnoId` | Entero positivo | Identificador del turno que se desea inspeccionar. |
-
-### Cabeceras
-
-| Cabecera | Uso |
-|---|---|
-| `Accept: application/json` | Solicita respuestas JSON. |
-| `Idempotency-Key` | Identificador único de la operación, generado por Inspecciones y conservado durante sus reintentos. Se propone utilizar un UUID. |
-| `Authorization: Bearer <token>` | Credencial del servicio consumidor. El valor real se configura fuera del repositorio. |
-
-La petición no necesita cuerpo: el turno está identificado en la ruta y el consumidor se identifica mediante su credencial.
-
-### Ejemplo de petición
-
-POST /turnos/123/autorizaciones-inspeccion  
-Accept: application/json  
-Idempotency-Key: 6d243573-882e-4f8e-b858-a801391e5d91  
+```http
+POST /turnos/123/autorizaciones-inspeccion
+Content-Type: application/json
+Accept: application/json
+Idempotency-Key: 6d243573-882e-4f8e-b858-a801391e5d91
 Authorization: Bearer <credencial-del-servicio>
 
-Los identificadores de este documento son ficticios.
+{}
+```
 
-## 5. Validaciones
+## 3. Validaciones y persistencia
 
-Turnos y Pagos deberá comprobar:
+El proveedor comprueba la credencial, el identificador del turno, la clave y el cuerpo JSON. Reserva la asociación entre clave y turno y, dentro de la transacción de autorización, comprueba el turno, el pago y la habilitación.
 
-1. Que la credencial del consumidor sea válida.
-2. Que la clave de idempotencia esté presente y tenga el formato acordado.
-3. Que el turno exista.
-4. Que el pago esté confirmado.
-5. Que el turno esté habilitado para iniciar la inspección.
-6. Que no exista una autorización previa para ese turno que impida crear otra.
+La autorización de un turno ya existente se recupera cuando la clave coincide. Otra clave para ese turno se rechaza. Las restricciones de unicidad y el bloqueo del turno protegen la operación ante solicitudes simultáneas.
 
-Para el prototipo se propone permitir una sola autorización de inicio por turno. Si el RTV permite reinspecciones, deberán modelarse como operaciones diferenciadas y actualizar este contrato.
+En E1 se permite una sola autorización y una sola inspección por turno. Las reinspecciones y la revocación de autorizaciones requieren reglas adicionales.
 
-La validación y la creación de la autorización deberán protegerse mediante una transacción y restricciones en la base de datos para evitar duplicados ante solicitudes simultáneas.
+## 4. Respuesta de Turnos y Pagos
 
-## 6. Respuesta exitosa
+Una autorización nueva devuelve `201 Created`. La repetición de una operación ya completada, con la misma clave y el mismo turno, devuelve `200 OK` con los mismos identificadores.
 
-### Nueva autorización
-
-**Código HTTP:** `201 Created`
-
-Ejemplo JSON:
-
+```json
 {
-  "autorizacionId": "aut-000123",
-  "turnoId": 123,
-  "estado": "AUTORIZADA",
-  "pagoEstado": "CONFIRMADO",
-  "fechaAutorizacion": "2026-11-18T20:00:00Z"
-}
-
-| Campo | Descripción |
-|---|---|
-| `autorizacionId` | Identificador único de la autorización. |
-| `turnoId` | Turno autorizado. |
-| `estado` | Resultado de la autorización. |
-| `pagoEstado` | Estado del pago comprobado al emitir la autorización. |
-| `fechaAutorizacion` | Fecha y hora en formato ISO 8601 con zona horaria. |
-
-### Reintento de una operación ya completada
-
-Si se recibe la misma clave de idempotencia para el mismo turno, se devolverá **`200 OK`**, con la autorización previamente creada.
-
-No se creará una segunda autorización.
-
-## 7. Respuestas de error
-
-Los errores se devolverán en JSON con esta estructura:
-
-{
-  "codigo": "PAGO_NO_CONFIRMADO",
-  "mensaje": "El turno no tiene un pago confirmado.",
+  "autorizacionId": "d747ef3b-ef2d-4c55-8b87-f4a91ac01234",
   "turnoId": 123
 }
+```
 
-Cuando no corresponda o no se conozca el turno, el campo `turnoId` podrá omitirse.
+| Campo | Tipo y significado |
+| --- | --- |
+| `autorizacionId` | UUID representado como texto; identifica la autorización guardada. |
+| `turnoId` | Entero positivo; identifica el turno autorizado. |
 
-| HTTP | Código de aplicación | Significado |
-|---|---|---|
-| `400` | `SOLICITUD_INVALIDA` | Identificador incorrecto o clave de idempotencia ausente o inválida. |
-| `401` | `NO_AUTENTICADO` | Credencial ausente o inválida. |
-| `403` | `ACCESO_DENEGADO` | Consumidor autenticado sin permiso para esta operación. |
-| `404` | `TURNO_NO_ENCONTRADO` | El turno solicitado no existe. |
-| `409` | `PAGO_NO_CONFIRMADO` | El pago todavía no está confirmado. |
-| `409` | `TURNO_NO_HABILITADO` | El estado del turno impide iniciar la inspección. |
-| `409` | `AUTORIZACION_EXISTENTE` | Ya existe una autorización para el turno asociada a otra operación. |
-| `409` | `CLAVE_REUTILIZADA` | La misma clave de idempotencia se utilizó para un turno diferente. |
-| `500` | `ERROR_INTERNO` | El proveedor no pudo completar la operación por un fallo interno. |
+Esta es la respuesta mínima acordada para E1. La comprobación del pago corresponde al proveedor y ocurre antes de crear la autorización.
 
-Los mensajes no expondrán contraseñas, consultas SQL ni detalles internos del servidor.
+## 5. Errores del proveedor
 
-## 8. Idempotencia y concurrencia
+Los errores de negocio y validación tienen un único campo `codigo`:
 
-Inspecciones deberá conservar la clave de idempotencia asociada a la operación antes de realizar la llamada.
+```json
+{
+  "codigo": "PAGO_NO_CONFIRMADO"
+}
+```
 
-- Misma clave y mismo turno: devolver la autorización existente.
-- Misma clave y otro turno: rechazar con `409 CLAVE_REUTILIZADA`.
-- Otra clave para un turno ya autorizado: rechazar con `409 AUTORIZACION_EXISTENTE`.
-- Solicitudes simultáneas: las restricciones de persistencia deberán impedir la creación de autorizaciones duplicadas.
+| HTTP | Código | Significado |
+| --- | --- | --- |
+| `400` | `SOLICITUD_INVALIDA` | Identificador, clave o cuerpo JSON inválidos. |
+| `401` | `CREDENCIAL_INVALIDA` | Credencial del servicio ausente o incorrecta. |
+| `404` | `TURNO_INEXISTENTE` | El turno no existe. |
+| `409` | `PAGO_NO_CONFIRMADO` | El pago no está confirmado. |
+| `409` | `TURNO_NO_HABILITADO` | El turno no permite iniciar la inspección. |
+| `409` | `TURNO_YA_AUTORIZADO` | Otra clave ya produjo una autorización para ese turno. |
+| `409` | `CLAVE_REUTILIZADA` | La clave está asociada a otro turno. |
+| `415` | `FORMATO_NO_SOPORTADO` | El tipo de contenido no es compatible con la operación. |
+| `503` | `PERSISTENCIA_NO_DISPONIBLE` | Falló el acceso a la base de datos. |
 
-Inspecciones también deberá evitar que los reintentos generen más de una inspección activa para el mismo turno.
+Los errores no incluyen consultas SQL, contraseñas ni detalles internos.
 
-La clave y el resultado de las autorizaciones emitidas se conservarán en la base de datos durante el prototipo.
+## 6. Idempotencia y recuperación
 
-## 9. Fallos de comunicación
+Inspecciones conserva la clave antes de llamar al proveedor. Ambos servicios mantienen su asociación al turno aunque falle un paso posterior. Un reintento debe usar esa clave y ese turno; una operación diferente utiliza otra clave.
 
-Se propone configurar inicialmente un tiempo máximo de espera de **3 segundos** para la llamada REST. Este valor es configurable y no representa una garantía de rendimiento del proveedor.
+| Situación | Comportamiento |
+| --- | --- |
+| Misma clave y mismo turno con autorización existente | Devolver la autorización original con `200`. |
+| Misma clave y otro turno | Rechazar con `409 CLAVE_REUTILIZADA`. |
+| Otra clave para un turno autorizado | Rechazar con `409 TURNO_YA_AUTORIZADO`. |
+| Peticiones simultáneas | Conservar una sola autorización y una sola inspección por turno. |
+| Autorización guardada y fallo antes del registro local | Recuperar la misma autorización y completar la inspección con la clave original. |
 
-Si ocurre una desconexión o se agota el tiempo de espera:
+Las escrituras de los dos servicios son transacciones locales independientes. Puede existir temporalmente una autorización sin inspección registrada. Un nuevo inicio se confirma después de guardar la inspección vinculada.
 
-1. Inspecciones no registrará el inicio como autorizado.
-2. Informará: “No se pudo confirmar la autorización. Intente nuevamente”.
-3. No cambiará el estado del pago.
-4. Conservará la clave de idempotencia.
-5. Un reintento utilizará la misma clave y el mismo turno.
+## 7. Registro de Inspecciones
 
-Una respuesta perdida no demuestra que el proveedor haya rechazado la operación: la autorización podría haberse guardado antes del fallo de comunicación.
+El cliente llama a `POST /inspecciones`, con `Content-Type: application/json`, la cabecera `Idempotency-Key` y este cuerpo:
 
-Para el prototipo, los reintentos serán explícitos; no se realizarán reintentos automáticos ilimitados.
+```json
+{
+  "turnoId": 123
+}
+```
 
-## 10. Registro local y recuperación
+Inspecciones guarda su UUID, el turno, el UUID de autorización y la clave. Devuelve `201` al crear el registro o `200` al recuperar el existente:
 
-Después de recibir una autorización válida, Inspecciones registrará, como mínimo:
+```json
+{
+  "inspeccionId": "b4fd4b48-f219-4f14-b44a-7cc8e1956789",
+  "turnoId": 123,
+  "autorizacionId": "d747ef3b-ef2d-4c55-8b87-f4a91ac01234",
+  "estado": "INICIADA"
+}
+```
 
-- Identificador de la inspección.
-- Identificador del turno.
-- Identificador de la autorización.
-- Estado de la inspección.
-- Fecha y hora de inicio.
+Los identificadores del ejemplo son ficticios. La credencial Bearer descrita en este contrato protege la llamada entre los servicios.
 
-Las escrituras en las dos bases de datos no forman una transacción única.
+## 8. Fallos de comunicación
 
-Si Turnos y Pagos guarda la autorización, pero Inspecciones falla antes de registrar su inspección, se repetirá la solicitud con la misma clave. El proveedor devolverá la autorización existente y el consumidor podrá completar el registro local sin duplicarlo.
+La llamada utiliza `TURNOS_TIMEOUT`, configurado inicialmente en `3s`. Es el límite de espera del consumidor, no una garantía de rendimiento del proveedor.
 
-Este prototipo demuestra una autorización de inicio. La cancelación, revocación de autorizaciones y coordinación de cambios posteriores de pago requieren reglas adicionales y quedan fuera de esta versión.
+| Respuesta de Inspecciones | Situación |
+| --- | --- |
+| `503 TURNOS_NO_DISPONIBLE` | No se puede completar la comunicación o el proveedor devuelve un error del servidor. |
+| `504 TURNOS_TIEMPO_AGOTADO` | Se agota el tiempo de espera. |
+| `502 RESPUESTA_TURNOS_INVALIDA` | La respuesta no tiene el formato, código o identificadores esperados. |
+| `503 PERSISTENCIA_NO_DISPONIBLE` | Falla la persistencia local de Inspecciones. |
 
-## 11. Verificación del contrato
+Los rechazos conocidos `404` y `409` del proveedor se conservan al responder al cliente. Los demás errores recibidos se tratan según la validación del cliente HTTP; no se presupone que todos se propaguen con el mismo código.
 
-| Caso | Resultado esperado |
-|---|---|
-| Turno existente, pagado y habilitado | `201`; una autorización y una inspección vinculada. |
-| Repetición con misma clave y turno | `200`; mismos identificadores y sin duplicados. |
-| Misma clave para otro turno | `409 CLAVE_REUTILIZADA`. |
-| Turno inexistente | `404`; sin autorización ni inspección. |
-| Pago sin confirmar | `409 PAGO_NO_CONFIRMADO`; sin autorización ni inspección. |
-| Turno no habilitado | `409 TURNO_NO_HABILITADO`; sin autorización ni inspección. |
-| Solicitudes simultáneas para el mismo turno | Una sola autorización y ninguna inspección activa duplicada. |
-| Credencial ausente o inválida | `401`; sin modificaciones de datos. |
-| Proveedor detenido o demorado | Error controlado en Inspecciones; no iniciar la inspección. |
-| Fallo después de guardar la autorización | El reintento recupera la misma autorización y permite completar el registro local. |
+Una respuesta perdida no significa que la autorización no se haya guardado. Inspecciones conserva la clave y permite reintentar de forma explícita. No confirma un nuevo inicio sin autorización válida ni modifica el pago.
 
-Esta tabla define resultados esperados. No constituye evidencia de pruebas ejecutadas.
+## 9. Verificación
+
+Las pruebas de integración cubren el inicio válido, los rechazos, los reintentos, la concurrencia, las credenciales, el reinicio de aplicaciones y la recuperación después de un fallo de comunicación o escritura.
+
+Los diez casos ejecutados se describen en [la revisión del esqueleto](../arquitectura/revision-esqueleto.md), junto con [el registro de resultados](../arquitectura/resultado-integracion-kevin.txt). La tabla de diferencias de esa revisión corresponde a la comparación con la versión 0.1.
