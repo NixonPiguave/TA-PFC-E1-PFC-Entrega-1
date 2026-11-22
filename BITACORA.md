@@ -133,6 +133,8 @@
 - **Integrantes presentes:** Piguave Nixon.
 - **Commit(s):**   - [`02b2b96`](https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/commit/02b2b968e2fbaeb56779c2eb82ceee47b2e7996e) — Documentación del p95 y las evidencias de comunicación del RTV
 - **Qué se hizo:** Recuperé los seis riesgos técnicos y su relación con las tres lecciones de FORM-AC-01 en el informe integrado. Ejecuté personalmente la compilación y los diez escenarios de integración del prototipo de AppWebRevisionVehicular, commit 77d1ff6, y comprobé manualmente el inicio, el reintento y el rechazo por pago pendiente. Medí POST /inspecciones completo desde el cliente con 1, 5 y 10 usuarios simultáneos, 100 solicitudes por escenario y 10 solicitudes de calentamiento independientes por escenario. Los p95 fueron 14,256 ms, 25,982 ms y 47,432 ms, con 300 respuestas HTTP 201 y 0 % de errores. Establecí un criterio inicial de p95 máximo de 100 ms para este entorno local y documenté el método, las condiciones, las limitaciones y los archivos de comprobación.
+- **Qué se hizo:** Agregué evidencias del tablero de issues.
+
 - **Problema encontrado:** La terminal utilizaba un JRE de Java 8 y la suite no tenía cargadas las variables de conexión. La integración del informe había dejado la matriz de riesgos como plantilla. El límite de rendimiento no estaba definido al iniciar la medición y todavía no he comprobado un clon limpio del repositorio de entrega.
 - **Solución y comprobación:** Configuré Temurin JDK 21 en la terminal y preparé un clúster PostgreSQL dedicado en el puerto 55432, con bases y credenciales separadas. La compilación y la suite terminaron correctamente. Guardé tres capturas funcionales, una de rendimiento y los registros originales. Recalculé el p95 como la observación 95 de cada conjunto de 100 duraciones y contrasté las respuestas con las autorizaciones e inspecciones de ambas bases. Los tres escenarios quedaron por debajo del criterio inicial de 100 ms, definido después de revisar esta prueba exploratoria. La medición corresponde al tiempo observado por el cliente y no al tiempo interno instrumentado en el servidor. Quedan pendientes contrastar el criterio con la necesidad del inspector, la reproducción desde un clon limpio de la entrega y las condiciones de los otros RNF que esta prueba no cubre.
 - **Uso de IA:** Codex, como apoyo para recuperar mi sección de riesgos, preparar el medidor de rendimiento y estructurar los resultados. Ejecuté las pruebas en mi equipo y verifiqué las capturas, las mediciones originales, el cálculo del p95, los registros de ambas bases y las diferencias del informe.
@@ -162,3 +164,6 @@
 - **Uso de IA:** Claude (Opus 5.5), como apoyo para identificar los cambios del contrato 0.2 que debían reflejarse en el informe, comparar mi versión con la del repositorio antes de subirla. Verifiqué el resultado compilando en TeXstudio y revisando el PDF.
 
 - **Tiempo dedicado:** 1 h.
+
+
+
