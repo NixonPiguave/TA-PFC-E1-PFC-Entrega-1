@@ -165,5 +165,22 @@
 
 - **Tiempo dedicado:** 1 h.
 
+### 2026-11-21 · Mera Jumbo Allison
+
+- **Integrantes presentes:** Mera Jumbo Allison. En la grabación del video: Garcia Kevin, Giraldo Diego, Piguave Nixon y Mera Jumbo Allison.
+- **Commit(s):**
+  - [`e94c419`](https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/commit/e94c4196ddce61a3b22331ae69365f154696d3d8) — Completa plan, esqueleto, aportes y resumen #6.
+  - [`491a92a`](https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/commit/491a92adddcf7fd156ce897a3aafd59bea806751) — Actualización de pequeños detalles.
+  - [`91df0a2`](https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/commit/91df0a269277b1ad8a62b5cbc4697d376febfde8) — Enlaza el tablero del proyecto (closes #6).
+  - [`6795eb4`](https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/commit/6795eb4f4301e96d2facd389134d84b763ca39eb) — Integra la captura del tablero.
+  - [`489e29c`](https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/commit/489e29c2bbbafc2f936d9e38c9fc81d4545c3d96) — Elimina el PDF con nombre duplicado.
+  - [`f33e943`](https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/commit/f33e943359688fcd83ba0d0ee5ae1cc686ae95c9) — Integra la encuesta y el enlace del video (#8).
+  - [`a2cf206`](https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/commit/a2cf206f66a94c8fdfd5eddafff11d528af15063) — Agrega el enlace del video al README.
+
+- **Qué se hizo:** Completé las secciones del informe que podían llenarse con el material del repositorio: el resumen ejecutivo, los objetivos OE-3 y OE-4 alineados con los RNF de Nixon, los roles y responsabilidades, los servicios mínimos, la evidencia de ejecución con las capturas, las evidencias de autoría, la tabla de aportes con enlaces a los commits e issues de cada integrante y la declaración de uso de IA del equipo. Completé la portada y el cronograma con las fechas oficiales del encuadre (semanas 9, 13 y 17) y enlacé el tablero del proyecto. Preparé el PDF de una página para el SGA. Integré la captura del tablero subida por Nixon, los resultados de la encuesta de 17 respuestas en el contexto y en la tabla de consecuencias, y el enlace del video en el informe y en el README. Participé en la grabación del video explicando mi parte como responsable de documentación.
+
+- **Problema encontrado:** El PDF del informe se había subido como `informe.pdf.pdf`, con lo que el enlace del README quedaba roto. Al subir el PDF para el SGA me equivoqué de archivo y elegí el informe completo en lugar del de una página. 
+
+- **Solución y comprobación:** Volví a compilar y subí el informe como `docs/informe.pdf`, y eliminé el archivo con nombre duplicado.  Subí al SGA el PDF de una sola página (111 KB).  Con la encuesta completé la tabla de consecuencias con porcentajes calculados sobre las 17 respuestas.
 
 
