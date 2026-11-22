@@ -183,4 +183,10 @@
 
 - **Solución y comprobación:** Volví a compilar y subí el informe como `docs/informe.pdf`, y eliminé el archivo con nombre duplicado.  Subí al SGA el PDF de una sola página (111 KB).  Con la encuesta completé la tabla de consecuencias con porcentajes calculados sobre las 17 respuestas.
 
-
+2026-11-21 · Diego Giraldo
+- Integrantes presentes: Diego Giraldo.
+- Qué se hizo: Preparé mi parte de la presentación de la Entrega 1. Levanté PostgreSQL y los servicios de Turnos y Pagos e Inspecciones, preparé turnos ficticios con pago confirmado y ensayé el flujo con curl. Organicé la demostración en tres casos: inicio autorizado, reintento con la misma clave de idempotencia y solicitud con Turnos y Pagos detenido.
+- Problema encontrado: Las ventanas de PowerShell se abrieron en la raíz del proyecto RTV, por lo que Java no encontraba los JAR del prototipo. Además, al abrir /inspecciones en el navegador recibí un 405, porque la barra de direcciones envía GET y la operación requiere POST.
+- Solución y comprobación: Arranqué las aplicaciones con rutas absolutas y ejecuté las solicitudes desde la terminal. Comprobé el 201 de inicio autorizado y preparé dos turnos nuevos para grabar el flujo sin reutilizar inspecciones de ensayos anteriores. En el guion expliqué cómo el 200 del reintento conserva los identificadores y cómo el 503 muestra que Inspecciones necesita una autorización de Turnos y Pagos para registrar un inicio nuevo.
+- **Uso de IA:** ChatGPT (6.2 Sol), como apoyo para resolver los problemas encontrados al ejecutar los JAR del prototipo
+- Tiempo dedicado: 1 hora 25 min.
