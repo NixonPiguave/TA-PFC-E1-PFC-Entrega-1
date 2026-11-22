@@ -134,4 +134,4 @@ El resultado es `docs/informe.pdf`. Compila con el repositorio completo para con
 
 ## Video de demostración
 
-[Ver el video de la entrega](URL_DEL_VIDEO)
+[Ver el video de la entrega](https://youtu.be/96_kZjtRLuc)
