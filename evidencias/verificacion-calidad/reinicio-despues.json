@@ -1,0 +1,200 @@
+{
+  "autorizaciones": [
+    {
+      "id": "58b5a6b5-b24f-4995-9f69-fa38ee9b4aad",
+      "turno_id": 165721588,
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-500"
+    },
+    {
+      "id": "b71b620c-86c3-4113-b599-0c3119796178",
+      "turno_id": 165721589,
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-501"
+    },
+    {
+      "id": "4c94a8a3-7f66-416d-ae83-3a682ea46313",
+      "turno_id": 165721590,
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-502"
+    },
+    {
+      "id": "0006d9d0-99e6-4eb7-9f65-f788ee3acf6c",
+      "turno_id": 165721591,
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-503"
+    },
+    {
+      "id": "1c9ee13f-203c-41bf-a43d-77855f152d34",
+      "turno_id": 165721592,
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-504"
+    },
+    {
+      "id": "ef739fa8-98bb-4bb4-b727-2126e957cc7a",
+      "turno_id": 165721593,
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-505"
+    },
+    {
+      "id": "a6e4a6dc-b0c6-4c28-8894-12687376d13d",
+      "turno_id": 165721594,
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-506"
+    },
+    {
+      "id": "8ea04a7c-08f1-4b90-a953-87b24c737853",
+      "turno_id": 165721595,
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-507"
+    },
+    {
+      "id": "3c676468-078a-46ac-8838-b978a0629bbd",
+      "turno_id": 165721596,
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-508"
+    },
+    {
+      "id": "fb01f392-8e44-4d4d-9610-c203d9133602",
+      "turno_id": 165721597,
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-509"
+    }
+  ],
+  "inspecciones": [
+    {
+      "id": "c9617f58-9ee0-41ae-bd0a-80e660a6393b",
+      "turno_id": 165721588,
+      "autorizacion_id": "58b5a6b5-b24f-4995-9f69-fa38ee9b4aad",
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-500"
+    },
+    {
+      "id": "e243584c-aef6-44c3-ac28-65c5118e5696",
+      "turno_id": 165721589,
+      "autorizacion_id": "b71b620c-86c3-4113-b599-0c3119796178",
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-501"
+    },
+    {
+      "id": "2e078f2f-8473-4369-9d20-b28318551c76",
+      "turno_id": 165721590,
+      "autorizacion_id": "4c94a8a3-7f66-416d-ae83-3a682ea46313",
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-502"
+    },
+    {
+      "id": "e22a97b1-ee5b-43d2-be75-5230f999596e",
+      "turno_id": 165721591,
+      "autorizacion_id": "0006d9d0-99e6-4eb7-9f65-f788ee3acf6c",
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-503"
+    },
+    {
+      "id": "48cc3a75-2eaf-4c02-a44c-fad2da8b6cd0",
+      "turno_id": 165721592,
+      "autorizacion_id": "1c9ee13f-203c-41bf-a43d-77855f152d34",
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-504"
+    },
+    {
+      "id": "7d0a5a44-1505-41b5-ac90-6511c225a0bd",
+      "turno_id": 165721593,
+      "autorizacion_id": "ef739fa8-98bb-4bb4-b727-2126e957cc7a",
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-505"
+    },
+    {
+      "id": "9c67d551-63b3-43bf-8e15-854855403116",
+      "turno_id": 165721594,
+      "autorizacion_id": "a6e4a6dc-b0c6-4c28-8894-12687376d13d",
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-506"
+    },
+    {
+      "id": "3efd6210-94dc-494a-a9ae-b83167cf2e70",
+      "turno_id": 165721595,
+      "autorizacion_id": "8ea04a7c-08f1-4b90-a953-87b24c737853",
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-507"
+    },
+    {
+      "id": "e7cdcb3c-cce8-4af3-b35b-608d2c8d57fb",
+      "turno_id": 165721596,
+      "autorizacion_id": "3c676468-078a-46ac-8838-b978a0629bbd",
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-508"
+    },
+    {
+      "id": "af5c189f-e2c6-4158-b5ca-21d9e403b370",
+      "turno_id": 165721597,
+      "autorizacion_id": "fb01f392-8e44-4d4d-9610-c203d9133602",
+      "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-509"
+    }
+  ],
+  "turnos": [
+    {
+      "id": 165721588,
+      "habilitado": true
+    },
+    {
+      "id": 165721589,
+      "habilitado": true
+    },
+    {
+      "id": 165721590,
+      "habilitado": true
+    },
+    {
+      "id": 165721591,
+      "habilitado": true
+    },
+    {
+      "id": 165721592,
+      "habilitado": true
+    },
+    {
+      "id": 165721593,
+      "habilitado": true
+    },
+    {
+      "id": 165721594,
+      "habilitado": true
+    },
+    {
+      "id": 165721595,
+      "habilitado": true
+    },
+    {
+      "id": 165721596,
+      "habilitado": true
+    },
+    {
+      "id": 165721597,
+      "habilitado": true
+    }
+  ],
+  "pagos": [
+    {
+      "turno_id": 165721588,
+      "confirmado": true
+    },
+    {
+      "turno_id": 165721589,
+      "confirmado": true
+    },
+    {
+      "turno_id": 165721590,
+      "confirmado": true
+    },
+    {
+      "turno_id": 165721591,
+      "confirmado": true
+    },
+    {
+      "turno_id": 165721592,
+      "confirmado": true
+    },
+    {
+      "turno_id": 165721593,
+      "confirmado": true
+    },
+    {
+      "turno_id": 165721594,
+      "confirmado": true
+    },
+    {
+      "turno_id": 165721595,
+      "confirmado": true
+    },
+    {
+      "turno_id": 165721596,
+      "confirmado": true
+    },
+    {
+      "turno_id": 165721597,
+      "confirmado": true
+    }
+  ]
+}

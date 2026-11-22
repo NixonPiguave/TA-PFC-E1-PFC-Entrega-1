@@ -1,0 +1,10 @@
+OK 01 inicio y vínculo persistido
+OK 02 turno inexistente
+OK 03 pago pendiente sin confirmación automática
+OK 04 turno no habilitado
+OK 05 reintento y rechazo de clave con otro turno
+OK 06 simultaneidad con claves iguales y distintas
+OK 07 servicio detenido y respuesta demorada después de guardar
+OK 08 credencial ausente e incorrecta
+OK 09 datos conservados tras reiniciar ambas aplicaciones
+OK 10 recuperación de autorización tras fallo de escritura local

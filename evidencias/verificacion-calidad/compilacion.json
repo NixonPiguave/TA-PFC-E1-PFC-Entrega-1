@@ -1,0 +1,32 @@
+{
+  "comandos": [
+    {
+      "paso": 1,
+      "programa": "pdflatex.exe",
+      "salida": 0
+    },
+    {
+      "paso": 2,
+      "programa": "biber.exe",
+      "salida": 0
+    },
+    {
+      "paso": 3,
+      "programa": "pdflatex.exe",
+      "salida": 0
+    },
+    {
+      "paso": 4,
+      "programa": "pdflatex.exe",
+      "salida": 0
+    }
+  ],
+  "paginas": 52,
+  "sha256": "fc8717e8d8f968824484875d43a9c4cb84aa2371d9e47683379907840d14f2f2",
+  "avisos": [
+    "Overfull \\hbox (1.11987pt too wide) in paragraph at lines 830--830",
+    "Overfull \\hbox (1.11987pt too wide) in paragraph at lines 830--830"
+  ],
+  "baseGitPruebas": "877bb16de24e18f6d5ae470844603142028425d0",
+  "avisosPreexistentes": "Dos desbordamientos de 1.11987 pt en una tabla del contrato ya presentes al compilar la base; no se modifico esa tabla."
+}

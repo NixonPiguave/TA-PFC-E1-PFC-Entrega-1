@@ -1,0 +1,55 @@
+{
+  "bases": [
+    {
+      "origen": "rtv_turnos_pagos",
+      "destino": "rtv_restaura_turnos_10225020",
+      "hashRespaldo": "cdb6ff2bc745f79e05da628df6e8919d30cc7ee128edfb84ae05736fb305bb16",
+      "tablas": [
+        {
+          "tabla": "turnos",
+          "registros": 362,
+          "sha256": "3ae147abe3c430237da2b7712c924170af44c1bdcad1212831167974159942cd",
+          "contenidoIdentico": true
+        },
+        {
+          "tabla": "pagos",
+          "registros": 362,
+          "sha256": "5c88cb88c5afaa1b825de3078ae765b8e9b0b1cc0e5f54b70b5a4c943f3ac646",
+          "contenidoIdentico": true
+        },
+        {
+          "tabla": "claves",
+          "registros": 372,
+          "sha256": "aaef9a49106add9d5a6790c7a5cdeb18137e7d9922cc8b1361ac0cfd9075470b",
+          "contenidoIdentico": true
+        },
+        {
+          "tabla": "autorizaciones",
+          "registros": 352,
+          "sha256": "33888780fede913b9f5e9dbf2e30daae2c7b2fd3434a20211cc39616a4440bca",
+          "contenidoIdentico": true
+        }
+      ]
+    },
+    {
+      "origen": "rtv_inspecciones",
+      "destino": "rtv_restaura_inspecciones_10225020",
+      "hashRespaldo": "326fdaef56dbf389478a68e81a69fab96dfda25ebdd67b4e7fc6b79dda04232c",
+      "tablas": [
+        {
+          "tabla": "claves",
+          "registros": 371,
+          "sha256": "9c055aa9eb3505321f79fab17d23d041dd004529e0c9a1b5d20a1fb34ee70779",
+          "contenidoIdentico": true
+        },
+        {
+          "tabla": "inspecciones",
+          "registros": 351,
+          "sha256": "fa268af04098ea304806b602323fd9458ab6b789b2222b483fe11d0e92675419",
+          "contenidoIdentico": true
+        }
+      ]
+    }
+  ],
+  "alcance": "Respaldo logico y restauracion controlada en bases nuevas del cluster ficticio; no simula perdida fisica ni mide RTO o RPO."
+}

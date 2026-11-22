@@ -1,0 +1,776 @@
+[
+  {
+    "instanteUtc": "2026-11-22T02:47:14.793Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-100",
+    "cuerpo": {
+      "turnoId": 165721188
+    },
+    "respuesta": {
+      "http": 409,
+      "body": {
+        "codigo": "TURNO_NO_HABILITADO"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:15.080Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-101",
+    "cuerpo": {
+      "turnoId": 165721189
+    },
+    "respuesta": {
+      "http": 409,
+      "body": {
+        "codigo": "TURNO_NO_HABILITADO"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:15.339Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-102",
+    "cuerpo": {
+      "turnoId": 165721190
+    },
+    "respuesta": {
+      "http": 409,
+      "body": {
+        "codigo": "TURNO_NO_HABILITADO"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:15.622Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-200",
+    "cuerpo": {
+      "turnoId": 165721288
+    },
+    "respuesta": {
+      "http": 409,
+      "body": {
+        "codigo": "PAGO_NO_CONFIRMADO"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:16.085Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-201",
+    "cuerpo": {
+      "turnoId": 165721289
+    },
+    "respuesta": {
+      "http": 409,
+      "body": {
+        "codigo": "PAGO_NO_CONFIRMADO"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:16.609Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-202",
+    "cuerpo": {
+      "turnoId": 165721290
+    },
+    "respuesta": {
+      "http": 409,
+      "body": {
+        "codigo": "PAGO_NO_CONFIRMADO"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:16.962Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-300",
+    "cuerpo": {
+      "turnoId": 165721388
+    },
+    "respuesta": {
+      "http": 404,
+      "body": {
+        "codigo": "TURNO_INEXISTENTE"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:17.190Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-301",
+    "cuerpo": {
+      "turnoId": 165721389
+    },
+    "respuesta": {
+      "http": 404,
+      "body": {
+        "codigo": "TURNO_INEXISTENTE"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:17.392Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-302",
+    "cuerpo": {
+      "turnoId": 165721390
+    },
+    "respuesta": {
+      "http": 404,
+      "body": {
+        "codigo": "TURNO_INEXISTENTE"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:17.803Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-400",
+    "cuerpo": {
+      "turnoId": 165721488
+    },
+    "respuesta": {
+      "http": 201,
+      "body": {
+        "inspeccionId": "6a6fb3df-9b2c-4b38-82c6-b5a12a2a5b2e",
+        "turnoId": 165721488,
+        "autorizacionId": "4410f597-aa2a-48a7-8337-d0c5050f3d46",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:17.900Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-401",
+    "cuerpo": {
+      "turnoId": 165721489
+    },
+    "respuesta": {
+      "http": 201,
+      "body": {
+        "inspeccionId": "e66a6c88-61aa-48e9-bb12-1b5a919ff514",
+        "turnoId": 165721489,
+        "autorizacionId": "3b61cd62-b634-42a4-b73d-702c5e611845",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:17.903Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-401",
+    "cuerpo": {
+      "turnoId": 165721489
+    },
+    "respuesta": {
+      "http": 200,
+      "body": {
+        "inspeccionId": "e66a6c88-61aa-48e9-bb12-1b5a919ff514",
+        "turnoId": 165721489,
+        "autorizacionId": "3b61cd62-b634-42a4-b73d-702c5e611845",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:17.907Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-401",
+    "cuerpo": {
+      "turnoId": 165721489
+    },
+    "respuesta": {
+      "http": 200,
+      "body": {
+        "inspeccionId": "e66a6c88-61aa-48e9-bb12-1b5a919ff514",
+        "turnoId": 165721489,
+        "autorizacionId": "3b61cd62-b634-42a4-b73d-702c5e611845",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:17.909Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-401",
+    "cuerpo": {
+      "turnoId": 165721489
+    },
+    "respuesta": {
+      "http": 200,
+      "body": {
+        "inspeccionId": "e66a6c88-61aa-48e9-bb12-1b5a919ff514",
+        "turnoId": 165721489,
+        "autorizacionId": "3b61cd62-b634-42a4-b73d-702c5e611845",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:17.913Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-401",
+    "cuerpo": {
+      "turnoId": 165721489
+    },
+    "respuesta": {
+      "http": 200,
+      "body": {
+        "inspeccionId": "e66a6c88-61aa-48e9-bb12-1b5a919ff514",
+        "turnoId": 165721489,
+        "autorizacionId": "3b61cd62-b634-42a4-b73d-702c5e611845",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:17.917Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-401",
+    "cuerpo": {
+      "turnoId": 165721489
+    },
+    "respuesta": {
+      "http": 200,
+      "body": {
+        "inspeccionId": "e66a6c88-61aa-48e9-bb12-1b5a919ff514",
+        "turnoId": 165721489,
+        "autorizacionId": "3b61cd62-b634-42a4-b73d-702c5e611845",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:17.919Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-401",
+    "cuerpo": {
+      "turnoId": 165721489
+    },
+    "respuesta": {
+      "http": 200,
+      "body": {
+        "inspeccionId": "e66a6c88-61aa-48e9-bb12-1b5a919ff514",
+        "turnoId": 165721489,
+        "autorizacionId": "3b61cd62-b634-42a4-b73d-702c5e611845",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:17.922Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-401",
+    "cuerpo": {
+      "turnoId": 165721489
+    },
+    "respuesta": {
+      "http": 200,
+      "body": {
+        "inspeccionId": "e66a6c88-61aa-48e9-bb12-1b5a919ff514",
+        "turnoId": 165721489,
+        "autorizacionId": "3b61cd62-b634-42a4-b73d-702c5e611845",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:17.925Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-401",
+    "cuerpo": {
+      "turnoId": 165721489
+    },
+    "respuesta": {
+      "http": 200,
+      "body": {
+        "inspeccionId": "e66a6c88-61aa-48e9-bb12-1b5a919ff514",
+        "turnoId": 165721489,
+        "autorizacionId": "3b61cd62-b634-42a4-b73d-702c5e611845",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:17.926Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-401",
+    "cuerpo": {
+      "turnoId": 165721489
+    },
+    "respuesta": {
+      "http": 200,
+      "body": {
+        "inspeccionId": "e66a6c88-61aa-48e9-bb12-1b5a919ff514",
+        "turnoId": 165721489,
+        "autorizacionId": "3b61cd62-b634-42a4-b73d-702c5e611845",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:17.929Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-401",
+    "cuerpo": {
+      "turnoId": 165721489
+    },
+    "respuesta": {
+      "http": 200,
+      "body": {
+        "inspeccionId": "e66a6c88-61aa-48e9-bb12-1b5a919ff514",
+        "turnoId": 165721489,
+        "autorizacionId": "3b61cd62-b634-42a4-b73d-702c5e611845",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:18.176Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-concurrente-a",
+    "cuerpo": {
+      "turnoId": 165721490
+    },
+    "respuesta": {
+      "http": 409,
+      "body": {
+        "codigo": "TURNO_YA_AUTORIZADO"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:18.176Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-concurrente-b",
+    "cuerpo": {
+      "turnoId": 165721490
+    },
+    "respuesta": {
+      "http": 201,
+      "body": {
+        "inspeccionId": "0367a1d0-e154-44ea-9fa6-56f299d7324c",
+        "turnoId": 165721490,
+        "autorizacionId": "b8233d94-520a-4bf1-a1f5-f33a9d26129c",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:19.114Z",
+    "servicio": "turnos",
+    "ruta": "/turnos/165721491/autorizaciones-inspeccion",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-sin-0",
+    "cuerpo": {},
+    "respuesta": {
+      "http": 401,
+      "body": {
+        "codigo": "CREDENCIAL_INVALIDA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:19.117Z",
+    "servicio": "turnos",
+    "ruta": "/turnos/165721491/autorizaciones-inspeccion",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-sin-1",
+    "cuerpo": {},
+    "respuesta": {
+      "http": 401,
+      "body": {
+        "codigo": "CREDENCIAL_INVALIDA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:19.119Z",
+    "servicio": "turnos",
+    "ruta": "/turnos/165721491/autorizaciones-inspeccion",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-sin-2",
+    "cuerpo": {},
+    "respuesta": {
+      "http": 401,
+      "body": {
+        "codigo": "CREDENCIAL_INVALIDA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:19.121Z",
+    "servicio": "turnos",
+    "ruta": "/turnos/165721491/autorizaciones-inspeccion",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-sin-3",
+    "cuerpo": {},
+    "respuesta": {
+      "http": 401,
+      "body": {
+        "codigo": "CREDENCIAL_INVALIDA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:19.122Z",
+    "servicio": "turnos",
+    "ruta": "/turnos/165721491/autorizaciones-inspeccion",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-sin-4",
+    "cuerpo": {},
+    "respuesta": {
+      "http": 401,
+      "body": {
+        "codigo": "CREDENCIAL_INVALIDA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:19.124Z",
+    "servicio": "turnos",
+    "ruta": "/turnos/165721491/autorizaciones-inspeccion",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-invalida-0",
+    "cuerpo": {},
+    "respuesta": {
+      "http": 401,
+      "body": {
+        "codigo": "CREDENCIAL_INVALIDA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:19.126Z",
+    "servicio": "turnos",
+    "ruta": "/turnos/165721491/autorizaciones-inspeccion",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-invalida-1",
+    "cuerpo": {},
+    "respuesta": {
+      "http": 401,
+      "body": {
+        "codigo": "CREDENCIAL_INVALIDA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:19.129Z",
+    "servicio": "turnos",
+    "ruta": "/turnos/165721491/autorizaciones-inspeccion",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-invalida-2",
+    "cuerpo": {},
+    "respuesta": {
+      "http": 401,
+      "body": {
+        "codigo": "CREDENCIAL_INVALIDA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:19.133Z",
+    "servicio": "turnos",
+    "ruta": "/turnos/165721491/autorizaciones-inspeccion",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-invalida-3",
+    "cuerpo": {},
+    "respuesta": {
+      "http": 401,
+      "body": {
+        "codigo": "CREDENCIAL_INVALIDA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:19.135Z",
+    "servicio": "turnos",
+    "ruta": "/turnos/165721491/autorizaciones-inspeccion",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-invalida-4",
+    "cuerpo": {},
+    "respuesta": {
+      "http": 401,
+      "body": {
+        "codigo": "CREDENCIAL_INVALIDA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:19.386Z",
+    "servicio": "turnos",
+    "ruta": "/turnos/165721491/autorizaciones-inspeccion",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-valida",
+    "cuerpo": {},
+    "respuesta": {
+      "http": 201,
+      "body": {
+        "autorizacionId": "8a3cc1e9-4765-4a5e-b7bd-3485bc2a1d06",
+        "turnoId": 165721491
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:19.506Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-404",
+    "cuerpo": {
+      "turnoId": 165721492
+    },
+    "respuesta": {
+      "http": 503,
+      "body": {
+        "codigo": "TURNOS_NO_DISPONIBLE"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:24.155Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-404",
+    "cuerpo": {
+      "turnoId": 165721492
+    },
+    "respuesta": {
+      "http": 201,
+      "body": {
+        "inspeccionId": "785ea6d1-23a4-4633-9b6d-712619ea2de4",
+        "turnoId": 165721492,
+        "autorizacionId": "d5168a8b-1549-476b-8c50-e5605b206a08",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:31.520Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-405",
+    "cuerpo": {
+      "turnoId": 165721493
+    },
+    "respuesta": {
+      "http": 504,
+      "body": {
+        "codigo": "TURNOS_TIEMPO_AGOTADO"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:35.488Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-405",
+    "cuerpo": {
+      "turnoId": 165721493
+    },
+    "respuesta": {
+      "http": 201,
+      "body": {
+        "inspeccionId": "ca2b01ca-e4ea-4583-97fc-0f60a8942655",
+        "turnoId": 165721493,
+        "autorizacionId": "3dcc909d-e992-49da-bb62-56b9734ae7fb",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:35.592Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-500",
+    "cuerpo": {
+      "turnoId": 165721588
+    },
+    "respuesta": {
+      "http": 201,
+      "body": {
+        "inspeccionId": "c9617f58-9ee0-41ae-bd0a-80e660a6393b",
+        "turnoId": 165721588,
+        "autorizacionId": "58b5a6b5-b24f-4995-9f69-fa38ee9b4aad",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:35.686Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-501",
+    "cuerpo": {
+      "turnoId": 165721589
+    },
+    "respuesta": {
+      "http": 201,
+      "body": {
+        "inspeccionId": "e243584c-aef6-44c3-ac28-65c5118e5696",
+        "turnoId": 165721589,
+        "autorizacionId": "b71b620c-86c3-4113-b599-0c3119796178",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:35.775Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-502",
+    "cuerpo": {
+      "turnoId": 165721590
+    },
+    "respuesta": {
+      "http": 201,
+      "body": {
+        "inspeccionId": "2e078f2f-8473-4369-9d20-b28318551c76",
+        "turnoId": 165721590,
+        "autorizacionId": "4c94a8a3-7f66-416d-ae83-3a682ea46313",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:35.860Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-503",
+    "cuerpo": {
+      "turnoId": 165721591
+    },
+    "respuesta": {
+      "http": 201,
+      "body": {
+        "inspeccionId": "e22a97b1-ee5b-43d2-be75-5230f999596e",
+        "turnoId": 165721591,
+        "autorizacionId": "0006d9d0-99e6-4eb7-9f65-f788ee3acf6c",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:35.947Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-504",
+    "cuerpo": {
+      "turnoId": 165721592
+    },
+    "respuesta": {
+      "http": 201,
+      "body": {
+        "inspeccionId": "48cc3a75-2eaf-4c02-a44c-fad2da8b6cd0",
+        "turnoId": 165721592,
+        "autorizacionId": "1c9ee13f-203c-41bf-a43d-77855f152d34",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:36.037Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-505",
+    "cuerpo": {
+      "turnoId": 165721593
+    },
+    "respuesta": {
+      "http": 201,
+      "body": {
+        "inspeccionId": "7d0a5a44-1505-41b5-ac90-6511c225a0bd",
+        "turnoId": 165721593,
+        "autorizacionId": "ef739fa8-98bb-4bb4-b727-2126e957cc7a",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:36.126Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-506",
+    "cuerpo": {
+      "turnoId": 165721594
+    },
+    "respuesta": {
+      "http": 201,
+      "body": {
+        "inspeccionId": "9c67d551-63b3-43bf-8e15-854855403116",
+        "turnoId": 165721594,
+        "autorizacionId": "a6e4a6dc-b0c6-4c28-8894-12687376d13d",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:36.216Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-507",
+    "cuerpo": {
+      "turnoId": 165721595
+    },
+    "respuesta": {
+      "http": 201,
+      "body": {
+        "inspeccionId": "3efd6210-94dc-494a-a9ae-b83167cf2e70",
+        "turnoId": 165721595,
+        "autorizacionId": "8ea04a7c-08f1-4b90-a953-87b24c737853",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:36.303Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-508",
+    "cuerpo": {
+      "turnoId": 165721596
+    },
+    "respuesta": {
+      "http": 201,
+      "body": {
+        "inspeccionId": "e7cdcb3c-cce8-4af3-b35b-608d2c8d57fb",
+        "turnoId": 165721596,
+        "autorizacionId": "3c676468-078a-46ac-8838-b978a0629bbd",
+        "estado": "INICIADA"
+      }
+    }
+  },
+  {
+    "instanteUtc": "2026-11-22T02:47:36.389Z",
+    "servicio": "inspecciones",
+    "ruta": "/inspecciones",
+    "clave": "calidad-10225020-1eb9-496b-a53c-ed863936871b-509",
+    "cuerpo": {
+      "turnoId": 165721597
+    },
+    "respuesta": {
+      "http": 201,
+      "body": {
+        "inspeccionId": "af5c189f-e2c6-4158-b5ca-21d9e403b370",
+        "turnoId": 165721597,
+        "autorizacionId": "fb01f392-8e44-4d4d-9610-c203d9133602",
+        "estado": "INICIADA"
+      }
+    }
+  }
+]

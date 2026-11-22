@@ -133,7 +133,6 @@
 - **Integrantes presentes:** Piguave Nixon.
 - **Commit(s):**   - [`02b2b96`](https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/commit/02b2b968e2fbaeb56779c2eb82ceee47b2e7996e) — Documentación del p95 y las evidencias de comunicación del RTV
 - **Qué se hizo:** Recuperé los seis riesgos técnicos y su relación con las tres lecciones de FORM-AC-01 en el informe integrado. Ejecuté personalmente la compilación y los diez escenarios de integración del prototipo de AppWebRevisionVehicular, commit 77d1ff6, y comprobé manualmente el inicio, el reintento y el rechazo por pago pendiente. Medí POST /inspecciones completo desde el cliente con 1, 5 y 10 usuarios simultáneos, 100 solicitudes por escenario y 10 solicitudes de calentamiento independientes por escenario. Los p95 fueron 14,256 ms, 25,982 ms y 47,432 ms, con 300 respuestas HTTP 201 y 0 % de errores. Establecí un criterio inicial de p95 máximo de 100 ms para este entorno local y documenté el método, las condiciones, las limitaciones y los archivos de comprobación.
-- **Qué se hizo:** Agregué evidencias del tablero de issues.
 
 - **Problema encontrado:** La terminal utilizaba un JRE de Java 8 y la suite no tenía cargadas las variables de conexión. La integración del informe había dejado la matriz de riesgos como plantilla. El límite de rendimiento no estaba definido al iniciar la medición y todavía no he comprobado un clon limpio del repositorio de entrega.
 - **Solución y comprobación:** Configuré Temurin JDK 21 en la terminal y preparé un clúster PostgreSQL dedicado en el puerto 55432, con bases y credenciales separadas. La compilación y la suite terminaron correctamente. Guardé tres capturas funcionales, una de rendimiento y los registros originales. Recalculé el p95 como la observación 95 de cada conjunto de 100 duraciones y contrasté las respuestas con las autorizaciones e inspecciones de ambas bases. Los tres escenarios quedaron por debajo del criterio inicial de 100 ms, definido después de revisar esta prueba exploratoria. La medición corresponde al tiempo observado por el cliente y no al tiempo interno instrumentado en el servidor. Quedan pendientes contrastar el criterio con la necesidad del inspector, la reproducción desde un clon limpio de la entrega y las condiciones de los otros RNF que esta prueba no cubre.
@@ -190,3 +189,13 @@
 - Solución y comprobación: Arranqué las aplicaciones con rutas absolutas y ejecuté las solicitudes desde la terminal. Comprobé el 201 de inicio autorizado y preparé dos turnos nuevos para grabar el flujo sin reutilizar inspecciones de ensayos anteriores. En el guion expliqué cómo el 200 del reintento conserva los identificadores y cómo el 503 muestra que Inspecciones necesita una autorización de Turnos y Pagos para registrar un inicio nuevo.
 - **Uso de IA:** ChatGPT (6.2 Sol), como apoyo para resolver los problemas encontrados al ejecutar los JAR del prototipo
 - Tiempo dedicado: 1 hora 25 min.
+
+
+### 2026-11-21 · Piguave Nixon
+
+- **Commit(s):** [`e7b18ee`](https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/commit/e7b18ee97b478d54edb50d999ceb9237607ae942) — Agregué evidencias del tablero de issues.
+- **Qué se hizo:** Agregué evidencias del tablero de issues. Se contrastaron las respuestas de la encuesta con RF-01 a RF-05 y se incorporó la solicitud de auditoría de E11 como origen de esa necesidad, manteniendo diferenciados los criterios técnicos y la confirmación del centro. Se verificó un clon nuevo del repositorio de entrega: compilación, diez escenarios de integración, nueva medición de p95 y cantidades previstas de los otros RNF. Se comprobaron el reinicio de PostgreSQL con diez inspecciones confirmadas y la restauración de respaldos en bases ficticias nuevas. Se agregó al informe la referencia a la revisión grupal del 21 de noviembre y se regeneró el PDF.
+
+- **Comprobación:** pruebas sobre el commit `877bb16`, con registros en `evidencias/verificacion-calidad/` y procedimiento en `docs/calidad/verificacion-e1.md`.
+- **Declaración de uso de IA:** Codex, como apoyo para revisar la trazabilidad. Se ejecutaron las comprobaciones en un clúster ficticio separado, se contrastaron las respuestas y los inventarios y se verificaron las diferencias con la versión del repositorio.
+

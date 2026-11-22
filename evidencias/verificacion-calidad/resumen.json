@@ -1,0 +1,120 @@
+{
+  "runId": "10225020-1eb9-496b-a53c-ed863936871b",
+  "completo": true,
+  "finUtc": "2026-11-22T02:48:48.031Z",
+  "resultados": [
+    {
+      "requisito": "RNF-01",
+      "resultado": "COMPROBACION_EJECUTADA",
+      "escenarios": [
+        {
+          "usuarios": 1,
+          "solicitudes": 100,
+          "calentamiento": 10,
+          "errores": 0,
+          "n": 100,
+          "minimoMs": 8.417900000000373,
+          "maximoMs": 23.6216000000004,
+          "mediaMs": 11.012640000000173,
+          "rangoP95": 95,
+          "p95Ms": 14.303499999999985,
+          "umbralMs": 100,
+          "satisfaceUmbral": true
+        },
+        {
+          "usuarios": 5,
+          "solicitudes": 100,
+          "calentamiento": 10,
+          "errores": 0,
+          "n": 100,
+          "minimoMs": 10.664300000000367,
+          "maximoMs": 59.858000000000175,
+          "mediaMs": 21.102186000000057,
+          "rangoP95": 95,
+          "p95Ms": 26.5617000000002,
+          "umbralMs": 100,
+          "satisfaceUmbral": true
+        },
+        {
+          "usuarios": 10,
+          "solicitudes": 100,
+          "calentamiento": 10,
+          "errores": 0,
+          "n": 100,
+          "minimoMs": 19.201100000000224,
+          "maximoMs": 60.80210000000079,
+          "mediaMs": 42.20180500000004,
+          "rangoP95": 95,
+          "p95Ms": 54.36659999999938,
+          "umbralMs": 100,
+          "satisfaceUmbral": true
+        }
+      ],
+      "todosSatisfacenUmbral": true
+    },
+    {
+      "requisito": "RNF-03",
+      "resultado": "COMPROBACION_EJECUTADA",
+      "casosNegativos": 9,
+      "casosPorCondicion": 3,
+      "autorizacionesNegativas": 0,
+      "inspeccionesNegativas": 0,
+      "controlValido": 201
+    },
+    {
+      "requisito": "RNF-04",
+      "resultado": "COMPROBACION_EJECUTADA",
+      "creacionInicial": 1,
+      "reintentosConMismaClave": 10,
+      "registrosTrasReintentos": {
+        "autorizaciones": 1,
+        "inspecciones": 1
+      },
+      "solicitudesSimultaneas": 2,
+      "registrosTrasConcurrencia": {
+        "autorizaciones": 1,
+        "inspecciones": 1
+      }
+    },
+    {
+      "requisito": "RNF-06",
+      "resultado": "COMPROBACION_EJECUTADA",
+      "sinCredencial": 5,
+      "credencialIncorrecta": 5,
+      "rechazos401": 10,
+      "datosDeNegocioIdenticos": true,
+      "controlValido": 201
+    },
+    {
+      "requisito": "RNF-02",
+      "resultado": "COMPROBACION_EJECUTADA",
+      "casos": 2,
+      "servicioDetenido": 503,
+      "respuestaDemorada": 504,
+      "inspeccionesAntesDelReintento": 0,
+      "recuperacionConMismaClave": true,
+      "esperaConfigurada": "3s"
+    },
+    {
+      "requisito": "RNF-05",
+      "resultado": "COMPROBACION_EJECUTADA",
+      "inspeccionesConfirmadas": 10,
+      "autorizacionesAsociadas": 10,
+      "conservacionPorcentaje": 100,
+      "identificadoresYEstadosIdenticos": true,
+      "reinicios": [
+        "Turnos y Pagos",
+        "Inspecciones",
+        "PostgreSQL"
+      ],
+      "reinicioPostgresql": "waiting for server to shut down...... done\r\nserver stopped\r\nwaiting for server to start.... done\r\nserver started"
+    },
+    {
+      "requisito": "R-02",
+      "resultado": "COMPROBACION_EJECUTADA",
+      "basesRestauradas": 2,
+      "contenidoDeTodasLasTablasIdentico": true
+    }
+  ],
+  "alcance": "Verificacion tecnica de los casos ejecutados y restauracion controlada de datos ficticios; no sustituye validacion de requisitos por el centro ni recuperacion de infraestructura en produccion."
+}

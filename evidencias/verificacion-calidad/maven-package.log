@@ -1,0 +1,110 @@
+Acceso denegado.
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] prototipo-e1                                                       [pom]
+[INFO] soporte-http                                                       [jar]
+[INFO] turnos-pagos                                                       [jar]
+[INFO] inspecciones                                                       [jar]
+[INFO] 
+[INFO] -----------------------< ec.rtv.e1:prototipo-e1 >-----------------------
+[INFO] Building prototipo-e1 1.0.0-SNAPSHOT                               [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] -----------------------< ec.rtv.e1:soporte-http >-----------------------
+[INFO] Building soporte-http 1.0.0-SNAPSHOT                               [2/4]
+[INFO]   from soporte-http\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ soporte-http ---
+[INFO] skip non existing resourceDirectory C:\Users\user\Desktop\7mo Semestre\Aplicaciones distribuidas\Corte 1\PROYECTO FIN DE CURSO PFC\material-de-apoyo\cierre-calidad-20261121\repositorio-limpio\soporte-http\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\user\Desktop\7mo Semestre\Aplicaciones distribuidas\Corte 1\PROYECTO FIN DE CURSO PFC\material-de-apoyo\cierre-calidad-20261121\repositorio-limpio\soporte-http\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ soporte-http ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 2 source files with javac [debug parameters release 21] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ soporte-http ---
+[INFO] skip non existing resourceDirectory C:\Users\user\Desktop\7mo Semestre\Aplicaciones distribuidas\Corte 1\PROYECTO FIN DE CURSO PFC\material-de-apoyo\cierre-calidad-20261121\repositorio-limpio\soporte-http\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ soporte-http ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ soporte-http ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ soporte-http ---
+[INFO] Building jar: C:\Users\user\Desktop\7mo Semestre\Aplicaciones distribuidas\Corte 1\PROYECTO FIN DE CURSO PFC\material-de-apoyo\cierre-calidad-20261121\repositorio-limpio\soporte-http\target\soporte-http-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] -----------------------< ec.rtv.e1:turnos-pagos >-----------------------
+[INFO] Building turnos-pagos 1.0.0-SNAPSHOT                               [3/4]
+[INFO]   from src\turnos-pagos\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ turnos-pagos ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ turnos-pagos ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 2 source files with javac [debug parameters release 21] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ turnos-pagos ---
+[INFO] skip non existing resourceDirectory C:\Users\user\Desktop\7mo Semestre\Aplicaciones distribuidas\Corte 1\PROYECTO FIN DE CURSO PFC\material-de-apoyo\cierre-calidad-20261121\repositorio-limpio\src\turnos-pagos\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ turnos-pagos ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ turnos-pagos ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ turnos-pagos ---
+[INFO] Building jar: C:\Users\user\Desktop\7mo Semestre\Aplicaciones distribuidas\Corte 1\PROYECTO FIN DE CURSO PFC\material-de-apoyo\cierre-calidad-20261121\repositorio-limpio\src\turnos-pagos\target\turnos-pagos-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:4.0.1:repackage (repackage) @ turnos-pagos ---
+[INFO] Replacing main artifact C:\Users\user\Desktop\7mo Semestre\Aplicaciones distribuidas\Corte 1\PROYECTO FIN DE CURSO PFC\material-de-apoyo\cierre-calidad-20261121\repositorio-limpio\src\turnos-pagos\target\turnos-pagos-1.0.0-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\user\Desktop\7mo Semestre\Aplicaciones distribuidas\Corte 1\PROYECTO FIN DE CURSO PFC\material-de-apoyo\cierre-calidad-20261121\repositorio-limpio\src\turnos-pagos\target\turnos-pagos-1.0.0-SNAPSHOT.jar.original
+[INFO] 
+[INFO] -----------------------< ec.rtv.e1:inspecciones >-----------------------
+[INFO] Building inspecciones 1.0.0-SNAPSHOT                               [4/4]
+[INFO]   from src\inspecciones\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ inspecciones ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ inspecciones ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug parameters release 21] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ inspecciones ---
+[INFO] skip non existing resourceDirectory C:\Users\user\Desktop\7mo Semestre\Aplicaciones distribuidas\Corte 1\PROYECTO FIN DE CURSO PFC\material-de-apoyo\cierre-calidad-20261121\repositorio-limpio\src\inspecciones\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ inspecciones ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ inspecciones ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ inspecciones ---
+[INFO] Building jar: C:\Users\user\Desktop\7mo Semestre\Aplicaciones distribuidas\Corte 1\PROYECTO FIN DE CURSO PFC\material-de-apoyo\cierre-calidad-20261121\repositorio-limpio\src\inspecciones\target\inspecciones-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:4.0.1:repackage (repackage) @ inspecciones ---
+[INFO] Replacing main artifact C:\Users\user\Desktop\7mo Semestre\Aplicaciones distribuidas\Corte 1\PROYECTO FIN DE CURSO PFC\material-de-apoyo\cierre-calidad-20261121\repositorio-limpio\src\inspecciones\target\inspecciones-1.0.0-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\user\Desktop\7mo Semestre\Aplicaciones distribuidas\Corte 1\PROYECTO FIN DE CURSO PFC\material-de-apoyo\cierre-calidad-20261121\repositorio-limpio\src\inspecciones\target\inspecciones-1.0.0-SNAPSHOT.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for prototipo-e1 1.0.0-SNAPSHOT:
+[INFO] 
+[INFO] prototipo-e1 ....................................... SUCCESS [  0.003 s]
+[INFO] soporte-http ....................................... SUCCESS [  6.977 s]
+[INFO] turnos-pagos ....................................... SUCCESS [  2.838 s]
+[INFO] inspecciones ....................................... SUCCESS [  1.118 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  12.186 s
+[INFO] Finished at: 2026-11-21T21:36:45-05:00
+[INFO] ------------------------------------------------------------------------
