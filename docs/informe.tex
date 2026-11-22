@@ -138,7 +138,7 @@
 	%  3. CONTEXTO Y PROBLEMA  — Responsable: Allison (mar. 17)
 	% =====================================================================
 	\section{Contexto y problema}
-	La información de esta sección proviene del levantamiento realizado al personal del CRTVMV (evidencia 1). Las respuestas se citan como P1 a P13, según el número de pregunta del acta de la entrevista.
+	La información de esta sección proviene de dos fuentes. La primera es la entrevista realizada al personal del CRTVMV durante el desarrollo anterior del sistema RTV, cuyas respuestas se citan como P1 a P13 según el número de pregunta. La segunda es una encuesta aplicada el 21 de noviembre de 2026 a 17 usuarios y posibles usuarios de la revisión técnica vehicular, cuyas preguntas se citan como E1 a E11; sus respuestas crudas se encuentran en \texttt{evidencias/Encuesta RTV - TA-PFC-E1.csv}.
 	
 	\subsection{Organización}
 	% Fuente: entrevista al personal del CRTVMV (evidencia 1). Las preguntas
@@ -161,31 +161,33 @@
 	
 	Antes de iniciar la revisión el centro debe comprobar información que no administra: que las citaciones del propietario estén pagadas en la ANT o en un banco, salvo que estén impugnadas (P9--P11), y, en un cambio de propietario, el comprobante de transferencia de dominio emitido por el SRI (P4). Esa verificación depende del comprobante físico que presenta el usuario o de que el sistema refleje el pago (P10). Por último, los turnos solo valen hasta fin de mes; después se purgan y se asignan de nuevo para el mes siguiente (P13).
 	
-	En este flujo, el estado de un mismo vehículo (turno, pago, línea asignada, resultado de cada prueba) lo modifican puestos distintos en momentos distintos, y una parte de las validaciones depende de sistemas externos como la ANT y el SRI. \pendiente{completar con las limitaciones concretas del sistema actual que mencione el entrevistado: caídas, reprocesos, demoras en la entrega del resultado o falta de información en tiempo real}
+	En este flujo, el estado de un mismo vehículo (turno, pago, línea asignada, resultado de cada prueba) lo modifican puestos distintos en momentos distintos, y una parte de las validaciones depende de sistemas externos como la ANT y el SRI. La encuesta confirma estas limitaciones desde el lado del usuario: el turno se gestiona de forma presencial, el usuario no tiene un medio para conocer el avance de su revisión o si su pago quedó registrado sin acudir a recepción, y, ante una solicitud que no muestra confirmación, la mayoría consultaría si el trámite ya se registró antes de volver a enviarlo (Tabla~\ref{tab:consecuencias}).
 	
 	\subsection{Consecuencias medibles}
-	% Cada cifra debe salir del acta o del audio de la entrevista (evidencia 1)
-	% y llevar la pregunta de donde proviene. No se inventan valores.
-	\begin{xltabular}{\textwidth}{L{5cm}XL{2.2cm}}
-		\caption{Consecuencias medibles del problema actual}\label{tab:consecuencias}\\
+	% Cifras tomadas de las respuestas crudas de la encuesta (n = 17).
+	La Tabla~\ref{tab:consecuencias} resume los resultados de la encuesta que muestran las consecuencias del problema para el usuario. Los porcentajes se calculan sobre las 17 respuestas; 12 de los encuestados (71\,\%) realizaron el trámite y 10 de ellos lo hicieron en los últimos 12 meses (E2).
+	
+	\begin{xltabular}{\textwidth}{L{4cm}XL{1.6cm}}
+		\caption{Consecuencias del problema según la encuesta (n = 17)}\label{tab:consecuencias}\\
 		\toprule
-		\textbf{Aspecto} & \textbf{Situación actual (cifra)} & \textbf{Fuente} \\
+		\textbf{Aspecto} & \textbf{Resultado} & \textbf{Fuente} \\
 		\midrule
 		\endfirsthead
 		\toprule
-		\textbf{Aspecto} & \textbf{Situación actual (cifra)} & \textbf{Fuente} \\
+		\textbf{Aspecto} & \textbf{Resultado} & \textbf{Fuente} \\
 		\midrule
 		\endhead
 		\bottomrule
 		\endfoot
-		Tiempo total de atención por vehículo, desde el ingreso hasta la entrega del resultado & \pendiente{minutos} & \pendiente{pregunta} \\
-		Vehículos atendidos por día y número de líneas de revisión en operación & \pendiente{cifra} & \pendiente{pregunta} \\
-		Tiempo de espera entre la generación del turno y la asignación de la línea & \pendiente{minutos} & \pendiente{pregunta} \\
-		Revisiones que no pueden iniciar porque no se logra verificar el pago de citaciones & \pendiente{cifra por día o por semana} & \pendiente{pregunta} \\
-		Errores o reprocesos al digitar los resultados de las pruebas & \pendiente{cifra} & \pendiente{pregunta} \\
-		Interrupciones del sistema actual y tiempo sin servicio & \pendiente{veces al mes y duración} & \pendiente{pregunta} \\
-		Turnos purgados a fin de mes sin haber sido atendidos & \pendiente{cifra} & P13 \\
+		Gestión del turno & 12 de 17 (71\,\%) gestionaron su último turno de forma presencial y 2 (12\,\%) lo delegaron a otra persona; ninguno lo hizo por una página web o una aplicación. & E3 \\
+		Visibilidad del avance & 4 de 17 (24\,\%) señalan como principal dificultad conocer el avance o el resultado de la revisión, y 4 respuestas abiertas piden ver el estado o el proceso de la inspección. & E4, E11 \\
+		Turnos y requisitos & 2 de 17 (12\,\%) tuvieron como principal dificultad conseguir o cambiar el turno, y otros 2 (12\,\%), conocer los requisitos o documentos. & E4 \\
+		Comprobación del pago & 15 de 17 (88\,\%) esperan que, si no puede comprobarse el pago, se informe el problema y se permita volver a consultar, o que personal autorizado revise el comprobante; ninguno eligió continuar sin comprobarlo. & E7 \\
+		Respuesta sin confirmación & 10 de 17 (59\,\%) consultarían primero si el turno ya se creó y 2 (12\,\%) volverían a enviar la solicitud. & E8 \\
+		Conectividad & 7 de 17 (41\,\%) tienen problemas de conexión con frecuencia o algunas veces al realizar trámites en línea. & E10 \\
 	\end{xltabular}
+	
+	La encuesta no midió tiempos de atención ni volúmenes de operación del centro, como vehículos atendidos por día o interrupciones del sistema actual; esas cifras requieren datos del CRTVMV y se completarán en una entrega posterior.
 	
 	\subsection{Interesados (stakeholders)}
 	% Las expectativas se confirman con el entrevistado en el levantamiento.
@@ -1235,12 +1237,12 @@
 		\endhead
 		\bottomrule
 		\endfoot
-		Levantamiento (acta o audio)  & \pendiente{ruta en /evidencias/} \\
+		Levantamiento (encuesta, 17 respuestas, 21-11-2026) & \texttt{evidencias/Encuesta RTV - TA-PFC-E1.csv} \\
 		Sesiones de diseño (2)        & Primer bosquejo, 18-11-2026: \path{evidencias/bosquejo-inicial-rtv.jpeg}.\newline Reunión del contrato, 18-11-2026: \texttt{evidencias/\allowbreak acuerdos/\allowbreak Evidencia de la reunión para la creación del contrato.jpeg}. \\
 		Capturas de ejecución (4)     & \path{evidencias/01-suite-integracion.png}\newline \path{evidencias/02-inicio-autorizado.png}\newline \path{evidencias/03-reintento-y-pago-pendiente.png}\newline \path{evidencias/04-medicion-p95.png} \\
 		Mediciones de rendimiento     & \path{evidencias/rendimiento/} \\
 		Bitácora del equipo           & \texttt{BITACORA.md} \\
-		Video de presentación         & \pendiente{enlace (también en README.md)} \\
+		Video de presentación         & \url{https://youtu.be/96_kZjtRLuc} \\
 	\end{xltabular}
 	
 	% =====================================================================
