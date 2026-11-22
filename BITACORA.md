@@ -193,7 +193,9 @@
 
 ### 2026-11-21 · Piguave Nixon
 
-- **Commit(s):** [`e7b18ee`](https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/commit/e7b18ee97b478d54edb50d999ceb9237607ae942) — Agregué evidencias del tablero de issues.
+- **Commit(s):**
+  - [`e7b18ee`](https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/commit/e7b18ee97b478d54edb50d999ceb9237607ae942) — Agregué evidencias del tablero de issues.
+  - [`5561ee9`](https://github.com/NixonPiguave/TA-PFC-E1-PFC-Entrega-1/commit/5561ee95e91c2130d83f525075a0ecf3a85a072a) — completo las comprobaciones de calidad y actualiza las evidencias de RTV
 - **Qué se hizo:** Agregué evidencias del tablero de issues. Se contrastaron las respuestas de la encuesta con RF-01 a RF-05 y se incorporó la solicitud de auditoría de E11 como origen de esa necesidad, manteniendo diferenciados los criterios técnicos y la confirmación del centro. Se verificó un clon nuevo del repositorio de entrega: compilación, diez escenarios de integración, nueva medición de p95 y cantidades previstas de los otros RNF. Se comprobaron el reinicio de PostgreSQL con diez inspecciones confirmadas y la restauración de respaldos en bases ficticias nuevas. Se agregó al informe la referencia a la revisión grupal del 21 de noviembre y se regeneró el PDF.
 
 - **Comprobación:** pruebas sobre el commit `877bb16`, con registros en `evidencias/verificacion-calidad/` y procedimiento en `docs/calidad/verificacion-e1.md`.
